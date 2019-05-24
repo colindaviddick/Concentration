@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.539
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Concentration", "Concentration\Concentration.csproj", "{7FF11C03-608E-43A2-9B7C-7F7A5584236E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7FF11C03-608E-43A2-9B7C-7F7A5584236E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FF11C03-608E-43A2-9B7C-7F7A5584236E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FF11C03-608E-43A2-9B7C-7F7A5584236E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FF11C03-608E-43A2-9B7C-7F7A5584236E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {56CB0C8C-8E78-457C-98EE-9AF0AF138D54}
+	EndGlobalSection
+EndGlobal
