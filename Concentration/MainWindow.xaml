@@ -207,7 +207,15 @@
             <TextBlock Margin="10" Text="Concentration" FontWeight="Bold" FontSize="55" Foreground="GhostWhite"/>
             <TextBlock Margin="10" Text="There are 8 pairs of cards on the game table, face down. Turn over two cards at a time. If you find uncover a pair they will remain uncovered. Your goal is to find all of the pairs." FontWeight="DemiBold" FontSize="20" Foreground="GhostWhite" TextWrapping="Wrap"/>
             <TextBlock Margin="10" Name="Clicks" Text="# Clicks" FontWeight="Bold" FontSize="30" Foreground="GhostWhite"/>
+            <TextBlock Margin="10" Name="Pairs" Text="# Pairs" FontWeight="Bold" FontSize="30" Foreground="GhostWhite"/>
+            <TextBlock Margin="5" Name="DebugCard1" Text="Irrelevant" Foreground="GhostWhite"/>
+            <TextBlock Margin="5" Name="DebugCard2" Text="Irrelevant" Foreground="GhostWhite"/>
+            <TextBlock Margin="10" Text="High Score" FontWeight="Bold" FontSize="30" Foreground="GhostWhite"/>
+            <TextBlock Margin="10" Name="HighScore" Text="High Score" FontWeight="Bold" FontSize="20" Foreground="GhostWhite"/>
+            <TextBox Margin="10" Name="HighScoreName" Background="Black" BorderBrush="GhostWhite" FontSize="20" Visibility="Hidden" Foreground="GhostWhite"/>
+            <Button Margin="10" Name="HighScoreSaveName" HorizontalAlignment="Center" Background="Black" BorderBrush="GhostWhite" Content="Save High Score" Foreground="GhostWhite" FontSize="20" Width="300" Click="HighScoreSaveName_Click" Visibility="Hidden"/>
             <Button Name="Random" Content="Random Number" Click="Random_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="30"/>
+            <Button Name="ClearHighScores" Content="Clear High Score" Click="ClearHighScores_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="30"/>
 
             <!--Could use the property settings to create a high score board?? Try looking into this-->
 
