@@ -17,10 +17,10 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <ImageBrush x:Key="Button.Static.Background" ImageSource="back.jpg"/>
+        <ImageBrush x:Key="Button.Static.Background" ImageSource="{Binding Source=theme}"/>
         <SolidColorBrush x:Key="Button.Static.Border" Color="#00000000"/>
-        <ImageBrush x:Key="Button.Pressed.Background" ImageSource="backsel.jpg"/>
-        <ImageBrush x:Key="Button.MouseOver.Background" ImageSource="backov.jpg"/>
+        <ImageBrush x:Key="Button.Pressed.Background" ImageSource="images\cards\basic\backsel.jpg"/>
+        <ImageBrush x:Key="Button.MouseOver.Background" ImageSource="images\cards\basic\backov.jpg"/>
         <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#00000000"/>
         <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
         <SolidColorBrush x:Key="Button.Disabled.Background" Color="#00000000"/>
@@ -68,7 +68,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="600"/>
-            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="390"/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" VerticalAlignment="Center">
             <Border Background="Black">
@@ -103,103 +103,103 @@
                     <TextBlock Name="box15" Grid.Row="3" Grid.Column="2" Text="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     <TextBlock Name="box16" Grid.Row="3" Grid.Column="3" Text="16" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
-                    <Button Panel.ZIndex="1" Name="back1" Grid.Row="0" Grid.Column="0" Height="167" Width="116" Click="Back1_Click" Style="{DynamicResource CardBackMouseover}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Panel.ZIndex="1" Name="back1" Grid.Row="0" Grid.Column="0" Height="167" Width="116" Click="Back1_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Button.Background>
-                            <ImageBrush ImageSource="back.jpg"/>
+                            <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
                         </Button.Background>
                     </Button>
-                    <Button Panel.ZIndex="1" Name="back2" Grid.Row="0" Grid.Column="1" Height="167" Width="116" Click="Back2_Click" Style="{DynamicResource CardBackMouseover}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Panel.ZIndex="1" Name="back2" Grid.Row="0" Grid.Column="1" Height="167" Width="116" Click="Back2_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Button.Background>
-                            <ImageBrush ImageSource="back.jpg"/>
+                            <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
                         </Button.Background>
                     </Button>
-                    <Button Panel.ZIndex="1" Name="back3" Grid.Row="0" Grid.Column="2" Height="167" Width="116" Click="Back3_Click" Style="{DynamicResource CardBackMouseover}" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                    <Button Panel.ZIndex="1" Name="back3" Grid.Row="0" Grid.Column="2" Height="167" Width="116" Click="Back3_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center" >
                         <Button.Background>
-                            <ImageBrush ImageSource="back.jpg"/>
+                            <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
                         </Button.Background>
                     </Button>
-                    <Button Panel.ZIndex="1" Name="back4" Grid.Row="0" Grid.Column="3" Height="167" Width="116" Click="Back4_Click" Style="{DynamicResource CardBackMouseover}" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                    <Button Panel.ZIndex="1" Name="back4" Grid.Row="0" Grid.Column="3" Height="167" Width="116" Click="Back4_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center" >
                         <Button.Background>
-                            <ImageBrush ImageSource="back.jpg"/>
+                            <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
                         </Button.Background>
                     </Button>
-                    <Button Panel.ZIndex="1" Name="back5" Grid.Row="1" Grid.Column="0" Height="167" Width="116" Click="Back5_Click" Style="{DynamicResource CardBackMouseover}" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                    <Button Panel.ZIndex="1" Name="back5" Grid.Row="1" Grid.Column="0" Height="167" Width="116" Click="Back5_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center" >
                         <Button.Background>
-                            <ImageBrush ImageSource="back.jpg"/>
+                            <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
                         </Button.Background>
                     </Button>
-                    <Button Panel.ZIndex="1" Name="back6" Grid.Row="1" Grid.Column="1" Height="167" Width="116" Click="Back6_Click" Style="{DynamicResource CardBackMouseover}" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                    <Button Panel.ZIndex="1" Name="back6" Grid.Row="1" Grid.Column="1" Height="167" Width="116" Click="Back6_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center" >
                         <Button.Background>
-                            <ImageBrush ImageSource="back.jpg"/>
+                            <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
                         </Button.Background>
                     </Button>
-                    <Button Panel.ZIndex="1" Name="back7" Grid.Row="1" Grid.Column="2" Height="167" Width="116" Click="Back7_Click" Style="{DynamicResource CardBackMouseover}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Panel.ZIndex="1" Name="back7" Grid.Row="1" Grid.Column="2" Height="167" Width="116" Click="Back7_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Button.Background>
-                            <ImageBrush ImageSource="back.jpg"/>
+                            <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
                         </Button.Background>
                     </Button>
-                    <Button Panel.ZIndex="1" Name="back8" Grid.Row="1" Grid.Column="3" Height="167" Width="116" Click="Back8_Click" Style="{DynamicResource CardBackMouseover}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Panel.ZIndex="1" Name="back8" Grid.Row="1" Grid.Column="3" Height="167" Width="116" Click="Back8_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Button.Background>
-                            <ImageBrush ImageSource="back.jpg"/>
+                            <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
                         </Button.Background>
                     </Button>
-                    <Button Panel.ZIndex="1" Name="back9" Grid.Row="2" Grid.Column="0" Height="167" Width="116" Click="Back9_Click" Style="{DynamicResource CardBackMouseover}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Panel.ZIndex="1" Name="back9" Grid.Row="2" Grid.Column="0" Height="167" Width="116" Click="Back9_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Button.Background>
-                            <ImageBrush ImageSource="back.jpg"/>
+                            <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
                         </Button.Background>
                     </Button>
-                    <Button Panel.ZIndex="1" Name="back10" Grid.Row="2" Grid.Column="1" Height="167" Width="116" Click="Back10_Click" Style="{DynamicResource CardBackMouseover}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Panel.ZIndex="1" Name="back10" Grid.Row="2" Grid.Column="1" Height="167" Width="116" Click="Back10_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Button.Background>
-                            <ImageBrush ImageSource="back.jpg"/>
+                            <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
                         </Button.Background>
                     </Button>
-                    <Button Panel.ZIndex="1" Name="back11" Grid.Row="2" Grid.Column="2" Height="167" Width="116" Click="Back11_Click" Style="{DynamicResource CardBackMouseover}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Panel.ZIndex="1" Name="back11" Grid.Row="2" Grid.Column="2" Height="167" Width="116" Click="Back11_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Button.Background>
-                            <ImageBrush ImageSource="back.jpg"/>
+                            <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
                         </Button.Background>
                     </Button>
-                    <Button Panel.ZIndex="1" Name="back12" Grid.Row="2" Grid.Column="3" Height="167" Width="116" Click="Back12_Click" Style="{DynamicResource CardBackMouseover}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Panel.ZIndex="1" Name="back12" Grid.Row="2" Grid.Column="3" Height="167" Width="116" Click="Back12_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Button.Background>
-                            <ImageBrush ImageSource="back.jpg"/>
+                            <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
                         </Button.Background>
                     </Button>
-                    <Button Panel.ZIndex="1" Name="back13" Grid.Row="3" Grid.Column="0" Height="167" Width="116" Click="Back13_Click" Style="{DynamicResource CardBackMouseover}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Panel.ZIndex="1" Name="back13" Grid.Row="3" Grid.Column="0" Height="167" Width="116" Click="Back13_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Button.Background>
-                            <ImageBrush ImageSource="back.jpg"/>
+                            <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
                         </Button.Background>
                     </Button>
-                    <Button Panel.ZIndex="1" Name="back14" Grid.Row="3" Grid.Column="1" Height="167" Width="116" Click="Back14_Click" Style="{DynamicResource CardBackMouseover}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Panel.ZIndex="1" Name="back14" Grid.Row="3" Grid.Column="1" Height="167" Width="116" Click="Back14_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Button.Background>
-                            <ImageBrush ImageSource="back.jpg"/>
+                            <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
                         </Button.Background>
                     </Button>
-                    <Button Panel.ZIndex="1" Name="back15" Grid.Row="3" Grid.Column="2" Height="167" Width="116" Click="Back15_Click" Style="{DynamicResource CardBackMouseover}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Panel.ZIndex="1" Name="back15" Grid.Row="3" Grid.Column="2" Height="167" Width="116" Click="Back15_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Button.Background>
-                            <ImageBrush ImageSource="back.jpg"/>
+                            <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
                         </Button.Background>
                     </Button>
-                    <Button Panel.ZIndex="1" Name="back16" Grid.Row="3" Grid.Column="3" Height="167" Width="116" Click="Back16_Click" Style="{DynamicResource CardBackMouseover}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Panel.ZIndex="1" Name="back16" Grid.Row="3" Grid.Column="3" Height="167" Width="116" Click="Back16_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Button.Background>
-                            <ImageBrush ImageSource="back.jpg"/>
+                            <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
                         </Button.Background>
                     </Button>
 
-                    <Image Name="image1" Grid.Row="0" Grid.Column="0" Source="back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Image Name="image2" Grid.Row="0" Grid.Column="1" Source="back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Image Name="image3" Grid.Row="0" Grid.Column="2" Source="back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Image Name="image4" Grid.Row="0" Grid.Column="3" Source="back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Image Name="image5" Grid.Row="1" Grid.Column="0" Source="back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Image Name="image6" Grid.Row="1" Grid.Column="1" Source="back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Image Name="image7" Grid.Row="1" Grid.Column="2" Source="back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Image Name="image8" Grid.Row="1" Grid.Column="3" Source="back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Image Name="image9" Grid.Row="2" Grid.Column="0" Source="back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Image Name="image10" Grid.Row="2" Grid.Column="1" Source="back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Image Name="image11" Grid.Row="2" Grid.Column="2" Source="back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Image Name="image12" Grid.Row="2" Grid.Column="3" Source="back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Image Name="image13" Grid.Row="3" Grid.Column="0" Source="back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Image Name="image14" Grid.Row="3" Grid.Column="1" Source="back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Image Name="image15" Grid.Row="3" Grid.Column="2" Source="back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Image Name="image16" Grid.Row="3" Grid.Column="3" Source="back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Image Name="image1" Grid.Row="0" Grid.Column="0" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Image Name="image2" Grid.Row="0" Grid.Column="1" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Image Name="image3" Grid.Row="0" Grid.Column="2" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Image Name="image4" Grid.Row="0" Grid.Column="3" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Image Name="image5" Grid.Row="1" Grid.Column="0" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Image Name="image6" Grid.Row="1" Grid.Column="1" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Image Name="image7" Grid.Row="1" Grid.Column="2" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Image Name="image8" Grid.Row="1" Grid.Column="3" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Image Name="image9" Grid.Row="2" Grid.Column="0" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Image Name="image10" Grid.Row="2" Grid.Column="1" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Image Name="image11" Grid.Row="2" Grid.Column="2" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Image Name="image12" Grid.Row="2" Grid.Column="3" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Image Name="image13" Grid.Row="3" Grid.Column="0" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Image Name="image14" Grid.Row="3" Grid.Column="1" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Image Name="image15" Grid.Row="3" Grid.Column="2" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Image Name="image16" Grid.Row="3" Grid.Column="3" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Grid>
             </Border>
         </StackPanel>

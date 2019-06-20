@@ -1,0 +1,58 @@
+		/// I should be able to pass the box information into a 
+		/// method and search for it's pair that way, box 1 and box 2 = pair, box 3 and box 4 = pair, etc.
+		/// This would make the code a lot cleaner but take longer for me to work out... :)
+		/// 
+		/// Hi, let's do a small code review. 
+		///1) The class file is big, would you be able to extract some logic to standalone class and pass just the arguments needed using method parameters?
+		///2) Methods are too long. They should ideally be 20 lines max(soft limit). Try to break them to multiple smaller methods.
+		///3) Don't read from UI controls multiple times if it's not needed.Read once, assign the value to property, use the property
+		///4) Do not use shortcuts in variable names.People will be asking - what is rInt?
+		///5) Do not use magic constants - what is the number 17 in the random call? Replace it by constant with clear name.
+		///6) Do not convert int to steing multiple times if you can extract the result of conversion to variable and reuse it then.
+		/// 7) it will also lead to better SOC - separation of concerns and
+		/// 8) you will use SRP - single responsibility principle - its simplified version is: In class/method do one thing and do it well.
+		/// 
+		/// I will describe my refactoring mental process:
+		/// 1) Regions - when I see them, it usually means the whole block can be extracted to a separate method with name similar to rehion description
+		/// 2) The same for comments - as an example - I see a comment // Assign values to cards, this to me is an instruction: extract this to private void AssignValuesToCards(...) {}
+		/// 8) Organize the Assets (images) to folders, say Assets/Images/Cards?
+		/// 9) Use arrays where possible - you can do something like this: boxes[7] = box8.Text; then later... if (box[7]==xyz)...
+		/// There is. How about generating a sequence of numbers from 1 to 16, adding them to List and then randomly selecting an item from the list and removing it?
+		/// Once you get to zero items in the list, you know you used all numbets and you used theme in random order.
+
+A neater way of randomizing the cards:
+	There is. How about generating a sequence of numbers from 1 to 16, adding them to List and then randomly selecting an item from the list and removing it?
+	Once you get to zero items in the list, you know you used all numbets and you used theme in random order.
+
+punkmuppet: That sounds better, I haven't used Lists before, sounds just like an array though? I'll look into them
+
+walkercsx: They are like dynamic arrays.
+	But I would recommend to have a look at generics as well
+	So that this makes sense to you then: var list = new List<string>();
+	list.Add("xxxx");
+	the same can be done with int etc
+
+punkmuppet: Okay yeah that seems straightforward, and using an item from the list would remove it? Or would I still have to loop through picking random numbers and checking that they haven't been used?
+	(numbers for the index of the entry)
+
+walkercsx: nope, you will have to dosomethi g like this
+	var index = r.Next(0, list.Length);
+	var item = list[index];
+	list.RemoveAt(infex);
+
+To separate out Method from main class file:
+
+	create a new class file, add a method
+	but you will need to decide whether it will be static method or non-static method(default).
+	For the second case, you would need to create an instance of the class in order to be able to call the method.
+	
+	Static method can be called directly on the class.
+	But the new method in the new class won't see your box1,2,...
+	controls so you would need to pass references to them by parameter
+
+Suggested Classes:
+	I would definitely introduce class Card
+	And then for example CardTable
+	and maybe CardRandomize or Generator
+	and I would then map Cards from CardTable to UI
+	if you decide to ditch the UI, you can still represent the game using CardTable and the UI can be in Console App or WPF app or amywhere else. You cn even have multiple different UIs but still rwuse the CardTable
