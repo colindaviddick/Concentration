@@ -86,24 +86,24 @@
                         <RowDefinition Height="180"/>
                         <RowDefinition Height="180"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Name="box1" Grid.Row="0" Grid.Column="0" Text="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <TextBlock Name="box2" Grid.Row="0" Grid.Column="1" Text="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <TextBlock Name="box3" Grid.Row="0" Grid.Column="2" Text="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <TextBlock Name="box4" Grid.Row="0" Grid.Column="3" Text="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <TextBlock Name="box5" Grid.Row="1" Grid.Column="0" Text="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <TextBlock Name="box6" Grid.Row="1" Grid.Column="1" Text="6" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <TextBlock Name="box7" Grid.Row="1" Grid.Column="2" Text="7" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <TextBlock Name="box8" Grid.Row="1" Grid.Column="3" Text="8" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <TextBlock Name="box9" Grid.Row="2" Grid.Column="0" Text="9" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <TextBlock Name="box10" Grid.Row="2" Grid.Column="1" Text="10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <TextBlock Name="box11" Grid.Row="2" Grid.Column="2" Text="11" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <TextBlock Name="box12" Grid.Row="2" Grid.Column="3" Text="12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <TextBlock Name="box13" Grid.Row="3" Grid.Column="0" Text="13" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <TextBlock Name="box14" Grid.Row="3" Grid.Column="1" Text="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <TextBlock Name="box15" Grid.Row="3" Grid.Column="2" Text="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <TextBlock Name="box16" Grid.Row="3" Grid.Column="3" Text="16" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock Name="box1" Grid.Row="0" Grid.Column="0" Text="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    <TextBlock Name="box2" Grid.Row="0" Grid.Column="1" Text="2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    <TextBlock Name="box3" Grid.Row="0" Grid.Column="2" Text="3" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    <TextBlock Name="box4" Grid.Row="0" Grid.Column="3" Text="4" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    <TextBlock Name="box5" Grid.Row="1" Grid.Column="0" Text="5" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    <TextBlock Name="box6" Grid.Row="1" Grid.Column="1" Text="6" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    <TextBlock Name="box7" Grid.Row="1" Grid.Column="2" Text="7" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    <TextBlock Name="box8" Grid.Row="1" Grid.Column="3" Text="8" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    <TextBlock Name="box9" Grid.Row="2" Grid.Column="0" Text="9" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    <TextBlock Name="box10" Grid.Row="2" Grid.Column="1" Text="10" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    <TextBlock Name="box11" Grid.Row="2" Grid.Column="2" Text="11" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    <TextBlock Name="box12" Grid.Row="2" Grid.Column="3" Text="12" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    <TextBlock Name="box13" Grid.Row="3" Grid.Column="0" Text="13" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    <TextBlock Name="box14" Grid.Row="3" Grid.Column="1" Text="14" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    <TextBlock Name="box15" Grid.Row="3" Grid.Column="2" Text="15" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    <TextBlock Name="box16" Grid.Row="3" Grid.Column="3" Text="16" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
 
-                    <Button Panel.ZIndex="1" Name="back1" Grid.Row="0" Grid.Column="0" Height="167" Width="116" Click="Back1_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <!--<Button Panel.ZIndex="1" Name="back1" Grid.Row="0" Grid.Column="0" Height="167" Width="116" Click="Back1_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Button.Background>
                             <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
                         </Button.Background>
@@ -182,7 +182,7 @@
                         <Button.Background>
                             <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
                         </Button.Background>
-                    </Button>
+                    </Button>-->
 
                     <Image Name="image1" Grid.Row="0" Grid.Column="0" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     <Image Name="image2" Grid.Row="0" Grid.Column="1" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
