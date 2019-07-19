@@ -103,7 +103,7 @@
                     <TextBlock Name="box15" Grid.Row="3" Grid.Column="2" Text="15" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
                     <TextBlock Name="box16" Grid.Row="3" Grid.Column="3" Text="16" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
 
-                    <!--<Button Panel.ZIndex="1" Name="back1" Grid.Row="0" Grid.Column="0" Height="167" Width="116" Click="Back1_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Panel.ZIndex="1" Name="back1" Grid.Row="0" Grid.Column="0" Height="167" Width="116" Click="Back1_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Button.Background>
                             <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
                         </Button.Background>
@@ -182,7 +182,7 @@
                         <Button.Background>
                             <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
                         </Button.Background>
-                    </Button>-->
+                    </Button>
 
                     <Image Name="image1" Grid.Row="0" Grid.Column="0" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     <Image Name="image2" Grid.Row="0" Grid.Column="1" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -214,6 +214,8 @@
             <TextBlock Margin="10" Name="HighScore" Text="High Score" FontWeight="Bold" FontSize="20" Foreground="GhostWhite"/>
             <TextBox Margin="10" Name="HighScoreName" Background="Black" BorderBrush="GhostWhite" FontSize="20" Visibility="Hidden" Foreground="GhostWhite"/>
             <Button Margin="10" Name="HighScoreSaveName" HorizontalAlignment="Center" Background="Black" BorderBrush="GhostWhite" Content="Save High Score" Foreground="GhostWhite" FontSize="20" Width="300" Click="HighScoreSaveName_Click" Visibility="Hidden"/>
+            <Button Name="UncoverCards" Content="Uncover Cards" Click="UncoverCards_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="30"/>
+            <Button Name="ShowNumbers" Content="Show Numbers" Click="ShowNumbers_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="30"/>
             <Button Name="Random" Content="Random Number" Click="Random_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="30"/>
             <Button Name="ClearHighScores" Content="Clear High Score" Click="ClearHighScores_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="30"/>
 

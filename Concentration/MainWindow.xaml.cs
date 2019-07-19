@@ -24,6 +24,12 @@ namespace Concentration
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        // ReCover Cards method:
+
+            // The back number does not match the card number and so I'm not sure how to get it to reCover the card....
+
+
         /// <summary>
         /// I should be able to pass the box information into a 
         /// method and search for it's pair that way, box 1 and box 2 = pair, box 3 and box 4 = pair, etc.
@@ -40,28 +46,30 @@ namespace Concentration
         /// 8) you will use SRP - single responsibility principle - its simplified version is: In class/method do one thing and do it well.
         /// 
         /// I will describe my refactoring mental process:
-        /// 1) Regions - when I see them, it usually means the whole block can be extracted to a separate method with name similar to rehion description
+        /// 1) Regions - when I see them, it usually means the whole block can be extracted to a separate method with name similar to region description
         /// 2) The same for comments - as an example - I see a comment // Assign values to cards, this to me is an instruction: extract this to private void AssignValuesToCards(...) {}
         /// 8) Organize the Assets (images) to folders, say Assets/Images/Cards?
         /// 9) Use arrays where possible - you can do something like this: boxes[7] = box8.Text; then later... if (box[7]==xyz)...
-        /// 
-        /// 
-        /// 
-        /// 
-        /// 
+
         /// Create a CARD class, with a position (randomly generated, a number 1 of 2, 2 of 2, and image association?
         /// 
         /// Code needs totally revamped but I have the most important thing working, the timer.
         /// 
         /// 
         /// </summary>
+        /// 
+
+
+            //  Latest attempt... 3D Array of Integers
+            //  Containing card no & randomized no.
+            //  if 
+            //
+            //  Now I'm not sure why it'd need to be 3d... Randomize then do a foreach loop through it, if shuffledCards[1] == 4, card4 = hidden... etc.
 
         int selection = 0;
         int selection2 = 0;
         int clicks = 0;
         int pairs = 0;
-        const int minRandomIntNo = 1;
-        const int maxRandomIntNo = 17;
         string theme = "basic";
         bool paired1 = false;
         bool paired2 = false;
@@ -71,15 +79,14 @@ namespace Concentration
         bool paired6 = false;
         bool paired7 = false;
         bool paired8 = false;
-        bool paired9 = false;
-        bool paired10 = false;
-        bool paired11 = false;
-        bool paired12 = false;
-        bool paired13 = false;
-        bool paired14 = false;
-        bool paired15 = false;
-        bool paired16 = false;
-        List shuffledcards;
+        bool cardsHidden = true;
+        bool showNumbers = true;
+        bool pairFound = false;
+        int[] shuffledCards = new int[16];
+
+        // Use a 3d array to control randomizing and returning cards??
+
+        //List shuffledcards;
 
         List<int> intList = new List<int>();
 
@@ -87,18 +94,12 @@ namespace Concentration
         {
             InitializeComponent();
 
-            StartSequence();
-
-            // sort by unique machine code guid 
-            // var shuffledcards = cards.OrderBy(a => Guid.NewGuid()).ToList();
+            _ = StartSequence();
         }
 
         async Task StartSequence()
         {
             SortAndRandomiseCards();
-            //RandomizeTiles();
-            await Wait(500);
-           // AssignCardsToTiles();
             await Wait(500);
             UpdateClicks();
             await Wait(500);
@@ -109,71 +110,81 @@ namespace Concentration
 
         void SortAndRandomiseCards()
         {
+            int numberOfCardsPlusOne = 17;
             List<int> cardNumberList = new List<int>();
-            cardNumberList.Add(1);
-            cardNumberList.Add(2);
-            cardNumberList.Add(3);
-            cardNumberList.Add(4);
-            cardNumberList.Add(5);
-            cardNumberList.Add(6);
-            cardNumberList.Add(7);
-            cardNumberList.Add(8);
-            cardNumberList.Add(9);
-            cardNumberList.Add(10);
-            cardNumberList.Add(11);
-            cardNumberList.Add(12);
-            cardNumberList.Add(13);
-            cardNumberList.Add(14);
-            cardNumberList.Add(15);
-            cardNumberList.Add(16);
 
-            var shuffledcards = cardNumberList.OrderBy(a => Guid.NewGuid()).ToList();
+            for (int i = 1; i < numberOfCardsPlusOne; i++)
+            {
+                cardNumberList.Add(i);
+            }
+
+            var shuffledCards = cardNumberList.OrderBy(a => Guid.NewGuid()).ToList();
 
             for (int i = 0; i < 16; i++)
             {
-                if (shuffledcards[i] > 8)
+                if (shuffledCards[i] > 8)
                 {
-                    shuffledcards[i] -= 8;
+                    shuffledCards[i] -= 8;
                 }
             }
 
-            box1.Text = shuffledcards[0].ToString();
-            box2.Text = shuffledcards[1].ToString();
-            box3.Text = shuffledcards[2].ToString();
-            box4.Text = shuffledcards[3].ToString();
-            box5.Text = shuffledcards[4].ToString();
-            box6.Text = shuffledcards[5].ToString();
-            box7.Text = shuffledcards[6].ToString();
-            box8.Text = shuffledcards[7].ToString();
-            box9.Text = shuffledcards[8].ToString();
-            box10.Text = shuffledcards[9].ToString();
-            box11.Text = shuffledcards[10].ToString();
-            box12.Text = shuffledcards[11].ToString();
-            box13.Text = shuffledcards[12].ToString();
-            box14.Text = shuffledcards[13].ToString();
-            box15.Text = shuffledcards[14].ToString();
-            box16.Text = shuffledcards[15].ToString();
+            // Not sure if this is of any use....
 
-            image1.Source  = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledcards[0] + ".jpg"), UriKind.RelativeOrAbsolute));
-            image2.Source  = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledcards[1] + ".jpg"), UriKind.RelativeOrAbsolute));
-            image3.Source  = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledcards[2] + ".jpg"), UriKind.RelativeOrAbsolute));
-            image4.Source  = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledcards[3] + ".jpg"), UriKind.RelativeOrAbsolute));
-            image5.Source  = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledcards[4] + ".jpg"), UriKind.RelativeOrAbsolute));
-            image6.Source  = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledcards[5] + ".jpg"), UriKind.RelativeOrAbsolute));
-            image7.Source  = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledcards[6] + ".jpg"), UriKind.RelativeOrAbsolute));
-            image8.Source  = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledcards[7] + ".jpg"), UriKind.RelativeOrAbsolute));
-            image9.Source  = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledcards[8] + ".jpg"), UriKind.RelativeOrAbsolute));
-            image10.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledcards[9] + ".jpg"), UriKind.RelativeOrAbsolute));
-            image11.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledcards[10] + ".jpg"), UriKind.RelativeOrAbsolute));
-            image12.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledcards[11] + ".jpg"), UriKind.RelativeOrAbsolute));
-            image13.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledcards[12] + ".jpg"), UriKind.RelativeOrAbsolute));
-            image14.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledcards[13] + ".jpg"), UriKind.RelativeOrAbsolute));
-            image15.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledcards[14] + ".jpg"), UriKind.RelativeOrAbsolute));
-            image16.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledcards[15] + ".jpg"), UriKind.RelativeOrAbsolute));
+            box1.Text = shuffledCards[0].ToString();
+            box2.Text = shuffledCards[1].ToString();
+            box3.Text = shuffledCards[2].ToString();
+            box4.Text = shuffledCards[3].ToString();
+            box5.Text = shuffledCards[4].ToString();
+            box6.Text = shuffledCards[5].ToString();
+            box7.Text = shuffledCards[6].ToString();
+            box8.Text = shuffledCards[7].ToString();
+            box9.Text = shuffledCards[8].ToString();
+            box10.Text = shuffledCards[9].ToString();
+            box11.Text = shuffledCards[10].ToString();
+            box12.Text = shuffledCards[11].ToString();
+            box13.Text = shuffledCards[12].ToString();
+            box14.Text = shuffledCards[13].ToString();
+            box15.Text = shuffledCards[14].ToString();
+            box16.Text = shuffledCards[15].ToString();
+            back1.Name = ("back00" + shuffledCards[0].ToString());
+            back2.Name = ("back00" + shuffledCards[1].ToString());
+            back3.Name = ("back00" + shuffledCards[2].ToString());
+            back4.Name = ("back00" + shuffledCards[3].ToString());
+            back5.Name = ("back00" + shuffledCards[4].ToString());
+            back6.Name = ("back00" + shuffledCards[5].ToString());
+            back7.Name = ("back00" + shuffledCards[6].ToString());
+            back8.Name = ("back00" + shuffledCards[7].ToString());
+            back9.Name = ("back00" + shuffledCards[8].ToString());
+            back10.Name = ("back00" + shuffledCards[9].ToString());
+            back11.Name = ("back00" + shuffledCards[10].ToString());
+            back12.Name = ("back00" + shuffledCards[11].ToString());
+            back13.Name = ("back00" + shuffledCards[12].ToString());
+            back14.Name = ("back00" + shuffledCards[13].ToString());
+            back15.Name = ("back00" + shuffledCards[14].ToString());
+            back16.Name = ("back00" + shuffledCards[15].ToString());
+
+
+
+            image1.Source  = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledCards[0] + ".jpg"), UriKind.RelativeOrAbsolute));
+            image2.Source  = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledCards[1] + ".jpg"), UriKind.RelativeOrAbsolute));
+            image3.Source  = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledCards[2] + ".jpg"), UriKind.RelativeOrAbsolute));
+            image4.Source  = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledCards[3] + ".jpg"), UriKind.RelativeOrAbsolute));
+            image5.Source  = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledCards[4] + ".jpg"), UriKind.RelativeOrAbsolute));
+            image6.Source  = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledCards[5] + ".jpg"), UriKind.RelativeOrAbsolute));
+            image7.Source  = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledCards[6] + ".jpg"), UriKind.RelativeOrAbsolute));
+            image8.Source  = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledCards[7] + ".jpg"), UriKind.RelativeOrAbsolute));
+            image9.Source  = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledCards[8] + ".jpg"), UriKind.RelativeOrAbsolute));
+            image10.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledCards[9] + ".jpg"), UriKind.RelativeOrAbsolute));
+            image11.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledCards[10] + ".jpg"), UriKind.RelativeOrAbsolute));
+            image12.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledCards[11] + ".jpg"), UriKind.RelativeOrAbsolute));
+            image13.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledCards[12] + ".jpg"), UriKind.RelativeOrAbsolute));
+            image14.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledCards[13] + ".jpg"), UriKind.RelativeOrAbsolute));
+            image15.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledCards[14] + ".jpg"), UriKind.RelativeOrAbsolute));
+            image16.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledCards[15] + ".jpg"), UriKind.RelativeOrAbsolute));
         }                      
                                
-        void AssignCardsToTiles()
-        {
+        // void AssignCardsToTiles()
+        //{
 
             //AssignImagesToCards(Int32.Parse(box1.Text));
             //AssignImagesToCards(Int32.Parse(box2.Text));
@@ -784,7 +795,7 @@ namespace Concentration
             //{
             //    image16.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/8.jpg", UriKind.RelativeOrAbsolute));
             //}
-        }
+        //}
 
         void UpdateClicks()
         {
@@ -805,167 +816,87 @@ namespace Concentration
             UpdateClicks();
         }
 
-        async void CheckIfPair(int selection, int selection2)
+        bool CheckIfPair(int selection, int selection2)
         {
-            // if box1 == odd.
-            // if box2 == box1++ = match
-            // else if box 1 == even
-            // if box2 == box1-- = match
-
-            if ((selection == 1 && selection2 == 2) || (selection == 2 && selection2 == 1))
+            if (selection == selection2)
             {
-                //MessageBox.Show("You found a pair!");
-                paired1 = true;
-                paired2 = true;
                 pairs++;
+                return pairFound = true;
             }
-            else if ((selection == 3 && selection2 == 4) || (selection == 4 && selection2 == 3))
+            else
             {
-                //MessageBox.Show("You found a pair!");
-                paired3 = true;
-                paired4 = true;
-                pairs++;
-            }
-            else if ((selection == 5 && selection2 == 6) || (selection == 6 && selection2 == 5))
-            {
-                //MessageBox.Show("You found a pair!");
-                paired5 = true;
-                paired6 = true;
-                pairs++;
-            }
-            else if ((selection == 7 && selection2 == 8) || (selection == 8 && selection2 == 7))
-            {
-                //MessageBox.Show("You found a pair!");
-                paired7 = true;
-                paired8 = true;
-                pairs++;
-            }
-            else if ((selection == 9 && selection2 == 10) || (selection == 10 && selection2 == 9))
-            {
-                //MessageBox.Show("You found a pair!");
-                paired9 = true;
-                paired10 = true;
-                pairs++;
-            }
-            else if ((selection == 11 && selection2 == 12) || (selection == 12 && selection2 == 11))
-            {
-                //MessageBox.Show("You found a pair!");
-                paired11 = true;
-                paired12 = true;
-                pairs++;
-            }
-            else if ((selection == 13 && selection2 == 14) || (selection == 14 && selection2 == 13))
-            {
-                //MessageBox.Show("You found a pair!");
-                paired13 = true;
-                paired14 = true;
-                pairs++;
-            }
-            else if ((selection == 15 && selection2 == 16) || (selection == 16 && selection2 == 15))
-            {
-                //MessageBox.Show("You found a pair!");
-                paired15 = true;
-                paired16 = true;
-                pairs++;
+                return pairFound = false;
             }
 
-            if (pairs == 8)
-            {
-                MessageBox.Show("Game was won in " + clicks + " clicks!");
-
-                if (clicks < Properties.Settings.Default.LowestScore)
-                {
-                    HighScoreName.Visibility = Visibility.Visible;
-                    HighScoreSaveName.Visibility = Visibility.Visible;
-                    Keyboard.Focus(HighScoreName);
-                }
-            }
-
-            UpdateClicks();
-
-
-            ReCoverCards(paired1, paired2, paired3, paired4, paired5, paired6, paired7, paired8,
-                paired9, paired10, paired11, paired12, paired13, paired14, paired15, paired16);
-            //MessageBox.Show(paired1.ToString() + paired2.ToString() + paired3.ToString() + paired4.ToString() + paired5.ToString() + paired6.ToString() + paired7.ToString() + paired8.ToString() + paired9.ToString() + paired10.ToString() + paired11.ToString() + paired12.ToString() + paired13.ToString() + paired14.ToString() + paired15.ToString() + paired16.ToString());
-            UpdateDebug();
+            /// THE PROBLEM HERE IS THAT THE PAIR NUMBER IS NOT MATCHED UP TO THE BACK NUMBER....
+            /// 
+            ////
+            ///
+            ////
+            ///
+            ////
+            // I think the above is all I need for this section....!
+            // I just need to sort out the logic for keeping cards shown.
+            
         }
-        
-        // Need to either wait on mouse click or recover cards after 2 seconds.
+
+        private void CheckIfWon()
+        {
+            if(pairs == 8)
+            {
+                MessageBox.Show("You have won!");
+            }
+        }
 
         async Task ReCoverCards(bool paired1, bool paired2, bool paired3, bool paired4, bool paired5, bool paired6,
-                          bool paired7, bool paired8, bool paired9, bool paired10, bool paired11, bool paired12,
-                          bool paired13, bool paired14, bool paired15, bool paired16)
+                          bool paired7, bool paired8)
+            //, bool paired9, bool paired10, bool paired11, bool paired12, bool paired13, bool paired14, bool paired15, bool paired16
         {
             //MessageBox.Show(paired1.ToString() + paired2.ToString() + paired3.ToString() + paired4.ToString() + paired5.ToString() + paired6.ToString() + paired7.ToString() + paired8.ToString() + paired9.ToString() + paired10.ToString() + paired11.ToString() + paired12.ToString() + paired13.ToString() + paired14.ToString() + paired15.ToString() + paired16.ToString());
 
-            //Wait(2000);
+            _ = Wait(2000);
             
-            //if (!paired1)
-            //{
-            //    back1.Visibility = Visibility.Visible;
-            //}
-            //if (!paired2)
-            //{
-            //    back2.Visibility = Visibility.Visible;
-            //}
-            //if (!paired3)
-            //{
-            //    back3.Visibility = Visibility.Visible;
-            //}
-            //if (!paired4)
-            //{
-            //    back4.Visibility = Visibility.Visible;
-            //}
-            //if (!paired5)
-            //{
-            //    back5.Visibility = Visibility.Visible;
-            //}
-            //if (!paired6)
-            //{
-            //    back6.Visibility = Visibility.Visible;
-            //}
-            //if (!paired7)
-            //{
-            //    back7.Visibility = Visibility.Visible;
-            //}
-            //if (!paired8)
-            //{
-            //    back8.Visibility = Visibility.Visible;
-            //}
-            //if (!paired9)
-            //{
-            //    back9.Visibility = Visibility.Visible;
-            //}
-            //if (!paired10)
-            //{
-            //    back10.Visibility = Visibility.Visible;
-            //}
-            //if (!paired11)
-            //{
-            //    back11.Visibility = Visibility.Visible;
-            //}
-            //if (!paired12)
-            //{
-            //    back12.Visibility = Visibility.Visible;
-            //}
-            //if (!paired13)
-            //{
-            //    back13.Visibility = Visibility.Visible;
-            //}
-            //if (!paired14)
-            //{
-            //    back14.Visibility = Visibility.Visible;
-            //}
-            //if (!paired15)
-            //{
-            //    back15.Visibility = Visibility.Visible;
-            //}
-            //if (!paired16)
-            //{
-            //    back16.Visibility = Visibility.Visible;
-            //}
-            //MessageBox.Show(paired1.ToString() + paired2.ToString() + paired3.ToString() + paired4.ToString() + paired5.ToString() + paired6.ToString() + paired7.ToString() + paired8.ToString() + paired9.ToString() + paired10.ToString() + paired11.ToString() + paired12.ToString() + paired13.ToString() + paired14.ToString() + paired15.ToString() + paired16.ToString());
-        }
+            if (!paired1)
+            {
+                back1.Visibility = Visibility.Visible;
+                back9.Visibility = Visibility.Visible;
+            }
+            if (!paired2)
+            {
+                back2.Visibility = Visibility.Visible;
+                back10.Visibility = Visibility.Visible;
+            }
+            if (!paired3)
+            {
+                back3.Visibility = Visibility.Visible;
+                back11.Visibility = Visibility.Visible;
+            }
+            if (!paired4)
+            {
+                back4.Visibility = Visibility.Visible;
+                back12.Visibility = Visibility.Visible;
+            }
+            if (!paired5)
+            {
+                back5.Visibility = Visibility.Visible;
+                back13.Visibility = Visibility.Visible;
+            }
+            if (!paired6)
+            {
+                back6.Visibility = Visibility.Visible;
+                back14.Visibility = Visibility.Visible;
+            }
+            if (!paired7)
+            {
+                back7.Visibility = Visibility.Visible;
+                back15.Visibility = Visibility.Visible;
+            }
+            if (!paired8)
+            {
+                back8.Visibility = Visibility.Visible;
+                back16.Visibility = Visibility.Visible;
+            }
+         }
 
         public async Task Wait(int milliseconds)
         {
@@ -991,7 +922,8 @@ namespace Concentration
         {
             clicks++;
             UpdateClicks();
-            //back1.Visibility = Visibility.Hidden;
+
+            //("back00" + shuffledCards[0].ToString()).Visibility = Visibility.Hidden;
 
             if (selection == 0)
             {
@@ -1005,6 +937,7 @@ namespace Concentration
                 UpdateDebug();
                 selection = 0;
                 selection2 = 0;
+                
             }
         }
 
@@ -1012,7 +945,7 @@ namespace Concentration
         {
             clicks++;
             UpdateClicks();
-            //back2.Visibility = Visibility.Hidden;
+            back2.Visibility = Visibility.Hidden;
 
             if (selection == 0)
             {
@@ -1026,6 +959,7 @@ namespace Concentration
                 UpdateDebug();
                 selection = 0;
                 selection2 = 0;
+                
             }
         }
 
@@ -1033,7 +967,7 @@ namespace Concentration
         {
             clicks++;
             UpdateClicks();
-            //back3.Visibility = Visibility.Hidden;
+            back3.Visibility = Visibility.Hidden;
 
             if (selection == 0)
             {
@@ -1047,6 +981,7 @@ namespace Concentration
                 UpdateDebug();
                 selection = 0;
                 selection2 = 0;
+                
             }
         }
 
@@ -1054,7 +989,7 @@ namespace Concentration
         {
             clicks++;
             UpdateClicks();
-            //back4.Visibility = Visibility.Hidden;
+            back4.Visibility = Visibility.Hidden;
 
             if (selection == 0)
             {
@@ -1068,6 +1003,7 @@ namespace Concentration
                 UpdateDebug();
                 selection = 0;
                 selection2 = 0;
+                
             }
         }
 
@@ -1075,7 +1011,7 @@ namespace Concentration
         {
             clicks++;
             UpdateClicks();
-            //back5.Visibility = Visibility.Hidden;
+            back5.Visibility = Visibility.Hidden;
 
             if (selection == 0)
             {
@@ -1089,6 +1025,7 @@ namespace Concentration
                 UpdateDebug();
                 selection = 0;
                 selection2 = 0;
+                
             }
         }
 
@@ -1096,7 +1033,7 @@ namespace Concentration
         {
             clicks++;
             UpdateClicks();
-            //back6.Visibility = Visibility.Hidden;
+            back6.Visibility = Visibility.Hidden;
             if (selection == 0)
             {
                 selection = Int32.Parse(box6.Text);
@@ -1109,6 +1046,7 @@ namespace Concentration
                 UpdateDebug();
                 selection = 0;
                 selection2 = 0;
+                
             }
         }
 
@@ -1116,7 +1054,7 @@ namespace Concentration
         {
             clicks++;
             UpdateClicks();
-            //back7.Visibility = Visibility.Hidden;
+            back7.Visibility = Visibility.Hidden;
             if (selection == 0)
             {
                 selection = Int32.Parse(box7.Text);
@@ -1129,6 +1067,7 @@ namespace Concentration
                 UpdateDebug();
                 selection = 0;
                 selection2 = 0;
+                
             }
         }
 
@@ -1136,7 +1075,7 @@ namespace Concentration
         {
             clicks++;
             UpdateClicks();
-            //back8.Visibility = Visibility.Hidden;
+            back8.Visibility = Visibility.Hidden;
             if (selection == 0)
             {
                 selection = Int32.Parse(box8.Text);
@@ -1149,6 +1088,7 @@ namespace Concentration
                 UpdateDebug();
                 selection = 0;
                 selection2 = 0;
+                
             }
         }
 
@@ -1156,7 +1096,7 @@ namespace Concentration
         {
             clicks++;
             UpdateClicks();
-            //back9.Visibility = Visibility.Hidden;
+            back9.Visibility = Visibility.Hidden;
             if (selection == 0)
             {
                 selection = Int32.Parse(box9.Text);
@@ -1169,6 +1109,7 @@ namespace Concentration
                 UpdateDebug();
                 selection = 0;
                 selection2 = 0;
+                
             }
         }
 
@@ -1176,7 +1117,7 @@ namespace Concentration
         {
             clicks++;
             UpdateClicks();
-            //back10.Visibility = Visibility.Hidden;
+            back10.Visibility = Visibility.Hidden;
             if (selection == 0)
             {
                 selection = Int32.Parse(box10.Text);
@@ -1189,6 +1130,7 @@ namespace Concentration
                 UpdateDebug();
                 selection = 0;
                 selection2 = 0;
+                
             }
         }
 
@@ -1196,7 +1138,7 @@ namespace Concentration
         {
             clicks++;
             UpdateClicks();
-            //back11.Visibility = Visibility.Hidden;
+            back11.Visibility = Visibility.Hidden;
             if (selection == 0)
             {
                 selection = Int32.Parse(box11.Text);
@@ -1209,6 +1151,7 @@ namespace Concentration
                 UpdateDebug();
                 selection = 0;
                 selection2 = 0;
+                
             }
         }
 
@@ -1216,7 +1159,7 @@ namespace Concentration
         {
             clicks++;
             UpdateClicks();
-            //back12.Visibility = Visibility.Hidden;
+            back12.Visibility = Visibility.Hidden;
             if (selection == 0)
             {
                 selection = Int32.Parse(box12.Text);
@@ -1229,6 +1172,7 @@ namespace Concentration
                 UpdateDebug();
                 selection = 0;
                 selection2 = 0;
+                
             }
         }
 
@@ -1236,7 +1180,7 @@ namespace Concentration
         {
             clicks++;
             UpdateClicks();
-            //back13.Visibility = Visibility.Hidden;
+            back13.Visibility = Visibility.Hidden;
             if (selection == 0)
             {
                 selection = Int32.Parse(box13.Text);
@@ -1249,6 +1193,7 @@ namespace Concentration
                 UpdateDebug();
                 selection = 0;
                 selection2 = 0;
+                
             }
         }
 
@@ -1256,7 +1201,7 @@ namespace Concentration
         {
             clicks++;
             UpdateClicks();
-            //back14.Visibility = Visibility.Hidden;
+            back14.Visibility = Visibility.Hidden;
             if (selection == 0)
             {
                 selection = Int32.Parse(box14.Text);
@@ -1269,6 +1214,7 @@ namespace Concentration
                 UpdateDebug();
                 selection = 0;
                 selection2 = 0;
+                
             }
         }
 
@@ -1276,7 +1222,7 @@ namespace Concentration
         {
             clicks++;
             UpdateClicks();
-            //back15.Visibility = Visibility.Hidden;
+            back15.Visibility = Visibility.Hidden;
             if (selection == 0)
             {
                 selection = Int32.Parse(box15.Text);
@@ -1289,6 +1235,7 @@ namespace Concentration
                 UpdateDebug();
                 selection = 0;
                 selection2 = 0;
+                
             }
         }
 
@@ -1296,7 +1243,7 @@ namespace Concentration
         {
             clicks++;
             UpdateClicks();
-            //back16.Visibility = Visibility.Hidden;
+            back16.Visibility = Visibility.Hidden;
             if (selection == 0)
             {
                 selection = Int32.Parse(box16.Text);
@@ -1309,6 +1256,7 @@ namespace Concentration
                 UpdateDebug();
                 selection = 0;
                 selection2 = 0;
+                
             }
         }
 
@@ -1328,6 +1276,95 @@ namespace Concentration
             Properties.Settings.Default.Name = "Anonymous";
             Properties.Settings.Default.Save();
             HighScore.Text = (Properties.Settings.Default.Name + " -- " + Properties.Settings.Default.LowestScore);
+        }
+
+        private void UncoverCards_Click(object sender, RoutedEventArgs e)
+        {
+            if(cardsHidden)
+            {
+                back1.Visibility = Visibility.Hidden;
+                back2.Visibility = Visibility.Hidden;
+                back3.Visibility = Visibility.Hidden;
+                back4.Visibility = Visibility.Hidden;
+                back5.Visibility = Visibility.Hidden;
+                back6.Visibility = Visibility.Hidden;
+                back7.Visibility = Visibility.Hidden;
+                back8.Visibility = Visibility.Hidden;
+                back9.Visibility = Visibility.Hidden;
+                back10.Visibility = Visibility.Hidden;
+                back11.Visibility = Visibility.Hidden;
+                back12.Visibility = Visibility.Hidden;
+                back13.Visibility = Visibility.Hidden;
+                back14.Visibility = Visibility.Hidden;
+                back15.Visibility = Visibility.Hidden;
+                back16.Visibility = Visibility.Hidden;
+                cardsHidden = false;
+            }
+            else
+            {
+                back1.Visibility = Visibility.Visible;
+                back2.Visibility = Visibility.Visible;
+                back3.Visibility = Visibility.Visible;
+                back4.Visibility = Visibility.Visible;
+                back5.Visibility = Visibility.Visible;
+                back6.Visibility = Visibility.Visible;
+                back7.Visibility = Visibility.Visible;
+                back8.Visibility = Visibility.Visible;
+                back9.Visibility = Visibility.Visible;
+                back10.Visibility = Visibility.Visible;
+                back11.Visibility = Visibility.Visible;
+                back12.Visibility = Visibility.Visible;
+                back13.Visibility = Visibility.Visible;
+                back14.Visibility = Visibility.Visible;
+                back15.Visibility = Visibility.Visible;
+                back16.Visibility = Visibility.Visible;
+                cardsHidden = true;
+            }
+
+        }
+
+        private void ShowNumbers_Click(object sender, RoutedEventArgs e)
+        {
+            if (showNumbers)
+            {
+                image1.Visibility = Visibility.Hidden;
+                image2.Visibility = Visibility.Hidden;
+                image3.Visibility = Visibility.Hidden;
+                image4.Visibility = Visibility.Hidden;
+                image5.Visibility = Visibility.Hidden;
+                image6.Visibility = Visibility.Hidden;
+                image7.Visibility = Visibility.Hidden;
+                image8.Visibility = Visibility.Hidden;
+                image9.Visibility = Visibility.Hidden;
+                image10.Visibility = Visibility.Hidden;
+                image11.Visibility = Visibility.Hidden;
+                image12.Visibility = Visibility.Hidden;
+                image13.Visibility = Visibility.Hidden;
+                image14.Visibility = Visibility.Hidden;
+                image15.Visibility = Visibility.Hidden;
+                image16.Visibility = Visibility.Hidden;
+                showNumbers = false;
+            }
+            else
+            {
+                image1.Visibility = Visibility.Visible;
+                image2.Visibility = Visibility.Visible;
+                image3.Visibility = Visibility.Visible;
+                image4.Visibility = Visibility.Visible;
+                image5.Visibility = Visibility.Visible;
+                image6.Visibility = Visibility.Visible;
+                image7.Visibility = Visibility.Visible;
+                image8.Visibility = Visibility.Visible;
+                image9.Visibility = Visibility.Visible;
+                image10.Visibility = Visibility.Visible;
+                image11.Visibility = Visibility.Visible;
+                image12.Visibility = Visibility.Visible;
+                image13.Visibility = Visibility.Visible;
+                image14.Visibility = Visibility.Visible;
+                image15.Visibility = Visibility.Visible;
+                image16.Visibility = Visibility.Visible;
+                showNumbers = true;
+            }
         }
     }
 }
