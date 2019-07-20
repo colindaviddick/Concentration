@@ -8,7 +8,7 @@
         Title="MainWindow" Height="900" Width="1000" Background="Black">
 
     <Window.Resources>
-            
+
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
                 <Setter.Value>
@@ -27,7 +27,7 @@
         <SolidColorBrush x:Key="Button.Disabled.Background" Color="#00000000"/>
         <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFFF00FF"/>
         <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
-        
+
         <Style x:Key="CardBackMouseover" TargetType="{x:Type Button}">
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
             <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
@@ -73,187 +73,200 @@
             <ColumnDefinition Width="390"/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" VerticalAlignment="Center">
-            <Border Background="Black">
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="140"/>
+                    <ColumnDefinition Width="140"/>
+                    <ColumnDefinition Width="140"/>
+                    <ColumnDefinition Width="140"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="180"/>
+                    <RowDefinition Height="180"/>
+                    <RowDefinition Height="180"/>
+                    <RowDefinition Height="180"/>
+                </Grid.RowDefinitions>
+                <TextBlock Name="box1" Grid.Row="0" Grid.Column="0" Text="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                <TextBlock Name="box2" Grid.Row="0" Grid.Column="1" Text="2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                <TextBlock Name="box3" Grid.Row="0" Grid.Column="2" Text="3" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                <TextBlock Name="box4" Grid.Row="0" Grid.Column="3" Text="4" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                <TextBlock Name="box5" Grid.Row="1" Grid.Column="0" Text="5" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                <TextBlock Name="box6" Grid.Row="1" Grid.Column="1" Text="6" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                <TextBlock Name="box7" Grid.Row="1" Grid.Column="2" Text="7" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                <TextBlock Name="box8" Grid.Row="1" Grid.Column="3" Text="8" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                <TextBlock Name="box9" Grid.Row="2" Grid.Column="0" Text="9" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                <TextBlock Name="box10" Grid.Row="2" Grid.Column="1" Text="10" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                <TextBlock Name="box11" Grid.Row="2" Grid.Column="2" Text="11" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                <TextBlock Name="box12" Grid.Row="2" Grid.Column="3" Text="12" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                <TextBlock Name="box13" Grid.Row="3" Grid.Column="0" Text="13" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                <TextBlock Name="box14" Grid.Row="3" Grid.Column="1" Text="14" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                <TextBlock Name="box15" Grid.Row="3" Grid.Column="2" Text="15" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                <TextBlock Name="box16" Grid.Row="3" Grid.Column="3" Text="16" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
 
-                <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="140"/>
-                        <ColumnDefinition Width="140"/>
-                        <ColumnDefinition Width="140"/>
-                        <ColumnDefinition Width="140"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="180"/>
-                        <RowDefinition Height="180"/>
-                        <RowDefinition Height="180"/>
-                        <RowDefinition Height="180"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Name="box1" Grid.Row="0" Grid.Column="0" Text="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
-                    <TextBlock Name="box2" Grid.Row="0" Grid.Column="1" Text="2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
-                    <TextBlock Name="box3" Grid.Row="0" Grid.Column="2" Text="3" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
-                    <TextBlock Name="box4" Grid.Row="0" Grid.Column="3" Text="4" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
-                    <TextBlock Name="box5" Grid.Row="1" Grid.Column="0" Text="5" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
-                    <TextBlock Name="box6" Grid.Row="1" Grid.Column="1" Text="6" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
-                    <TextBlock Name="box7" Grid.Row="1" Grid.Column="2" Text="7" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
-                    <TextBlock Name="box8" Grid.Row="1" Grid.Column="3" Text="8" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
-                    <TextBlock Name="box9" Grid.Row="2" Grid.Column="0" Text="9" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
-                    <TextBlock Name="box10" Grid.Row="2" Grid.Column="1" Text="10" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
-                    <TextBlock Name="box11" Grid.Row="2" Grid.Column="2" Text="11" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
-                    <TextBlock Name="box12" Grid.Row="2" Grid.Column="3" Text="12" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
-                    <TextBlock Name="box13" Grid.Row="3" Grid.Column="0" Text="13" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
-                    <TextBlock Name="box14" Grid.Row="3" Grid.Column="1" Text="14" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
-                    <TextBlock Name="box15" Grid.Row="3" Grid.Column="2" Text="15" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
-                    <TextBlock Name="box16" Grid.Row="3" Grid.Column="3" Text="16" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                <Button Panel.ZIndex="1" Name="back1" Grid.Row="0" Grid.Column="0" Height="167" Width="116" Click="Back1_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button.Background>
+                        <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
+                    </Button.Background>
+                </Button>
+                <Button Panel.ZIndex="1" Name="back2" Grid.Row="0" Grid.Column="1" Height="167" Width="116" Click="Back2_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button.Background>
+                        <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
+                    </Button.Background>
+                </Button>
+                <Button Panel.ZIndex="1" Name="back3" Grid.Row="0" Grid.Column="2" Height="167" Width="116" Click="Back3_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
+                    </Button.Background>
+                </Button>
+                <Button Panel.ZIndex="1" Name="back4" Grid.Row="0" Grid.Column="3" Height="167" Width="116" Click="Back4_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
+                    </Button.Background>
+                </Button>
+                <Button Panel.ZIndex="1" Name="back5" Grid.Row="1" Grid.Column="0" Height="167" Width="116" Click="Back5_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
+                    </Button.Background>
+                </Button>
+                <Button Panel.ZIndex="1" Name="back6" Grid.Row="1" Grid.Column="1" Height="167" Width="116" Click="Back6_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
+                    </Button.Background>
+                </Button>
+                <Button Panel.ZIndex="1" Name="back7" Grid.Row="1" Grid.Column="2" Height="167" Width="116" Click="Back7_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button.Background>
+                        <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
+                    </Button.Background>
+                </Button>
+                <Button Panel.ZIndex="1" Name="back8" Grid.Row="1" Grid.Column="3" Height="167" Width="116" Click="Back8_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button.Background>
+                        <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
+                    </Button.Background>
+                </Button>
+                <Button Panel.ZIndex="1" Name="back9" Grid.Row="2" Grid.Column="0" Height="167" Width="116" Click="Back9_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button.Background>
+                        <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
+                    </Button.Background>
+                </Button>
+                <Button Panel.ZIndex="1" Name="back10" Grid.Row="2" Grid.Column="1" Height="167" Width="116" Click="Back10_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button.Background>
+                        <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
+                    </Button.Background>
+                </Button>
+                <Button Panel.ZIndex="1" Name="back11" Grid.Row="2" Grid.Column="2" Height="167" Width="116" Click="Back11_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button.Background>
+                        <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
+                    </Button.Background>
+                </Button>
+                <Button Panel.ZIndex="1" Name="back12" Grid.Row="2" Grid.Column="3" Height="167" Width="116" Click="Back12_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button.Background>
+                        <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
+                    </Button.Background>
+                </Button>
+                <Button Panel.ZIndex="1" Name="back13" Grid.Row="3" Grid.Column="0" Height="167" Width="116" Click="Back13_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button.Background>
+                        <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
+                    </Button.Background>
+                </Button>
+                <Button Panel.ZIndex="1" Name="back14" Grid.Row="3" Grid.Column="1" Height="167" Width="116" Click="Back14_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button.Background>
+                        <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
+                    </Button.Background>
+                </Button>
+                <Button Panel.ZIndex="1" Name="back15" Grid.Row="3" Grid.Column="2" Height="167" Width="116" Click="Back15_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button.Background>
+                        <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
+                    </Button.Background>
+                </Button>
+                <Button Panel.ZIndex="1" Name="back16" Grid.Row="3" Grid.Column="3" Height="167" Width="116" Click="Back16_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button.Background>
+                        <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
+                    </Button.Background>
+                </Button>
 
-                    <Button Panel.ZIndex="1" Name="back1" Grid.Row="0" Grid.Column="0" Height="167" Width="116" Click="Back1_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Button.Background>
-                            <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
-                        </Button.Background>
-                    </Button>
-                    <Button Panel.ZIndex="1" Name="back2" Grid.Row="0" Grid.Column="1" Height="167" Width="116" Click="Back2_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Button.Background>
-                            <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
-                        </Button.Background>
-                    </Button>
-                    <Button Panel.ZIndex="1" Name="back3" Grid.Row="0" Grid.Column="2" Height="167" Width="116" Click="Back3_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center" >
-                        <Button.Background>
-                            <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
-                        </Button.Background>
-                    </Button>
-                    <Button Panel.ZIndex="1" Name="back4" Grid.Row="0" Grid.Column="3" Height="167" Width="116" Click="Back4_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center" >
-                        <Button.Background>
-                            <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
-                        </Button.Background>
-                    </Button>
-                    <Button Panel.ZIndex="1" Name="back5" Grid.Row="1" Grid.Column="0" Height="167" Width="116" Click="Back5_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center" >
-                        <Button.Background>
-                            <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
-                        </Button.Background>
-                    </Button>
-                    <Button Panel.ZIndex="1" Name="back6" Grid.Row="1" Grid.Column="1" Height="167" Width="116" Click="Back6_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center" >
-                        <Button.Background>
-                            <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
-                        </Button.Background>
-                    </Button>
-                    <Button Panel.ZIndex="1" Name="back7" Grid.Row="1" Grid.Column="2" Height="167" Width="116" Click="Back7_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Button.Background>
-                            <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
-                        </Button.Background>
-                    </Button>
-                    <Button Panel.ZIndex="1" Name="back8" Grid.Row="1" Grid.Column="3" Height="167" Width="116" Click="Back8_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Button.Background>
-                            <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
-                        </Button.Background>
-                    </Button>
-                    <Button Panel.ZIndex="1" Name="back9" Grid.Row="2" Grid.Column="0" Height="167" Width="116" Click="Back9_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Button.Background>
-                            <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
-                        </Button.Background>
-                    </Button>
-                    <Button Panel.ZIndex="1" Name="back10" Grid.Row="2" Grid.Column="1" Height="167" Width="116" Click="Back10_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Button.Background>
-                            <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
-                        </Button.Background>
-                    </Button>
-                    <Button Panel.ZIndex="1" Name="back11" Grid.Row="2" Grid.Column="2" Height="167" Width="116" Click="Back11_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Button.Background>
-                            <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
-                        </Button.Background>
-                    </Button>
-                    <Button Panel.ZIndex="1" Name="back12" Grid.Row="2" Grid.Column="3" Height="167" Width="116" Click="Back12_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Button.Background>
-                            <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
-                        </Button.Background>
-                    </Button>
-                    <Button Panel.ZIndex="1" Name="back13" Grid.Row="3" Grid.Column="0" Height="167" Width="116" Click="Back13_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Button.Background>
-                            <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
-                        </Button.Background>
-                    </Button>
-                    <Button Panel.ZIndex="1" Name="back14" Grid.Row="3" Grid.Column="1" Height="167" Width="116" Click="Back14_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Button.Background>
-                            <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
-                        </Button.Background>
-                    </Button>
-                    <Button Panel.ZIndex="1" Name="back15" Grid.Row="3" Grid.Column="2" Height="167" Width="116" Click="Back15_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Button.Background>
-                            <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
-                        </Button.Background>
-                    </Button>
-                    <Button Panel.ZIndex="1" Name="back16" Grid.Row="3" Grid.Column="3" Height="167" Width="116" Click="Back16_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Button.Background>
-                            <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
-                        </Button.Background>
-                    </Button>
-
-                    <Image Name="image1" Grid.Row="0" Grid.Column="0" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Image Name="image2" Grid.Row="0" Grid.Column="1" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Image Name="image3" Grid.Row="0" Grid.Column="2" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Image Name="image4" Grid.Row="0" Grid.Column="3" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Image Name="image5" Grid.Row="1" Grid.Column="0" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Image Name="image6" Grid.Row="1" Grid.Column="1" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Image Name="image7" Grid.Row="1" Grid.Column="2" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Image Name="image8" Grid.Row="1" Grid.Column="3" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Image Name="image9" Grid.Row="2" Grid.Column="0" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Image Name="image10" Grid.Row="2" Grid.Column="1" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Image Name="image11" Grid.Row="2" Grid.Column="2" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Image Name="image12" Grid.Row="2" Grid.Column="3" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Image Name="image13" Grid.Row="3" Grid.Column="0" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Image Name="image14" Grid.Row="3" Grid.Column="1" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Image Name="image15" Grid.Row="3" Grid.Column="2" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Image Name="image16" Grid.Row="3" Grid.Column="3" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                </Grid>
-            </Border>
+                <Image Name="image1" Grid.Row="0" Grid.Column="0" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Image Name="image2" Grid.Row="0" Grid.Column="1" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Image Name="image3" Grid.Row="0" Grid.Column="2" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Image Name="image4" Grid.Row="0" Grid.Column="3" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Image Name="image5" Grid.Row="1" Grid.Column="0" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Image Name="image6" Grid.Row="1" Grid.Column="1" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Image Name="image7" Grid.Row="1" Grid.Column="2" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Image Name="image8" Grid.Row="1" Grid.Column="3" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Image Name="image9" Grid.Row="2" Grid.Column="0" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Image Name="image10" Grid.Row="2" Grid.Column="1" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Image Name="image11" Grid.Row="2" Grid.Column="2" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Image Name="image12" Grid.Row="2" Grid.Column="3" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Image Name="image13" Grid.Row="3" Grid.Column="0" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Image Name="image14" Grid.Row="3" Grid.Column="1" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Image Name="image15" Grid.Row="3" Grid.Column="2" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Image Name="image16" Grid.Row="3" Grid.Column="3" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="280" Height="50">
+                <Button x:Name="NewGame" Width="120" Margin="10" Click="NewGame_Click">New Game</Button>
+                <Button x:Name="QuitGame" Width="120" Margin="10" Click="QuitGame_Click">Quit Game</Button>
+            </StackPanel>
         </StackPanel>
         <StackPanel Grid.Column="1" Width="390" HorizontalAlignment="Right">
             <TextBlock Margin="10" Text="Concentration" FontWeight="Bold" FontSize="55" Foreground="GhostWhite"/>
-            <TextBlock Margin="10" Text="There are 8 pairs of cards on the game table, face down. Turn over two cards at a time. If you uncover a pair they will remain uncovered. Your goal is to find all of the pairs." FontWeight="DemiBold" FontSize="20" Foreground="GhostWhite" TextWrapping="Wrap"/>
             <TextBlock Margin="10" Name="Clicks" Text="# Clicks" FontWeight="Bold" FontSize="30" Foreground="GhostWhite"/>
             <TextBlock Margin="10" Name="Pairs" Text="# Pairs" FontWeight="Bold" FontSize="30" Foreground="GhostWhite"/>
-            <TextBlock Margin="5" Name="DebugCard1" Text="Irrelevant" Foreground="GhostWhite"/>
-            <TextBlock Margin="5" Name="DebugCard2" Text="Irrelevant" Foreground="GhostWhite"/>
             <TextBlock Margin="10" Text="High Score" FontWeight="Bold" FontSize="30" Foreground="GhostWhite"/>
             <TextBlock Margin="10" Name="HighScore" Text="High Score" FontWeight="Bold" FontSize="20" Foreground="GhostWhite"/>
             <TextBox Margin="10" Name="HighScoreName" Background="Black" BorderBrush="GhostWhite" FontSize="20" Visibility="Hidden" Foreground="GhostWhite"/>
             <Button Name="HighScoreSaveName" HorizontalAlignment="Center" Background="Black" BorderBrush="GhostWhite" Content="Save High Score" Foreground="GhostWhite" FontSize="20" Width="300" Click="HighScoreSaveName_Click" Visibility="Hidden"/>
-            <ComboBox Focusable="False" IsEditable="True" IsReadOnly="True" Text="Select a Theme" Width="150" Margin="20">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="OptionsButton" Content="Options" Width="50" Margin="5" Click="OptionsButton_Click"/>
+                <Button x:Name="DebugButton" Content="Debug" Width="50"  Margin="5" Click="DebugButton_Click"/>
+                <Button x:Name="RulesButton" Content="Rules" Width="50"  Margin="5" Click="RulesButton_Click"/>
+            </StackPanel>
+            <StackPanel x:Name="Options" Visibility="Collapsed">
+                <Label Foreground="White">Pick a theme</Label>    
+                <ComboBox Focusable="False" IsEditable="True" IsReadOnly="True" Text="Select a Theme" Width="150">
                 <ComboBoxItem x:Name="Default" Content="Default Cards" Selected="Default_Selected"/>
-                <ComboBoxItem x:Name="Dolphins" Content="Dolphin Cards" Selected="Dolphins_Selected"/>
-            </ComboBox>
-            <Button Name="UncoverCards" Content="Uncover Cards" Click="UncoverCards_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="2"/>
-            <Button Name="ShowNumbers" Content="Show Numbers" Click="ShowNumbers_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="2"/>
-            <Button Name="Random" Content="Random Number" Click="Random_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="2"/>
-            <Button Name="ClearHighScores" Content="Clear High Score" Click="ClearHighScores_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="2"/>
-            <Grid Height="60" Width="100" Margin="10">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="25"></ColumnDefinition>
-                    <ColumnDefinition Width="25"></ColumnDefinition>
-                    <ColumnDefinition Width="25"></ColumnDefinition>
-                    <ColumnDefinition Width="25"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="15"></RowDefinition>
-                    <RowDefinition Height="15"></RowDefinition>
-                    <RowDefinition Height="15"></RowDefinition>
-                    <RowDefinition Height="15"></RowDefinition>
-                </Grid.RowDefinitions>
-                <TextBlock Foreground="White" x:Name="tb1" Grid.Row="0" Grid.Column="0"/>
-                <TextBlock Foreground="White" x:Name="tb2" Grid.Row="0" Grid.Column="1"/>
-                <TextBlock Foreground="White" x:Name="tb3" Grid.Row="0" Grid.Column="2"/>
-                <TextBlock Foreground="White" x:Name="tb4" Grid.Row="0" Grid.Column="3"/>
-                <TextBlock Foreground="White" x:Name="tb5" Grid.Row="1" Grid.Column="0"/>
-                <TextBlock Foreground="White" x:Name="tb6" Grid.Row="1" Grid.Column="1"/>
-                <TextBlock Foreground="White" x:Name="tb7" Grid.Row="1" Grid.Column="2"/>
-                <TextBlock Foreground="White" x:Name="tb8" Grid.Row="1" Grid.Column="3"/>
-                <TextBlock Foreground="White" x:Name="tb9" Grid.Row="2" Grid.Column="0"/>
-                <TextBlock Foreground="White" x:Name="tb10" Grid.Row="2" Grid.Column="1"/>
-                <TextBlock Foreground="White" x:Name="tb11" Grid.Row="2" Grid.Column="2"/>
-                <TextBlock Foreground="White" x:Name="tb12" Grid.Row="2" Grid.Column="3"/>
-                <TextBlock Foreground="White" x:Name="tb13" Grid.Row="3" Grid.Column="0"/>
-                <TextBlock Foreground="White" x:Name="tb14" Grid.Row="3" Grid.Column="1"/>
-                <TextBlock Foreground="White" x:Name="tb15" Grid.Row="3" Grid.Column="2"/>
-                <TextBlock Foreground="White" x:Name="tb16" Grid.Row="3" Grid.Column="3"/>
-            </Grid>
+                    <ComboBoxItem x:Name="Dolphins" Content="Dolphin Cards" Selected="Dolphins_Selected"/>
+                </ComboBox>
+                <Button Name="ClearHighScores" Content="Clear High Score" Click="ClearHighScores_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="2"/>
+            </StackPanel>
+            <StackPanel x:Name="Debug" Visibility="Collapsed">
+                <TextBlock Margin="5" Name="DebugCard1" Text="Irrelevant" Foreground="GhostWhite"/>
+                <TextBlock Margin="5" Name="DebugCard2" Text="Irrelevant" Foreground="GhostWhite"/>
+                <Button Name="UncoverCards" Content="Uncover Cards" Click="UncoverCards_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="2"/>
+                <Button Name="ShowNumbers" Content="Show Numbers" Click="ShowNumbers_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="2"/>
+                <Button Name="Random" Content="Random Number" Click="Random_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="2"/>
+                <Grid Height="60" Width="100" Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25"></ColumnDefinition>
+                        <ColumnDefinition Width="25"></ColumnDefinition>
+                        <ColumnDefinition Width="25"></ColumnDefinition>
+                        <ColumnDefinition Width="25"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="15"></RowDefinition>
+                        <RowDefinition Height="15"></RowDefinition>
+                        <RowDefinition Height="15"></RowDefinition>
+                        <RowDefinition Height="15"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock Foreground="White" x:Name="tb1" Grid.Row="0" Grid.Column="0"/>
+                    <TextBlock Foreground="White" x:Name="tb2" Grid.Row="0" Grid.Column="1"/>
+                    <TextBlock Foreground="White" x:Name="tb3" Grid.Row="0" Grid.Column="2"/>
+                    <TextBlock Foreground="White" x:Name="tb4" Grid.Row="0" Grid.Column="3"/>
+                    <TextBlock Foreground="White" x:Name="tb5" Grid.Row="1" Grid.Column="0"/>
+                    <TextBlock Foreground="White" x:Name="tb6" Grid.Row="1" Grid.Column="1"/>
+                    <TextBlock Foreground="White" x:Name="tb7" Grid.Row="1" Grid.Column="2"/>
+                    <TextBlock Foreground="White" x:Name="tb8" Grid.Row="1" Grid.Column="3"/>
+                    <TextBlock Foreground="White" x:Name="tb9" Grid.Row="2" Grid.Column="0"/>
+                    <TextBlock Foreground="White" x:Name="tb10" Grid.Row="2" Grid.Column="1"/>
+                    <TextBlock Foreground="White" x:Name="tb11" Grid.Row="2" Grid.Column="2"/>
+                    <TextBlock Foreground="White" x:Name="tb12" Grid.Row="2" Grid.Column="3"/>
+                    <TextBlock Foreground="White" x:Name="tb13" Grid.Row="3" Grid.Column="0"/>
+                    <TextBlock Foreground="White" x:Name="tb14" Grid.Row="3" Grid.Column="1"/>
+                    <TextBlock Foreground="White" x:Name="tb15" Grid.Row="3" Grid.Column="2"/>
+                    <TextBlock Foreground="White" x:Name="tb16" Grid.Row="3" Grid.Column="3"/>
+                </Grid>
+            </StackPanel>
+            <StackPanel x:Name="Rules" Visibility="Collapsed">
+                <TextBlock Margin="10" Text="There are 8 pairs of cards on the game table, face down. Turn over two cards at a time. If you uncover a pair they will remain uncovered. Your goal is to find all of the pairs." FontWeight="DemiBold" FontSize="20" Foreground="GhostWhite" TextWrapping="Wrap"/>
+            </StackPanel>
         </StackPanel>
     </Grid>
 

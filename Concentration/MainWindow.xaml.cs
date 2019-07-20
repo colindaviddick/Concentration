@@ -1518,6 +1518,64 @@ namespace Concentration
             defaultTheme = "dolphin";
             SortAndRandomiseCards();
         }
+
+        private void NewGame_Click(object sender, RoutedEventArgs e)
+        {
+            card1found = false;
+            card2found = false;
+            card3found = false;
+            card4found = false;
+            card5found = false;
+            card6found = false;
+            card7found = false;
+            card8found = false;
+            card9found = false;
+            card10found = false;
+            card11found = false;
+            card12found = false;
+            card13found = false;
+            card14found = false;
+            card15found = false;
+            card16found = false;
+            SortAndRandomiseCards();
+            ReCoverCards();
+            pairs = 0;
+            clicks = 0;
+        }
+
+        private void QuitGame_Click(object sender, RoutedEventArgs e)
+        {
+            string result = (MessageBox.Show("Do you want to quit?", "Confirm quit", MessageBoxButton.YesNo)).ToString();
+            if (result == "Yes")
+            {
+                this.Close();
+            }
+            else if (result == "No")
+            {
+
+            }
+        }
+
+        private void OptionsButton_Click(object sender, RoutedEventArgs e)
+        {
+            Options.Visibility = Visibility.Visible;
+            Debug.Visibility = Visibility.Collapsed;
+            Rules.Visibility = Visibility.Collapsed;
+        }
+
+        private void DebugButton_Click(object sender, RoutedEventArgs e)
+        {
+            Options.Visibility = Visibility.Collapsed;
+            Debug.Visibility = Visibility.Visible;
+            Rules.Visibility = Visibility.Collapsed;
+        }
+
+        private void RulesButton_Click(object sender, RoutedEventArgs e)
+        {
+            Options.Visibility = Visibility.Collapsed;
+            Debug.Visibility = Visibility.Collapsed;
+            Rules.Visibility = Visibility.Visible;
+        }
     }
 }
 
