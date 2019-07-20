@@ -8,6 +8,7 @@
         Title="MainWindow" Height="900" Width="1000" Background="Black">
 
     <Window.Resources>
+            
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
                 <Setter.Value>
@@ -26,6 +27,7 @@
         <SolidColorBrush x:Key="Button.Disabled.Background" Color="#00000000"/>
         <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFFF00FF"/>
         <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        
         <Style x:Key="CardBackMouseover" TargetType="{x:Type Button}">
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
             <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
@@ -203,9 +205,9 @@
                 </Grid>
             </Border>
         </StackPanel>
-        <StackPanel Grid.Column="1" Width="400" HorizontalAlignment="Right">
+        <StackPanel Grid.Column="1" Width="390" HorizontalAlignment="Right">
             <TextBlock Margin="10" Text="Concentration" FontWeight="Bold" FontSize="55" Foreground="GhostWhite"/>
-            <TextBlock Margin="10" Text="There are 8 pairs of cards on the game table, face down. Turn over two cards at a time. If you find uncover a pair they will remain uncovered. Your goal is to find all of the pairs." FontWeight="DemiBold" FontSize="20" Foreground="GhostWhite" TextWrapping="Wrap"/>
+            <TextBlock Margin="10" Text="There are 8 pairs of cards on the game table, face down. Turn over two cards at a time. If you uncover a pair they will remain uncovered. Your goal is to find all of the pairs." FontWeight="DemiBold" FontSize="20" Foreground="GhostWhite" TextWrapping="Wrap"/>
             <TextBlock Margin="10" Name="Clicks" Text="# Clicks" FontWeight="Bold" FontSize="30" Foreground="GhostWhite"/>
             <TextBlock Margin="10" Name="Pairs" Text="# Pairs" FontWeight="Bold" FontSize="30" Foreground="GhostWhite"/>
             <TextBlock Margin="5" Name="DebugCard1" Text="Irrelevant" Foreground="GhostWhite"/>
@@ -213,14 +215,45 @@
             <TextBlock Margin="10" Text="High Score" FontWeight="Bold" FontSize="30" Foreground="GhostWhite"/>
             <TextBlock Margin="10" Name="HighScore" Text="High Score" FontWeight="Bold" FontSize="20" Foreground="GhostWhite"/>
             <TextBox Margin="10" Name="HighScoreName" Background="Black" BorderBrush="GhostWhite" FontSize="20" Visibility="Hidden" Foreground="GhostWhite"/>
-            <Button Margin="10" Name="HighScoreSaveName" HorizontalAlignment="Center" Background="Black" BorderBrush="GhostWhite" Content="Save High Score" Foreground="GhostWhite" FontSize="20" Width="300" Click="HighScoreSaveName_Click" Visibility="Hidden"/>
-            <Button Name="UncoverCards" Content="Uncover Cards" Click="UncoverCards_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="30"/>
-            <Button Name="ShowNumbers" Content="Show Numbers" Click="ShowNumbers_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="30"/>
-            <Button Name="Random" Content="Random Number" Click="Random_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="30"/>
-            <Button Name="ClearHighScores" Content="Clear High Score" Click="ClearHighScores_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="30"/>
-
-            <!--Could use the property settings to create a high score board?? Try looking into this-->
-
+            <Button Name="HighScoreSaveName" HorizontalAlignment="Center" Background="Black" BorderBrush="GhostWhite" Content="Save High Score" Foreground="GhostWhite" FontSize="20" Width="300" Click="HighScoreSaveName_Click" Visibility="Hidden"/>
+            <ComboBox Focusable="False" IsEditable="True" IsReadOnly="True" Text="Select a Theme" Width="150" Margin="20">
+                <ComboBoxItem x:Name="Default" Content="Default Cards" Selected="Default_Selected"/>
+                <ComboBoxItem x:Name="Dolphins" Content="Dolphin Cards" Selected="Dolphins_Selected"/>
+            </ComboBox>
+            <Button Name="UncoverCards" Content="Uncover Cards" Click="UncoverCards_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="2"/>
+            <Button Name="ShowNumbers" Content="Show Numbers" Click="ShowNumbers_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="2"/>
+            <Button Name="Random" Content="Random Number" Click="Random_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="2"/>
+            <Button Name="ClearHighScores" Content="Clear High Score" Click="ClearHighScores_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="2"/>
+            <Grid Height="60" Width="100" Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="25"></ColumnDefinition>
+                    <ColumnDefinition Width="25"></ColumnDefinition>
+                    <ColumnDefinition Width="25"></ColumnDefinition>
+                    <ColumnDefinition Width="25"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="15"></RowDefinition>
+                    <RowDefinition Height="15"></RowDefinition>
+                    <RowDefinition Height="15"></RowDefinition>
+                    <RowDefinition Height="15"></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock Foreground="White" x:Name="tb1" Grid.Row="0" Grid.Column="0"/>
+                <TextBlock Foreground="White" x:Name="tb2" Grid.Row="0" Grid.Column="1"/>
+                <TextBlock Foreground="White" x:Name="tb3" Grid.Row="0" Grid.Column="2"/>
+                <TextBlock Foreground="White" x:Name="tb4" Grid.Row="0" Grid.Column="3"/>
+                <TextBlock Foreground="White" x:Name="tb5" Grid.Row="1" Grid.Column="0"/>
+                <TextBlock Foreground="White" x:Name="tb6" Grid.Row="1" Grid.Column="1"/>
+                <TextBlock Foreground="White" x:Name="tb7" Grid.Row="1" Grid.Column="2"/>
+                <TextBlock Foreground="White" x:Name="tb8" Grid.Row="1" Grid.Column="3"/>
+                <TextBlock Foreground="White" x:Name="tb9" Grid.Row="2" Grid.Column="0"/>
+                <TextBlock Foreground="White" x:Name="tb10" Grid.Row="2" Grid.Column="1"/>
+                <TextBlock Foreground="White" x:Name="tb11" Grid.Row="2" Grid.Column="2"/>
+                <TextBlock Foreground="White" x:Name="tb12" Grid.Row="2" Grid.Column="3"/>
+                <TextBlock Foreground="White" x:Name="tb13" Grid.Row="3" Grid.Column="0"/>
+                <TextBlock Foreground="White" x:Name="tb14" Grid.Row="3" Grid.Column="1"/>
+                <TextBlock Foreground="White" x:Name="tb15" Grid.Row="3" Grid.Column="2"/>
+                <TextBlock Foreground="White" x:Name="tb16" Grid.Row="3" Grid.Column="3"/>
+            </Grid>
         </StackPanel>
     </Grid>
 

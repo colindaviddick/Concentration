@@ -22,14 +22,13 @@ namespace Concentration
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+
+    // A better way of doing this would be to create a class of Box, and add the boxes using an array
+    // boxes[i] = new Box()
+
+
     public partial class MainWindow : Window
     {
-
-        // ReCover Cards method:
-
-            // The back number does not match the card number and so I'm not sure how to get it to reCover the card....
-
-
         /// <summary>
         /// I should be able to pass the box information into a 
         /// method and search for it's pair that way, box 1 and box 2 = pair, box 3 and box 4 = pair, etc.
@@ -51,44 +50,52 @@ namespace Concentration
         /// 8) Organize the Assets (images) to folders, say Assets/Images/Cards?
         /// 9) Use arrays where possible - you can do something like this: boxes[7] = box8.Text; then later... if (box[7]==xyz)...
 
-        /// Create a CARD class, with a position (randomly generated, a number 1 of 2, 2 of 2, and image association?
-        /// 
-        /// Code needs totally revamped but I have the most important thing working, the timer.
-        /// 
-        /// 
-        /// </summary>
-        /// 
-
-
-            //  Latest attempt... 3D Array of Integers
-            //  Containing card no & randomized no.
-            //  if 
-            //
-            //  Now I'm not sure why it'd need to be 3d... Randomize then do a foreach loop through it, if shuffledCards[1] == 4, card4 = hidden... etc.
-
         int selection = 0;
         int selection2 = 0;
         int clicks = 0;
         int pairs = 0;
-        string theme = "basic";
-        bool paired1 = false;
-        bool paired2 = false;
-        bool paired3 = false;
-        bool paired4 = false;
-        bool paired5 = false;
-        bool paired6 = false;
-        bool paired7 = false;
-        bool paired8 = false;
+        string defaultTheme = "basic";
+        //StringBuilder backPath = new StringBuilder(@"images\cards\" + theme + @"\backse.jpg");
         bool cardsHidden = true;
         bool showNumbers = true;
-        bool pairFound = false;
+        bool card1found = false;
+        bool card2found = false;
+        bool card3found = false;
+        bool card4found = false;
+        bool card5found = false;
+        bool card6found = false;
+        bool card7found = false;
+        bool card8found = false;
+        bool card9found = false;
+        bool card10found = false;
+        bool card11found = false;
+        bool card12found = false;
+        bool card13found = false;
+        bool card14found = false;
+        bool card15found = false;
+        bool card16found = false;
+        int waitTime = 1500;
+
         int[] shuffledCards = new int[16];
 
-        // Use a 3d array to control randomizing and returning cards??
-
-        //List shuffledcards;
-
-        List<int> intList = new List<int>();
+        int[,] cardArray = new int[,]
+        {   { 1, 0 },
+            { 2, 0 },
+            { 3, 0 },
+            { 4, 0 },
+            { 5, 0 },
+            { 6, 0 },
+            { 7, 0 },
+            { 8, 0 },
+            { 9, 0 },
+            { 10, 0 },
+            { 11, 0 },
+            { 12, 0 },
+            { 13, 0 },
+            { 14, 0 },
+            { 15, 0 },
+            { 16, 0 }
+        };
 
         public MainWindow()
         {
@@ -102,9 +109,9 @@ namespace Concentration
             SortAndRandomiseCards();
             await Wait(500);
             UpdateClicks();
-            await Wait(500);
+            //await Wait(500);
             UpdateDebug();
-            await Wait(500);
+            //await Wait(500);
             HighScore.Text = (Properties.Settings.Default.Name + " -- " + Properties.Settings.Default.LowestScore);
         }
 
@@ -128,8 +135,6 @@ namespace Concentration
                 }
             }
 
-            // Not sure if this is of any use....
-
             box1.Text = shuffledCards[0].ToString();
             box2.Text = shuffledCards[1].ToString();
             box3.Text = shuffledCards[2].ToString();
@@ -146,655 +151,672 @@ namespace Concentration
             box14.Text = shuffledCards[13].ToString();
             box15.Text = shuffledCards[14].ToString();
             box16.Text = shuffledCards[15].ToString();
-            back1.Name = ("back00" + shuffledCards[0].ToString());
-            back2.Name = ("back00" + shuffledCards[1].ToString());
-            back3.Name = ("back00" + shuffledCards[2].ToString());
-            back4.Name = ("back00" + shuffledCards[3].ToString());
-            back5.Name = ("back00" + shuffledCards[4].ToString());
-            back6.Name = ("back00" + shuffledCards[5].ToString());
-            back7.Name = ("back00" + shuffledCards[6].ToString());
-            back8.Name = ("back00" + shuffledCards[7].ToString());
-            back9.Name = ("back00" + shuffledCards[8].ToString());
-            back10.Name = ("back00" + shuffledCards[9].ToString());
-            back11.Name = ("back00" + shuffledCards[10].ToString());
-            back12.Name = ("back00" + shuffledCards[11].ToString());
-            back13.Name = ("back00" + shuffledCards[12].ToString());
-            back14.Name = ("back00" + shuffledCards[13].ToString());
-            back15.Name = ("back00" + shuffledCards[14].ToString());
-            back16.Name = ("back00" + shuffledCards[15].ToString());
 
+            image1.Source = new BitmapImage(new Uri((@"/images/cards/" + defaultTheme + "/" + shuffledCards[0] + ".jpg"), UriKind.RelativeOrAbsolute));
+            image2.Source = new BitmapImage(new Uri((@"/images/cards/" + defaultTheme + "/" + shuffledCards[1] + ".jpg"), UriKind.RelativeOrAbsolute));
+            image3.Source = new BitmapImage(new Uri((@"/images/cards/" + defaultTheme + "/" + shuffledCards[2] + ".jpg"), UriKind.RelativeOrAbsolute));
+            image4.Source = new BitmapImage(new Uri((@"/images/cards/" + defaultTheme + "/" + shuffledCards[3] + ".jpg"), UriKind.RelativeOrAbsolute));
+            image5.Source = new BitmapImage(new Uri((@"/images/cards/" + defaultTheme + "/" + shuffledCards[4] + ".jpg"), UriKind.RelativeOrAbsolute));
+            image6.Source = new BitmapImage(new Uri((@"/images/cards/" + defaultTheme + "/" + shuffledCards[5] + ".jpg"), UriKind.RelativeOrAbsolute));
+            image7.Source = new BitmapImage(new Uri((@"/images/cards/" + defaultTheme + "/" + shuffledCards[6] + ".jpg"), UriKind.RelativeOrAbsolute));
+            image8.Source = new BitmapImage(new Uri((@"/images/cards/" + defaultTheme + "/" + shuffledCards[7] + ".jpg"), UriKind.RelativeOrAbsolute));
+            image9.Source = new BitmapImage(new Uri((@"/images/cards/" + defaultTheme + "/" + shuffledCards[8] + ".jpg"), UriKind.RelativeOrAbsolute));
+            image10.Source = new BitmapImage(new Uri((@"/images/cards/" + defaultTheme + "/" + shuffledCards[9] + ".jpg"), UriKind.RelativeOrAbsolute));
+            image11.Source = new BitmapImage(new Uri((@"/images/cards/" + defaultTheme + "/" + shuffledCards[10] + ".jpg"), UriKind.RelativeOrAbsolute));
+            image12.Source = new BitmapImage(new Uri((@"/images/cards/" + defaultTheme + "/" + shuffledCards[11] + ".jpg"), UriKind.RelativeOrAbsolute));
+            image13.Source = new BitmapImage(new Uri((@"/images/cards/" + defaultTheme + "/" + shuffledCards[12] + ".jpg"), UriKind.RelativeOrAbsolute));
+            image14.Source = new BitmapImage(new Uri((@"/images/cards/" + defaultTheme + "/" + shuffledCards[13] + ".jpg"), UriKind.RelativeOrAbsolute));
+            image15.Source = new BitmapImage(new Uri((@"/images/cards/" + defaultTheme + "/" + shuffledCards[14] + ".jpg"), UriKind.RelativeOrAbsolute));
+            image16.Source = new BitmapImage(new Uri((@"/images/cards/" + defaultTheme + "/" + shuffledCards[15] + ".jpg"), UriKind.RelativeOrAbsolute));
 
+            cardArray[0, 1] = shuffledCards[0];
+            cardArray[1, 1] = shuffledCards[1];
+            cardArray[2, 1] = shuffledCards[2];
+            cardArray[3, 1] = shuffledCards[3];
+            cardArray[4, 1] = shuffledCards[4];
+            cardArray[5, 1] = shuffledCards[5];
+            cardArray[6, 1] = shuffledCards[6];
+            cardArray[7, 1] = shuffledCards[7];
+            cardArray[8, 1] = shuffledCards[8];
+            cardArray[9, 1] = shuffledCards[9];
+            cardArray[10, 1] = shuffledCards[10];
+            cardArray[11, 1] = shuffledCards[11];
+            cardArray[12, 1] = shuffledCards[12];
+            cardArray[13, 1] = shuffledCards[13];
+            cardArray[14, 1] = shuffledCards[14];
+            cardArray[15, 1] = shuffledCards[15];
 
-            image1.Source  = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledCards[0] + ".jpg"), UriKind.RelativeOrAbsolute));
-            image2.Source  = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledCards[1] + ".jpg"), UriKind.RelativeOrAbsolute));
-            image3.Source  = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledCards[2] + ".jpg"), UriKind.RelativeOrAbsolute));
-            image4.Source  = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledCards[3] + ".jpg"), UriKind.RelativeOrAbsolute));
-            image5.Source  = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledCards[4] + ".jpg"), UriKind.RelativeOrAbsolute));
-            image6.Source  = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledCards[5] + ".jpg"), UriKind.RelativeOrAbsolute));
-            image7.Source  = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledCards[6] + ".jpg"), UriKind.RelativeOrAbsolute));
-            image8.Source  = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledCards[7] + ".jpg"), UriKind.RelativeOrAbsolute));
-            image9.Source  = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledCards[8] + ".jpg"), UriKind.RelativeOrAbsolute));
-            image10.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledCards[9] + ".jpg"), UriKind.RelativeOrAbsolute));
-            image11.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledCards[10] + ".jpg"), UriKind.RelativeOrAbsolute));
-            image12.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledCards[11] + ".jpg"), UriKind.RelativeOrAbsolute));
-            image13.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledCards[12] + ".jpg"), UriKind.RelativeOrAbsolute));
-            image14.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledCards[13] + ".jpg"), UriKind.RelativeOrAbsolute));
-            image15.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledCards[14] + ".jpg"), UriKind.RelativeOrAbsolute));
-            image16.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/" + shuffledCards[15] + ".jpg"), UriKind.RelativeOrAbsolute));
-        }                      
-                               
+            tb1.Text = shuffledCards[0].ToString();
+            tb2.Text = shuffledCards[1].ToString();
+            tb3.Text = shuffledCards[2].ToString();
+            tb4.Text = shuffledCards[3].ToString();
+            tb5.Text = shuffledCards[4].ToString();
+            tb6.Text = shuffledCards[5].ToString();
+            tb7.Text = shuffledCards[6].ToString();
+            tb8.Text = shuffledCards[7].ToString();
+            tb9.Text = shuffledCards[8].ToString();
+            tb10.Text = shuffledCards[9].ToString();
+            tb11.Text = shuffledCards[10].ToString();
+            tb12.Text = shuffledCards[11].ToString();
+            tb13.Text = shuffledCards[12].ToString();
+            tb14.Text = shuffledCards[13].ToString();
+            tb15.Text = shuffledCards[14].ToString();
+            tb16.Text = shuffledCards[15].ToString();
+
+        }
+
         // void AssignCardsToTiles()
         //{
 
-            //AssignImagesToCards(Int32.Parse(box1.Text));
-            //AssignImagesToCards(Int32.Parse(box2.Text));
-            //AssignImagesToCards(Int32.Parse(box3.Text));
-            //AssignImagesToCards(Int32.Parse(box4.Text));
-            //AssignImagesToCards(Int32.Parse(box5.Text));
-            //AssignImagesToCards(Int32.Parse(box6.Text));
-            //AssignImagesToCards(Int32.Parse(box7.Text));
-            //AssignImagesToCards(Int32.Parse(box8.Text));
-            //AssignImagesToCards(Int32.Parse(box9.Text));
-            //AssignImagesToCards(Int32.Parse(box10.Text));
-            //AssignImagesToCards(Int32.Parse(box11.Text));
-            //AssignImagesToCards(Int32.Parse(box12.Text));
-            //AssignImagesToCards(Int32.Parse(box13.Text));
-            //AssignImagesToCards(Int32.Parse(box14.Text));
-            //AssignImagesToCards(Int32.Parse(box15.Text));
-            //AssignImagesToCards(Int32.Parse(box16.Text));
-            
-            //void AssignImagesToCards(int cardNo)
-            //{
-            //    switch (cardNo)
-            //    {
-            //        case 1:
-            //            image1.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/1.jpg"), UriKind.RelativeOrAbsolute));
-            //            break;
-            //        case 2:
-            //            image2.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/1.jpg"), UriKind.RelativeOrAbsolute));
-            //            break;
-            //        case 3:
-            //            image3.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/2.jpg"), UriKind.RelativeOrAbsolute));
-            //            break;
-            //        case 4:
-            //            image4.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/2.jpg"), UriKind.RelativeOrAbsolute));
-            //            break;
-            //        case 5:
-            //            image5.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/3.jpg"), UriKind.RelativeOrAbsolute));
-            //            break;
-            //        case 6:
-            //            image6.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/3.jpg"), UriKind.RelativeOrAbsolute));
-            //            break;
-            //        case 7:
-            //            image7.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/4.jpg"), UriKind.RelativeOrAbsolute));
-            //            break;
-            //        case 8:
-            //            image8.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/4.jpg"), UriKind.RelativeOrAbsolute));
-            //            break;
-            //        case 9:
-            //            image9.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/5.jpg"), UriKind.RelativeOrAbsolute));
-            //            break;
-            //        case 10:
-            //            image10.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/5.jpg"), UriKind.RelativeOrAbsolute));
-            //            break;
-            //        case 11:
-            //            image11.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/6.jpg"), UriKind.RelativeOrAbsolute));
-            //            break;
-            //        case 12:
-            //            image12.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/6.jpg"), UriKind.RelativeOrAbsolute));
-            //            break;
-            //        case 13:
-            //            image13.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/7.jpg"), UriKind.RelativeOrAbsolute));
-            //            break;
-            //        case 14:
-            //            image14.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/7.jpg"), UriKind.RelativeOrAbsolute));
-            //            break;
-            //        case 15:
-            //            image15.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/8.jpg"), UriKind.RelativeOrAbsolute));
-            //            break;
-            //        case 16:
-            //            image16.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/8.jpg"), UriKind.RelativeOrAbsolute));
-            //            break;
-            //        default:
-            //            break;
-            //    }
-            //}
+        //AssignImagesToCards(Int32.Parse(box1.Text));
+        //AssignImagesToCards(Int32.Parse(box2.Text));
+        //AssignImagesToCards(Int32.Parse(box3.Text));
+        //AssignImagesToCards(Int32.Parse(box4.Text));
+        //AssignImagesToCards(Int32.Parse(box5.Text));
+        //AssignImagesToCards(Int32.Parse(box6.Text));
+        //AssignImagesToCards(Int32.Parse(box7.Text));
+        //AssignImagesToCards(Int32.Parse(box8.Text));
+        //AssignImagesToCards(Int32.Parse(box9.Text));
+        //AssignImagesToCards(Int32.Parse(box10.Text));
+        //AssignImagesToCards(Int32.Parse(box11.Text));
+        //AssignImagesToCards(Int32.Parse(box12.Text));
+        //AssignImagesToCards(Int32.Parse(box13.Text));
+        //AssignImagesToCards(Int32.Parse(box14.Text));
+        //AssignImagesToCards(Int32.Parse(box15.Text));
+        //AssignImagesToCards(Int32.Parse(box16.Text));
+
+        //void AssignImagesToCards(int cardNo)
+        //{
+        //    switch (cardNo)
+        //    {
+        //        case 1:
+        //            image1.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/1.jpg"), UriKind.RelativeOrAbsolute));
+        //            break;
+        //        case 2:
+        //            image2.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/1.jpg"), UriKind.RelativeOrAbsolute));
+        //            break;
+        //        case 3:
+        //            image3.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/2.jpg"), UriKind.RelativeOrAbsolute));
+        //            break;
+        //        case 4:
+        //            image4.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/2.jpg"), UriKind.RelativeOrAbsolute));
+        //            break;
+        //        case 5:
+        //            image5.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/3.jpg"), UriKind.RelativeOrAbsolute));
+        //            break;
+        //        case 6:
+        //            image6.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/3.jpg"), UriKind.RelativeOrAbsolute));
+        //            break;
+        //        case 7:
+        //            image7.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/4.jpg"), UriKind.RelativeOrAbsolute));
+        //            break;
+        //        case 8:
+        //            image8.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/4.jpg"), UriKind.RelativeOrAbsolute));
+        //            break;
+        //        case 9:
+        //            image9.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/5.jpg"), UriKind.RelativeOrAbsolute));
+        //            break;
+        //        case 10:
+        //            image10.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/5.jpg"), UriKind.RelativeOrAbsolute));
+        //            break;
+        //        case 11:
+        //            image11.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/6.jpg"), UriKind.RelativeOrAbsolute));
+        //            break;
+        //        case 12:
+        //            image12.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/6.jpg"), UriKind.RelativeOrAbsolute));
+        //            break;
+        //        case 13:
+        //            image13.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/7.jpg"), UriKind.RelativeOrAbsolute));
+        //            break;
+        //        case 14:
+        //            image14.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/7.jpg"), UriKind.RelativeOrAbsolute));
+        //            break;
+        //        case 15:
+        //            image15.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/8.jpg"), UriKind.RelativeOrAbsolute));
+        //            break;
+        //        case 16:
+        //            image16.Source = new BitmapImage(new Uri((@"/images/cards/" + theme + "/8.jpg"), UriKind.RelativeOrAbsolute));
+        //            break;
+        //        default:
+        //            break;
+        //    }
+        //}
 
 
-            //// box1
-            //if (box1.Text == "1" || box1.Text == "2")
-            //{
-            //    
-            //}
-            //else if (box1.Text == "3" || box1.Text == "4")
-            //{
-            //    image1.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/2.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box1.Text == "5" || box1.Text == "6")
-            //{
-            //    image1.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/3.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box1.Text == "7" || box1.Text == "8")
-            //{
-            //    image1.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/4.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box1.Text == "9" || box1.Text == "10")
-            //{
-            //    image1.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/5.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box1.Text == "11" || box1.Text == "12")
-            //{
-            //    image1.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/6.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box1.Text == "13" || box1.Text == "14")
-            //{
-            //    image1.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/7.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box1.Text == "15" || box1.Text == "16")
-            //{
-            //    image1.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/8.jpg", UriKind.RelativeOrAbsolute));
-            //}
+        //// box1
+        //if (box1.Text == "1" || box1.Text == "2")
+        //{
+        //    
+        //}
+        //else if (box1.Text == "3" || box1.Text == "4")
+        //{
+        //    image1.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/2.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box1.Text == "5" || box1.Text == "6")
+        //{
+        //    image1.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/3.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box1.Text == "7" || box1.Text == "8")
+        //{
+        //    image1.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/4.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box1.Text == "9" || box1.Text == "10")
+        //{
+        //    image1.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/5.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box1.Text == "11" || box1.Text == "12")
+        //{
+        //    image1.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/6.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box1.Text == "13" || box1.Text == "14")
+        //{
+        //    image1.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/7.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box1.Text == "15" || box1.Text == "16")
+        //{
+        //    image1.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/8.jpg", UriKind.RelativeOrAbsolute));
+        //}
 
 
-            //// box2
-            //if (box2.Text == "1" || box2.Text == "2")
-            //{
-            //    image2.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/1.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box2.Text == "3" || box2.Text == "4")
-            //{
-            //    image2.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/2.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box2.Text == "5" || box2.Text == "6")
-            //{
-            //    image2.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/3.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box2.Text == "7" || box2.Text == "8")
-            //{
-            //    image2.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/4.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box2.Text == "9" || box2.Text == "10")
-            //{
-            //    image2.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/5.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box2.Text == "11" || box2.Text == "12")
-            //{
-            //    image2.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/6.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box2.Text == "13" || box2.Text == "14")
-            //{
-            //    image2.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/7.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box2.Text == "15" || box2.Text == "16")
-            //{
-            //    image2.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/8.jpg", UriKind.RelativeOrAbsolute));
-            //}
+        //// box2
+        //if (box2.Text == "1" || box2.Text == "2")
+        //{
+        //    image2.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/1.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box2.Text == "3" || box2.Text == "4")
+        //{
+        //    image2.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/2.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box2.Text == "5" || box2.Text == "6")
+        //{
+        //    image2.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/3.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box2.Text == "7" || box2.Text == "8")
+        //{
+        //    image2.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/4.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box2.Text == "9" || box2.Text == "10")
+        //{
+        //    image2.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/5.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box2.Text == "11" || box2.Text == "12")
+        //{
+        //    image2.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/6.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box2.Text == "13" || box2.Text == "14")
+        //{
+        //    image2.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/7.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box2.Text == "15" || box2.Text == "16")
+        //{
+        //    image2.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/8.jpg", UriKind.RelativeOrAbsolute));
+        //}
 
-            //// box3
-            //if (box3.Text == "1" || box3.Text == "2")
-            //{
-            //    image3.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/1.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box3.Text == "3" || box3.Text == "4")
-            //{
-            //    image3.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/2.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box3.Text == "5" || box3.Text == "6")
-            //{
-            //    image3.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/3.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box3.Text == "7" || box3.Text == "8")
-            //{
-            //    image3.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/4.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box3.Text == "9" || box3.Text == "10")
-            //{
-            //    image3.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/5.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box3.Text == "11" || box3.Text == "12")
-            //{
-            //    image3.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/6.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box3.Text == "13" || box3.Text == "14")
-            //{
-            //    image3.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/7.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box3.Text == "15" || box3.Text == "16")
-            //{
-            //    image3.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/8.jpg", UriKind.RelativeOrAbsolute));
-            //}
+        //// box3
+        //if (box3.Text == "1" || box3.Text == "2")
+        //{
+        //    image3.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/1.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box3.Text == "3" || box3.Text == "4")
+        //{
+        //    image3.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/2.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box3.Text == "5" || box3.Text == "6")
+        //{
+        //    image3.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/3.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box3.Text == "7" || box3.Text == "8")
+        //{
+        //    image3.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/4.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box3.Text == "9" || box3.Text == "10")
+        //{
+        //    image3.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/5.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box3.Text == "11" || box3.Text == "12")
+        //{
+        //    image3.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/6.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box3.Text == "13" || box3.Text == "14")
+        //{
+        //    image3.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/7.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box3.Text == "15" || box3.Text == "16")
+        //{
+        //    image3.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/8.jpg", UriKind.RelativeOrAbsolute));
+        //}
 
-            //// box4
-            //if (box4.Text == "1" || box4.Text == "2")
-            //{
-            //    image4.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/1.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box4.Text == "3" || box4.Text == "4")
-            //{
-            //    image4.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/2.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box4.Text == "5" || box4.Text == "6")
-            //{
-            //    image4.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/3.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box4.Text == "7" || box4.Text == "8")
-            //{
-            //    image4.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/4.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box4.Text == "9" || box4.Text == "10")
-            //{
-            //    image4.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/5.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box4.Text == "11" || box4.Text == "12")
-            //{
-            //    image4.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/6.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box4.Text == "13" || box4.Text == "14")
-            //{
-            //    image4.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/7.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box4.Text == "15" || box4.Text == "16")
-            //{
-            //    image4.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/8.jpg", UriKind.RelativeOrAbsolute));
-            //}
+        //// box4
+        //if (box4.Text == "1" || box4.Text == "2")
+        //{
+        //    image4.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/1.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box4.Text == "3" || box4.Text == "4")
+        //{
+        //    image4.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/2.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box4.Text == "5" || box4.Text == "6")
+        //{
+        //    image4.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/3.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box4.Text == "7" || box4.Text == "8")
+        //{
+        //    image4.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/4.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box4.Text == "9" || box4.Text == "10")
+        //{
+        //    image4.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/5.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box4.Text == "11" || box4.Text == "12")
+        //{
+        //    image4.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/6.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box4.Text == "13" || box4.Text == "14")
+        //{
+        //    image4.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/7.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box4.Text == "15" || box4.Text == "16")
+        //{
+        //    image4.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/8.jpg", UriKind.RelativeOrAbsolute));
+        //}
 
-            ////box 5
-            //if (box5.Text == "1" || box5.Text == "2")
-            //{
-            //    image5.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/1.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box5.Text == "3" || box5.Text == "4")
-            //{
-            //    image5.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/2.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box5.Text == "5" || box5.Text == "6")
-            //{
-            //    image5.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/3.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box5.Text == "7" || box5.Text == "8")
-            //{
-            //    image5.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/4.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box5.Text == "9" || box5.Text == "10")
-            //{
-            //    image5.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/5.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box5.Text == "11" || box5.Text == "12")
-            //{
-            //    image5.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/6.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box5.Text == "13" || box5.Text == "14")
-            //{
-            //    image5.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/7.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box5.Text == "15" || box5.Text == "16")
-            //{
-            //    image5.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/8.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            ////box 6
-            //if (box6.Text == "1" || box6.Text == "2")
-            //{
-            //    image6.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/1.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box6.Text == "3" || box6.Text == "4")
-            //{
-            //    image6.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/2.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box6.Text == "5" || box6.Text == "6")
-            //{
-            //    image6.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/3.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box6.Text == "7" || box6.Text == "8")
-            //{
-            //    image6.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/4.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box6.Text == "9" || box6.Text == "10")
-            //{
-            //    image6.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/5.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box6.Text == "11" || box6.Text == "12")
-            //{
-            //    image6.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/6.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box6.Text == "13" || box6.Text == "14")
-            //{
-            //    image6.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/7.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box6.Text == "15" || box6.Text == "16")
-            //{
-            //    image6.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/8.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            ////box 7
-            //if (box7.Text == "1" || box7.Text == "2")
-            //{
-            //    image7.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/1.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box7.Text == "3" || box7.Text == "4")
-            //{
-            //    image7.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/2.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box7.Text == "5" || box7.Text == "6")
-            //{
-            //    image7.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/3.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box7.Text == "7" || box7.Text == "8")
-            //{
-            //    image7.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/4.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box7.Text == "9" || box7.Text == "10")
-            //{
-            //    image7.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/5.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box7.Text == "11" || box7.Text == "12")
-            //{
-            //    image7.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/6.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box7.Text == "13" || box7.Text == "14")
-            //{
-            //    image7.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/7.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box7.Text == "15" || box7.Text == "16")
-            //{
-            //    image7.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/8.jpg", UriKind.RelativeOrAbsolute));
-            //}
+        ////box 5
+        //if (box5.Text == "1" || box5.Text == "2")
+        //{
+        //    image5.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/1.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box5.Text == "3" || box5.Text == "4")
+        //{
+        //    image5.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/2.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box5.Text == "5" || box5.Text == "6")
+        //{
+        //    image5.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/3.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box5.Text == "7" || box5.Text == "8")
+        //{
+        //    image5.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/4.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box5.Text == "9" || box5.Text == "10")
+        //{
+        //    image5.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/5.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box5.Text == "11" || box5.Text == "12")
+        //{
+        //    image5.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/6.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box5.Text == "13" || box5.Text == "14")
+        //{
+        //    image5.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/7.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box5.Text == "15" || box5.Text == "16")
+        //{
+        //    image5.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/8.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        ////box 6
+        //if (box6.Text == "1" || box6.Text == "2")
+        //{
+        //    image6.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/1.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box6.Text == "3" || box6.Text == "4")
+        //{
+        //    image6.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/2.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box6.Text == "5" || box6.Text == "6")
+        //{
+        //    image6.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/3.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box6.Text == "7" || box6.Text == "8")
+        //{
+        //    image6.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/4.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box6.Text == "9" || box6.Text == "10")
+        //{
+        //    image6.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/5.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box6.Text == "11" || box6.Text == "12")
+        //{
+        //    image6.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/6.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box6.Text == "13" || box6.Text == "14")
+        //{
+        //    image6.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/7.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box6.Text == "15" || box6.Text == "16")
+        //{
+        //    image6.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/8.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        ////box 7
+        //if (box7.Text == "1" || box7.Text == "2")
+        //{
+        //    image7.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/1.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box7.Text == "3" || box7.Text == "4")
+        //{
+        //    image7.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/2.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box7.Text == "5" || box7.Text == "6")
+        //{
+        //    image7.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/3.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box7.Text == "7" || box7.Text == "8")
+        //{
+        //    image7.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/4.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box7.Text == "9" || box7.Text == "10")
+        //{
+        //    image7.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/5.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box7.Text == "11" || box7.Text == "12")
+        //{
+        //    image7.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/6.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box7.Text == "13" || box7.Text == "14")
+        //{
+        //    image7.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/7.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box7.Text == "15" || box7.Text == "16")
+        //{
+        //    image7.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/8.jpg", UriKind.RelativeOrAbsolute));
+        //}
 
-            ////box 8
-            //if (box8.Text == "1" || box8.Text == "2")
-            //{
-            //    image8.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/1.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box8.Text == "3" || box8.Text == "4")
-            //{
-            //    image8.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/2.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box8.Text == "5" || box8.Text == "6")
-            //{
-            //    image8.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/3.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box8.Text == "7" || box8.Text == "8")
-            //{
-            //    image8.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/4.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box8.Text == "9" || box8.Text == "10")
-            //{
-            //    image8.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/5.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box8.Text == "11" || box8.Text == "12")
-            //{
-            //    image8.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/6.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box8.Text == "13" || box8.Text == "14")
-            //{
-            //    image8.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/7.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box8.Text == "15" || box8.Text == "16")
-            //{
-            //    image8.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/8.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            ////box 9
-            //if (box9.Text == "1" || box9.Text == "2")
-            //{
-            //    image9.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/1.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box9.Text == "3" || box9.Text == "4")
-            //{
-            //    image9.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/2.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box9.Text == "5" || box9.Text == "6")
-            //{
-            //    image9.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/3.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box9.Text == "7" || box9.Text == "8")
-            //{
-            //    image9.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/4.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box9.Text == "9" || box9.Text == "10")
-            //{
-            //    image9.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/5.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box9.Text == "11" || box9.Text == "12")
-            //{
-            //    image9.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/6.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box9.Text == "13" || box9.Text == "14")
-            //{
-            //    image9.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/7.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box9.Text == "15" || box9.Text == "16")
-            //{
-            //    image9.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/8.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            ////box 10
-            //if (box10.Text == "1" || box10.Text == "2")
-            //{
-            //    image10.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/1.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box10.Text == "3" || box10.Text == "4")
-            //{
-            //    image10.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/2.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box10.Text == "5" || box10.Text == "6")
-            //{
-            //    image10.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/3.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box10.Text == "7" || box10.Text == "8")
-            //{
-            //    image10.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/4.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box10.Text == "9" || box10.Text == "10")
-            //{
-            //    image10.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/5.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box10.Text == "11" || box10.Text == "12")
-            //{
-            //    image10.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/6.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box10.Text == "13" || box10.Text == "14")
-            //{
-            //    image10.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/7.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box10.Text == "15" || box10.Text == "16")
-            //{
-            //    image10.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/8.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            ////box 11
-            //if (box11.Text == "1" || box11.Text == "2")
-            //{
-            //    image11.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/1.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box11.Text == "3" || box11.Text == "4")
-            //{
-            //    image11.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/2.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box11.Text == "5" || box11.Text == "6")
-            //{
-            //    image11.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/3.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box11.Text == "7" || box11.Text == "8")
-            //{
-            //    image11.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/4.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box11.Text == "9" || box11.Text == "10")
-            //{
-            //    image11.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/5.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box11.Text == "11" || box11.Text == "12")
-            //{
-            //    image11.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/6.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box11.Text == "13" || box11.Text == "14")
-            //{
-            //    image11.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/7.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box11.Text == "15" || box11.Text == "16")
-            //{
-            //    image11.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/8.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            ////box 12
-            //if (box12.Text == "1" || box12.Text == "2")
-            //{
-            //    image12.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/1.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box12.Text == "3" || box12.Text == "4")
-            //{
-            //    image12.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/2.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box12.Text == "5" || box12.Text == "6")
-            //{
-            //    image12.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/3.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box12.Text == "7" || box12.Text == "8")
-            //{
-            //    image12.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/4.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box12.Text == "9" || box12.Text == "10")
-            //{
-            //    image12.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/5.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box12.Text == "11" || box12.Text == "12")
-            //{
-            //    image12.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/6.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box12.Text == "13" || box12.Text == "14")
-            //{
-            //    image12.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/7.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box12.Text == "15" || box12.Text == "16")
-            //{
-            //    image12.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/8.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            ////box 13
-            //if (box13.Text == "1" || box13.Text == "2")
-            //{
-            //    image13.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/1.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box13.Text == "3" || box13.Text == "4")
-            //{
-            //    image13.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/2.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box13.Text == "5" || box13.Text == "6")
-            //{
-            //    image13.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/3.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box13.Text == "7" || box13.Text == "8")
-            //{
-            //    image13.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/4.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box13.Text == "9" || box13.Text == "10")
-            //{
-            //    image13.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/5.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box13.Text == "11" || box13.Text == "12")
-            //{
-            //    image13.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/6.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box13.Text == "13" || box13.Text == "14")
-            //{
-            //    image13.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/7.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box13.Text == "15" || box13.Text == "16")
-            //{
-            //    image13.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/8.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            ////box 14
-            //if (box14.Text == "1" || box14.Text == "2")
-            //{
-            //    image14.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/1.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box14.Text == "3" || box14.Text == "4")
-            //{
-            //    image14.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/2.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box14.Text == "5" || box14.Text == "6")
-            //{
-            //    image14.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/3.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box14.Text == "7" || box14.Text == "8")
-            //{
-            //    image14.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/4.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box14.Text == "9" || box14.Text == "10")
-            //{
-            //    image14.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/5.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box14.Text == "11" || box14.Text == "12")
-            //{
-            //    image14.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/6.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box14.Text == "13" || box14.Text == "14")
-            //{
-            //    image14.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/7.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box14.Text == "15" || box14.Text == "16")
-            //{
-            //    image14.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/8.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            ////box 15
-            //if (box15.Text == "1" || box15.Text == "2")
-            //{
-            //    image15.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/1.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box15.Text == "3" || box15.Text == "4")
-            //{
-            //    image15.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/2.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box15.Text == "5" || box15.Text == "6")
-            //{
-            //    image15.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/3.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box15.Text == "7" || box15.Text == "8")
-            //{
-            //    image15.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/4.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box15.Text == "9" || box15.Text == "10")
-            //{
-            //    image15.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/5.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box15.Text == "11" || box15.Text == "12")
-            //{
-            //    image15.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/6.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box15.Text == "13" || box15.Text == "14")
-            //{
-            //    image15.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/7.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box15.Text == "15" || box15.Text == "16")
-            //{
-            //    image15.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/8.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            ////box 16
-            //if (box16.Text == "1" || box16.Text == "2")
-            //{
-            //    image16.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/1.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box16.Text == "3" || box16.Text == "4")
-            //{
-            //    image16.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/2.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box16.Text == "5" || box16.Text == "6")
-            //{
-            //    image16.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/3.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box16.Text == "7" || box16.Text == "8")
-            //{
-            //    image16.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/4.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box16.Text == "9" || box16.Text == "10")
-            //{
-            //    image16.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/5.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box16.Text == "11" || box16.Text == "12")
-            //{
-            //    image16.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/6.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box16.Text == "13" || box16.Text == "14")
-            //{
-            //    image16.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/7.jpg", UriKind.RelativeOrAbsolute));
-            //}
-            //else if (box16.Text == "15" || box16.Text == "16")
-            //{
-            //    image16.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/8.jpg", UriKind.RelativeOrAbsolute));
-            //}
+        ////box 8
+        //if (box8.Text == "1" || box8.Text == "2")
+        //{
+        //    image8.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/1.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box8.Text == "3" || box8.Text == "4")
+        //{
+        //    image8.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/2.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box8.Text == "5" || box8.Text == "6")
+        //{
+        //    image8.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/3.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box8.Text == "7" || box8.Text == "8")
+        //{
+        //    image8.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/4.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box8.Text == "9" || box8.Text == "10")
+        //{
+        //    image8.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/5.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box8.Text == "11" || box8.Text == "12")
+        //{
+        //    image8.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/6.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box8.Text == "13" || box8.Text == "14")
+        //{
+        //    image8.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/7.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box8.Text == "15" || box8.Text == "16")
+        //{
+        //    image8.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/8.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        ////box 9
+        //if (box9.Text == "1" || box9.Text == "2")
+        //{
+        //    image9.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/1.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box9.Text == "3" || box9.Text == "4")
+        //{
+        //    image9.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/2.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box9.Text == "5" || box9.Text == "6")
+        //{
+        //    image9.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/3.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box9.Text == "7" || box9.Text == "8")
+        //{
+        //    image9.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/4.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box9.Text == "9" || box9.Text == "10")
+        //{
+        //    image9.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/5.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box9.Text == "11" || box9.Text == "12")
+        //{
+        //    image9.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/6.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box9.Text == "13" || box9.Text == "14")
+        //{
+        //    image9.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/7.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box9.Text == "15" || box9.Text == "16")
+        //{
+        //    image9.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/8.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        ////box 10
+        //if (box10.Text == "1" || box10.Text == "2")
+        //{
+        //    image10.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/1.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box10.Text == "3" || box10.Text == "4")
+        //{
+        //    image10.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/2.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box10.Text == "5" || box10.Text == "6")
+        //{
+        //    image10.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/3.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box10.Text == "7" || box10.Text == "8")
+        //{
+        //    image10.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/4.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box10.Text == "9" || box10.Text == "10")
+        //{
+        //    image10.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/5.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box10.Text == "11" || box10.Text == "12")
+        //{
+        //    image10.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/6.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box10.Text == "13" || box10.Text == "14")
+        //{
+        //    image10.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/7.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box10.Text == "15" || box10.Text == "16")
+        //{
+        //    image10.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/8.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        ////box 11
+        //if (box11.Text == "1" || box11.Text == "2")
+        //{
+        //    image11.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/1.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box11.Text == "3" || box11.Text == "4")
+        //{
+        //    image11.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/2.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box11.Text == "5" || box11.Text == "6")
+        //{
+        //    image11.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/3.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box11.Text == "7" || box11.Text == "8")
+        //{
+        //    image11.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/4.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box11.Text == "9" || box11.Text == "10")
+        //{
+        //    image11.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/5.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box11.Text == "11" || box11.Text == "12")
+        //{
+        //    image11.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/6.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box11.Text == "13" || box11.Text == "14")
+        //{
+        //    image11.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/7.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box11.Text == "15" || box11.Text == "16")
+        //{
+        //    image11.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/8.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        ////box 12
+        //if (box12.Text == "1" || box12.Text == "2")
+        //{
+        //    image12.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/1.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box12.Text == "3" || box12.Text == "4")
+        //{
+        //    image12.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/2.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box12.Text == "5" || box12.Text == "6")
+        //{
+        //    image12.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/3.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box12.Text == "7" || box12.Text == "8")
+        //{
+        //    image12.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/4.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box12.Text == "9" || box12.Text == "10")
+        //{
+        //    image12.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/5.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box12.Text == "11" || box12.Text == "12")
+        //{
+        //    image12.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/6.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box12.Text == "13" || box12.Text == "14")
+        //{
+        //    image12.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/7.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box12.Text == "15" || box12.Text == "16")
+        //{
+        //    image12.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/8.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        ////box 13
+        //if (box13.Text == "1" || box13.Text == "2")
+        //{
+        //    image13.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/1.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box13.Text == "3" || box13.Text == "4")
+        //{
+        //    image13.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/2.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box13.Text == "5" || box13.Text == "6")
+        //{
+        //    image13.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/3.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box13.Text == "7" || box13.Text == "8")
+        //{
+        //    image13.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/4.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box13.Text == "9" || box13.Text == "10")
+        //{
+        //    image13.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/5.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box13.Text == "11" || box13.Text == "12")
+        //{
+        //    image13.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/6.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box13.Text == "13" || box13.Text == "14")
+        //{
+        //    image13.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/7.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box13.Text == "15" || box13.Text == "16")
+        //{
+        //    image13.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/8.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        ////box 14
+        //if (box14.Text == "1" || box14.Text == "2")
+        //{
+        //    image14.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/1.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box14.Text == "3" || box14.Text == "4")
+        //{
+        //    image14.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/2.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box14.Text == "5" || box14.Text == "6")
+        //{
+        //    image14.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/3.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box14.Text == "7" || box14.Text == "8")
+        //{
+        //    image14.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/4.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box14.Text == "9" || box14.Text == "10")
+        //{
+        //    image14.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/5.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box14.Text == "11" || box14.Text == "12")
+        //{
+        //    image14.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/6.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box14.Text == "13" || box14.Text == "14")
+        //{
+        //    image14.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/7.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box14.Text == "15" || box14.Text == "16")
+        //{
+        //    image14.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/8.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        ////box 15
+        //if (box15.Text == "1" || box15.Text == "2")
+        //{
+        //    image15.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/1.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box15.Text == "3" || box15.Text == "4")
+        //{
+        //    image15.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/2.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box15.Text == "5" || box15.Text == "6")
+        //{
+        //    image15.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/3.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box15.Text == "7" || box15.Text == "8")
+        //{
+        //    image15.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/4.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box15.Text == "9" || box15.Text == "10")
+        //{
+        //    image15.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/5.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box15.Text == "11" || box15.Text == "12")
+        //{
+        //    image15.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/6.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box15.Text == "13" || box15.Text == "14")
+        //{
+        //    image15.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/7.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box15.Text == "15" || box15.Text == "16")
+        //{
+        //    image15.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/8.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        ////box 16
+        //if (box16.Text == "1" || box16.Text == "2")
+        //{
+        //    image16.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/1.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box16.Text == "3" || box16.Text == "4")
+        //{
+        //    image16.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/2.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box16.Text == "5" || box16.Text == "6")
+        //{
+        //    image16.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/3.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box16.Text == "7" || box16.Text == "8")
+        //{
+        //    image16.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/4.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box16.Text == "9" || box16.Text == "10")
+        //{
+        //    image16.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/5.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box16.Text == "11" || box16.Text == "12")
+        //{
+        //    image16.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/6.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box16.Text == "13" || box16.Text == "14")
+        //{
+        //    image16.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/7.jpg", UriKind.RelativeOrAbsolute));
+        //}
+        //else if (box16.Text == "15" || box16.Text == "16")
+        //{
+        //    image16.Source = new BitmapImage(new Uri(@"/images/cards/" + theme + "/8.jpg", UriKind.RelativeOrAbsolute));
+        //}
         //}
 
         void UpdateClicks()
@@ -816,87 +838,178 @@ namespace Concentration
             UpdateClicks();
         }
 
-        bool CheckIfPair(int selection, int selection2)
+        private void CheckIfPair(int selection, int selection2)
         {
             if (selection == selection2)
             {
+
+                if (cardArray[0, 1] == selection)
+                {
+                    card1found = true;
+                }
+                if (cardArray[1, 1] == selection)
+                {
+                    card2found = true;
+                }
+                if (cardArray[2, 1] == selection)
+                {
+                    card3found = true;
+                }
+                if (cardArray[3, 1] == selection)
+                {
+                    card4found = true;
+                }
+                if (cardArray[4, 1] == selection)
+                {
+                    card5found = true;
+                }
+                if (cardArray[5, 1] == selection)
+                {
+                    card6found = true;
+                }
+                if (cardArray[6, 1] == selection)
+                {
+                    card7found = true;
+                }
+                if (cardArray[7, 1] == selection)
+                {
+                    card8found = true;
+                }
+                if (cardArray[8, 1] == selection)
+                {
+                    card9found = true;
+                }
+                if (cardArray[9, 1] == selection)
+                {
+                    card10found = true;
+                }
+                if (cardArray[10, 1] == selection)
+                {
+                    card11found = true;
+                }
+                if (cardArray[11, 1] == selection)
+                {
+                    card12found = true;
+                }
+                if (cardArray[12, 1] == selection)
+                {
+                    card13found = true;
+                }
+                if (cardArray[13, 1] == selection)
+                {
+                    card14found = true;
+                }
+                if (cardArray[14, 1] == selection)
+                {
+                    card15found = true;
+                }
+                if (cardArray[15, 1] == selection)
+                {
+                    card16found = true;
+                }
                 pairs++;
-                return pairFound = true;
+                UpdateClicks();
+                CheckIfWon();
             }
             else
             {
-                return pairFound = false;
+                UpdateClicks();
             }
-
-            /// THE PROBLEM HERE IS THAT THE PAIR NUMBER IS NOT MATCHED UP TO THE BACK NUMBER....
-            /// 
-            ////
-            ///
-            ////
-            ///
-            ////
-            // I think the above is all I need for this section....!
-            // I just need to sort out the logic for keeping cards shown.
-            
         }
 
         private void CheckIfWon()
         {
-            if(pairs == 8)
+            if (pairs == 8)
             {
                 MessageBox.Show("You have won!");
             }
         }
 
-        async Task ReCoverCards(bool paired1, bool paired2, bool paired3, bool paired4, bool paired5, bool paired6,
-                          bool paired7, bool paired8)
-            //, bool paired9, bool paired10, bool paired11, bool paired12, bool paired13, bool paired14, bool paired15, bool paired16
+        async Task ReCoverCards()
+        //, bool paired9, bool paired10, bool paired11, bool paired12, bool paired13, bool paired14, bool paired15, bool paired16
         {
-            //MessageBox.Show(paired1.ToString() + paired2.ToString() + paired3.ToString() + paired4.ToString() + paired5.ToString() + paired6.ToString() + paired7.ToString() + paired8.ToString() + paired9.ToString() + paired10.ToString() + paired11.ToString() + paired12.ToString() + paired13.ToString() + paired14.ToString() + paired15.ToString() + paired16.ToString());
+            back1.Visibility = Visibility.Visible;
+            back2.Visibility = Visibility.Visible;
+            back3.Visibility = Visibility.Visible;
+            back4.Visibility = Visibility.Visible;
+            back5.Visibility = Visibility.Visible;
+            back6.Visibility = Visibility.Visible;
+            back7.Visibility = Visibility.Visible;
+            back8.Visibility = Visibility.Visible;
+            back9.Visibility = Visibility.Visible;
+            back10.Visibility = Visibility.Visible;
+            back11.Visibility = Visibility.Visible;
+            back12.Visibility = Visibility.Visible;
+            back13.Visibility = Visibility.Visible;
+            back14.Visibility = Visibility.Visible;
+            back15.Visibility = Visibility.Visible;
+            back16.Visibility = Visibility.Visible;
 
-            _ = Wait(2000);
-            
-            if (!paired1)
+            if (card1found)
             {
-                back1.Visibility = Visibility.Visible;
-                back9.Visibility = Visibility.Visible;
+                back1.Visibility = Visibility.Hidden;
             }
-            if (!paired2)
+            if (card2found)
             {
-                back2.Visibility = Visibility.Visible;
-                back10.Visibility = Visibility.Visible;
+                back2.Visibility = Visibility.Hidden;
             }
-            if (!paired3)
+            if (card3found)
             {
-                back3.Visibility = Visibility.Visible;
-                back11.Visibility = Visibility.Visible;
+                back3.Visibility = Visibility.Hidden;
             }
-            if (!paired4)
+            if (card4found)
             {
-                back4.Visibility = Visibility.Visible;
-                back12.Visibility = Visibility.Visible;
+                back4.Visibility = Visibility.Hidden;
             }
-            if (!paired5)
+            if (card5found)
             {
-                back5.Visibility = Visibility.Visible;
-                back13.Visibility = Visibility.Visible;
+                back5.Visibility = Visibility.Hidden;
             }
-            if (!paired6)
+            if (card6found)
             {
-                back6.Visibility = Visibility.Visible;
-                back14.Visibility = Visibility.Visible;
+                back6.Visibility = Visibility.Hidden;
             }
-            if (!paired7)
+            if (card7found)
             {
-                back7.Visibility = Visibility.Visible;
-                back15.Visibility = Visibility.Visible;
+                back7.Visibility = Visibility.Hidden;
             }
-            if (!paired8)
+            if (card8found)
             {
-                back8.Visibility = Visibility.Visible;
-                back16.Visibility = Visibility.Visible;
+                back8.Visibility = Visibility.Hidden;
             }
-         }
+            if (card9found)
+            {
+                back9.Visibility = Visibility.Hidden;
+            }
+            if (card10found)
+            {
+                back10.Visibility = Visibility.Hidden;
+            }
+            if (card11found)
+            {
+                back11.Visibility = Visibility.Hidden;
+            }
+            if (card12found)
+            {
+                back12.Visibility = Visibility.Hidden;
+            }
+            if (card13found)
+            {
+                back13.Visibility = Visibility.Hidden;
+            }
+            if (card14found)
+            {
+                back14.Visibility = Visibility.Hidden;
+            }
+            if (card15found)
+            {
+                back15.Visibility = Visibility.Hidden;
+            }
+            if (card16found)
+            {
+                back16.Visibility = Visibility.Hidden;
+            }
+        }
 
         public async Task Wait(int milliseconds)
         {
@@ -918,12 +1031,11 @@ namespace Concentration
             }
         }
 
-        private void Back1_Click(object sender, RoutedEventArgs e)
+        private async void Back1_Click(object sender, RoutedEventArgs e)
         {
             clicks++;
             UpdateClicks();
-
-            //("back00" + shuffledCards[0].ToString()).Visibility = Visibility.Hidden;
+            back1.Visibility = Visibility.Hidden;
 
             if (selection == 0)
             {
@@ -937,11 +1049,12 @@ namespace Concentration
                 UpdateDebug();
                 selection = 0;
                 selection2 = 0;
-                
+                await Wait(waitTime);
+                await ReCoverCards();
             }
         }
 
-        private void Back2_Click(object sender, RoutedEventArgs e)
+        private async void Back2_Click(object sender, RoutedEventArgs e)
         {
             clicks++;
             UpdateClicks();
@@ -959,11 +1072,12 @@ namespace Concentration
                 UpdateDebug();
                 selection = 0;
                 selection2 = 0;
-                
+                await Wait(waitTime);
+                await ReCoverCards();
             }
         }
 
-        private void Back3_Click(object sender, RoutedEventArgs e)
+        private async void Back3_Click(object sender, RoutedEventArgs e)
         {
             clicks++;
             UpdateClicks();
@@ -981,11 +1095,13 @@ namespace Concentration
                 UpdateDebug();
                 selection = 0;
                 selection2 = 0;
-                
+                await Wait(waitTime);
+                await ReCoverCards();
+
             }
         }
 
-        private void Back4_Click(object sender, RoutedEventArgs e)
+        private async void Back4_Click(object sender, RoutedEventArgs e)
         {
             clicks++;
             UpdateClicks();
@@ -1003,11 +1119,13 @@ namespace Concentration
                 UpdateDebug();
                 selection = 0;
                 selection2 = 0;
-                
+                await Wait(waitTime);
+                await ReCoverCards();
+
             }
         }
 
-        private void Back5_Click(object sender, RoutedEventArgs e)
+        private async void Back5_Click(object sender, RoutedEventArgs e)
         {
             clicks++;
             UpdateClicks();
@@ -1025,11 +1143,13 @@ namespace Concentration
                 UpdateDebug();
                 selection = 0;
                 selection2 = 0;
-                
+                await Wait(waitTime);
+                await ReCoverCards();
+
             }
         }
 
-        private void Back6_Click(object sender, RoutedEventArgs e)
+        private async void Back6_Click(object sender, RoutedEventArgs e)
         {
             clicks++;
             UpdateClicks();
@@ -1046,11 +1166,13 @@ namespace Concentration
                 UpdateDebug();
                 selection = 0;
                 selection2 = 0;
-                
+                await Wait(waitTime);
+                await ReCoverCards();
+
             }
         }
 
-        private void Back7_Click(object sender, RoutedEventArgs e)
+        private async void Back7_Click(object sender, RoutedEventArgs e)
         {
             clicks++;
             UpdateClicks();
@@ -1067,11 +1189,12 @@ namespace Concentration
                 UpdateDebug();
                 selection = 0;
                 selection2 = 0;
-                
+                await Wait(waitTime);
+                await ReCoverCards();
             }
         }
 
-        private void Back8_Click(object sender, RoutedEventArgs e)
+        private async void Back8_Click(object sender, RoutedEventArgs e)
         {
             clicks++;
             UpdateClicks();
@@ -1088,11 +1211,13 @@ namespace Concentration
                 UpdateDebug();
                 selection = 0;
                 selection2 = 0;
-                
+                await Wait(waitTime);
+                await ReCoverCards();
+
             }
         }
 
-        private void Back9_Click(object sender, RoutedEventArgs e)
+        private async void Back9_Click(object sender, RoutedEventArgs e)
         {
             clicks++;
             UpdateClicks();
@@ -1109,11 +1234,13 @@ namespace Concentration
                 UpdateDebug();
                 selection = 0;
                 selection2 = 0;
-                
+                await Wait(waitTime);
+                await ReCoverCards();
+
             }
         }
 
-        private void Back10_Click(object sender, RoutedEventArgs e)
+        private async void Back10_Click(object sender, RoutedEventArgs e)
         {
             clicks++;
             UpdateClicks();
@@ -1130,11 +1257,13 @@ namespace Concentration
                 UpdateDebug();
                 selection = 0;
                 selection2 = 0;
-                
+                await Wait(waitTime);
+                await ReCoverCards();
+
             }
         }
 
-        private void Back11_Click(object sender, RoutedEventArgs e)
+        private async void Back11_Click(object sender, RoutedEventArgs e)
         {
             clicks++;
             UpdateClicks();
@@ -1151,11 +1280,13 @@ namespace Concentration
                 UpdateDebug();
                 selection = 0;
                 selection2 = 0;
-                
+                await Wait(waitTime);
+                await ReCoverCards();
+
             }
         }
 
-        private void Back12_Click(object sender, RoutedEventArgs e)
+        private async void Back12_Click(object sender, RoutedEventArgs e)
         {
             clicks++;
             UpdateClicks();
@@ -1172,11 +1303,13 @@ namespace Concentration
                 UpdateDebug();
                 selection = 0;
                 selection2 = 0;
-                
+                await Wait(waitTime);
+                await ReCoverCards();
+
             }
         }
 
-        private void Back13_Click(object sender, RoutedEventArgs e)
+        private async void Back13_Click(object sender, RoutedEventArgs e)
         {
             clicks++;
             UpdateClicks();
@@ -1193,11 +1326,13 @@ namespace Concentration
                 UpdateDebug();
                 selection = 0;
                 selection2 = 0;
-                
+                await Wait(waitTime);
+                await ReCoverCards();
+
             }
         }
 
-        private void Back14_Click(object sender, RoutedEventArgs e)
+        private async void Back14_Click(object sender, RoutedEventArgs e)
         {
             clicks++;
             UpdateClicks();
@@ -1214,11 +1349,13 @@ namespace Concentration
                 UpdateDebug();
                 selection = 0;
                 selection2 = 0;
-                
+                await Wait(waitTime);
+                await ReCoverCards();
+
             }
         }
 
-        private void Back15_Click(object sender, RoutedEventArgs e)
+        private async void Back15_Click(object sender, RoutedEventArgs e)
         {
             clicks++;
             UpdateClicks();
@@ -1232,14 +1369,16 @@ namespace Concentration
             {
                 selection2 = Int32.Parse(box15.Text);
                 CheckIfPair(selection, selection2);
-                UpdateDebug();
                 selection = 0;
                 selection2 = 0;
-                
+                UpdateDebug();
+                await Wait(waitTime);
+                await ReCoverCards();
+
             }
         }
 
-        private void Back16_Click(object sender, RoutedEventArgs e)
+        private async void Back16_Click(object sender, RoutedEventArgs e)
         {
             clicks++;
             UpdateClicks();
@@ -1253,10 +1392,11 @@ namespace Concentration
             {
                 selection2 = Int32.Parse(box16.Text);
                 CheckIfPair(selection, selection2);
+                await Wait(waitTime);
+                await ReCoverCards();
                 UpdateDebug();
                 selection = 0;
                 selection2 = 0;
-                
             }
         }
 
@@ -1280,7 +1420,7 @@ namespace Concentration
 
         private void UncoverCards_Click(object sender, RoutedEventArgs e)
         {
-            if(cardsHidden)
+            if (cardsHidden)
             {
                 back1.Visibility = Visibility.Hidden;
                 back2.Visibility = Visibility.Hidden;
@@ -1365,6 +1505,18 @@ namespace Concentration
                 image16.Visibility = Visibility.Visible;
                 showNumbers = true;
             }
+        }
+
+        private void Default_Selected(object sender, RoutedEventArgs e)
+        {
+            defaultTheme = "basic";
+            SortAndRandomiseCards();
+        }
+
+        private void Dolphins_Selected(object sender, RoutedEventArgs e)
+        {
+            defaultTheme = "dolphin";
+            SortAndRandomiseCards();
         }
     }
 }
