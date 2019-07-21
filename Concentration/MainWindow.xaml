@@ -5,10 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Concentration"
         mc:Ignorable="d"
-        Title="MainWindow" Height="900" Width="1000" Background="Black">
+        Title="MainWindow" Height="900" Width="1000" Background="Black" ResizeMode="NoResize">
+
+    <!--Default Skin-->
 
     <Window.Resources>
-
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
                 <Setter.Value>
@@ -18,17 +19,17 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <ImageBrush x:Key="Button.Static.Background" ImageSource="{Binding Source=theme}"/>
+        <ImageBrush x:Key="Button.Static.Background" ImageSource="images/cards/basic/back.jpg"/>
         <SolidColorBrush x:Key="Button.Static.Border" Color="#00000000"/>
-        <ImageBrush x:Key="Button.Pressed.Background" ImageSource="images\cards\basic\backsel.jpg"/>
-        <ImageBrush x:Key="Button.MouseOver.Background" ImageSource="images\cards\basic\backov.jpg"/>
+        <ImageBrush x:Key="Button.Pressed.Background" ImageSource="images/cards/basic/backsel.jpg"/>
+        <ImageBrush x:Key="Button.MouseOver.Background" ImageSource="images/cards/basic/backov.jpg"/>
         <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#00000000"/>
         <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
         <SolidColorBrush x:Key="Button.Disabled.Background" Color="#00000000"/>
         <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFFF00FF"/>
         <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
 
-        <Style x:Key="CardBackMouseover" TargetType="{x:Type Button}">
+        <Style x:Key="DefaultCardBackMouseover" TargetType="{x:Type Button}">
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
             <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
             <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
@@ -65,6 +66,207 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <!--Dolphin Skin-->
+
+        <ImageBrush x:Key="Dolphin.Button.Static.Background" ImageSource="images/cards/dolphin/back.jpg"/>
+        <SolidColorBrush x:Key="Dolphin.Button.Static.Border" Color="#00000000"/>
+        <ImageBrush x:Key="Dolphin.Button.Pressed.Background" ImageSource="images/cards/dolphin/backsel.jpg"/>
+        <ImageBrush x:Key="Dolphin.Button.MouseOver.Background" ImageSource="images/cards/dolphin/backov.jpg"/>
+        <SolidColorBrush x:Key="Dolphin.Button.MouseOver.Border" Color="#00000000"/>
+        <SolidColorBrush x:Key="Dolphin.Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Dolphin.Button.Disabled.Background" Color="#00000000"/>
+        <SolidColorBrush x:Key="Dolphin.Button.Disabled.Border" Color="#FFFF00FF"/>
+        <SolidColorBrush x:Key="Dolphin.Button.Disabled.Foreground" Color="#FF838383"/>
+
+        <Style x:Key="DolphinCardBackMouseover" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Dolphin.Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Dolphin.Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Dolphin.Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Dolphin.Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Dolphin.Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Dolphin.Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Dolphin.Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Dolphin.Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <!--Animal Skin-->
+
+        <ImageBrush x:Key="Animal.Button.Static.Background" ImageSource="images/cards/animal/back.jpg"/>
+        <SolidColorBrush x:Key="Animal.Button.Static.Border" Color="#00000000"/>
+        <ImageBrush x:Key="Animal.Button.Pressed.Background" ImageSource="images/cards/animal/backsel.jpg"/>
+        <ImageBrush x:Key="Animal.Button.MouseOver.Background" ImageSource="images/cards/animal/backov.jpg"/>
+        <SolidColorBrush x:Key="Animal.Button.MouseOver.Border" Color="#00000000"/>
+        <SolidColorBrush x:Key="Animal.Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Animal.Button.Disabled.Background" Color="#00000000"/>
+        <SolidColorBrush x:Key="Animal.Button.Disabled.Border" Color="#FFFF00FF"/>
+        <SolidColorBrush x:Key="Animal.Button.Disabled.Foreground" Color="#FF838383"/>
+
+        <Style x:Key="AnimalCardBackMouseover" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Animal.Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Animal.Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Animal.Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Animal.Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Animal.Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Animal.Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Animal.Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Animal.Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--Sealife Skin-->
+
+        <ImageBrush x:Key="Sealife.Button.Static.Background" ImageSource="images/cards/sealife/back.jpg"/>
+        <SolidColorBrush x:Key="Sealife.Button.Static.Border" Color="#00000000"/>
+        <ImageBrush x:Key="Sealife.Button.Pressed.Background" ImageSource="images/cards/sealife/backsel.jpg"/>
+        <ImageBrush x:Key="Sealife.Button.MouseOver.Background" ImageSource="images/cards/sealife/backov.jpg"/>
+        <SolidColorBrush x:Key="Sealife.Button.MouseOver.Border" Color="#00000000"/>
+        <SolidColorBrush x:Key="Sealife.Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Sealife.Button.Disabled.Background" Color="#00000000"/>
+        <SolidColorBrush x:Key="Sealife.Button.Disabled.Border" Color="#FFFF00FF"/>
+        <SolidColorBrush x:Key="Sealife.Button.Disabled.Foreground" Color="#FF838383"/>
+
+        <Style x:Key="SealifeCardBackMouseover" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Sealife.Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Sealife.Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Sealife.Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Sealife.Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Sealife.Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Sealife.Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Sealife.Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Sealife.Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--Flowers Skin-->
+
+        <ImageBrush x:Key="Flowers.Button.Static.Background" ImageSource="images/cards/flowers/back.jpg"/>
+        <SolidColorBrush x:Key="Flowers.Button.Static.Border" Color="#00000000"/>
+        <ImageBrush x:Key="Flowers.Button.Pressed.Background" ImageSource="images/cards/flowers/backsel.jpg"/>
+        <ImageBrush x:Key="Flowers.Button.MouseOver.Background" ImageSource="images/cards/flowers/backov.jpg"/>
+        <SolidColorBrush x:Key="Flowers.Button.MouseOver.Border" Color="#00000000"/>
+        <SolidColorBrush x:Key="Flowers.Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Flowers.Button.Disabled.Background" Color="#00000000"/>
+        <SolidColorBrush x:Key="Flowers.Button.Disabled.Border" Color="#FFFF00FF"/>
+        <SolidColorBrush x:Key="Flowers.Button.Disabled.Foreground" Color="#FF838383"/>
+
+        <Style x:Key="FlowersCardBackMouseover" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Flowers.Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Flowers.Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Flowers.Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Flowers.Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Flowers.Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Flowers.Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Flowers.Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Flowers.Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
     </Window.Resources>
 
     <Grid>
@@ -103,86 +305,38 @@
                 <TextBlock Name="box15" Grid.Row="3" Grid.Column="2" Text="15" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
                 <TextBlock Name="box16" Grid.Row="3" Grid.Column="3" Text="16" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
 
-                <Button Panel.ZIndex="1" Name="back1" Grid.Row="0" Grid.Column="0" Height="167" Width="116" Click="Back1_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Button.Background>
-                        <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
-                    </Button.Background>
-                </Button>
-                <Button Panel.ZIndex="1" Name="back2" Grid.Row="0" Grid.Column="1" Height="167" Width="116" Click="Back2_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Button.Background>
-                        <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
-                    </Button.Background>
-                </Button>
-                <Button Panel.ZIndex="1" Name="back3" Grid.Row="0" Grid.Column="2" Height="167" Width="116" Click="Back3_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center" >
-                    <Button.Background>
-                        <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
-                    </Button.Background>
-                </Button>
-                <Button Panel.ZIndex="1" Name="back4" Grid.Row="0" Grid.Column="3" Height="167" Width="116" Click="Back4_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center" >
-                    <Button.Background>
-                        <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
-                    </Button.Background>
-                </Button>
-                <Button Panel.ZIndex="1" Name="back5" Grid.Row="1" Grid.Column="0" Height="167" Width="116" Click="Back5_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center" >
-                    <Button.Background>
-                        <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
-                    </Button.Background>
-                </Button>
-                <Button Panel.ZIndex="1" Name="back6" Grid.Row="1" Grid.Column="1" Height="167" Width="116" Click="Back6_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center" >
-                    <Button.Background>
-                        <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
-                    </Button.Background>
-                </Button>
-                <Button Panel.ZIndex="1" Name="back7" Grid.Row="1" Grid.Column="2" Height="167" Width="116" Click="Back7_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Button.Background>
-                        <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
-                    </Button.Background>
-                </Button>
-                <Button Panel.ZIndex="1" Name="back8" Grid.Row="1" Grid.Column="3" Height="167" Width="116" Click="Back8_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Button.Background>
-                        <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
-                    </Button.Background>
-                </Button>
-                <Button Panel.ZIndex="1" Name="back9" Grid.Row="2" Grid.Column="0" Height="167" Width="116" Click="Back9_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Button.Background>
-                        <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
-                    </Button.Background>
-                </Button>
-                <Button Panel.ZIndex="1" Name="back10" Grid.Row="2" Grid.Column="1" Height="167" Width="116" Click="Back10_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Button.Background>
-                        <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
-                    </Button.Background>
-                </Button>
-                <Button Panel.ZIndex="1" Name="back11" Grid.Row="2" Grid.Column="2" Height="167" Width="116" Click="Back11_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Button.Background>
-                        <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
-                    </Button.Background>
-                </Button>
-                <Button Panel.ZIndex="1" Name="back12" Grid.Row="2" Grid.Column="3" Height="167" Width="116" Click="Back12_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Button.Background>
-                        <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
-                    </Button.Background>
-                </Button>
-                <Button Panel.ZIndex="1" Name="back13" Grid.Row="3" Grid.Column="0" Height="167" Width="116" Click="Back13_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Button.Background>
-                        <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
-                    </Button.Background>
-                </Button>
-                <Button Panel.ZIndex="1" Name="back14" Grid.Row="3" Grid.Column="1" Height="167" Width="116" Click="Back14_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Button.Background>
-                        <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
-                    </Button.Background>
-                </Button>
-                <Button Panel.ZIndex="1" Name="back15" Grid.Row="3" Grid.Column="2" Height="167" Width="116" Click="Back15_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Button.Background>
-                        <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
-                    </Button.Background>
-                </Button>
-                <Button Panel.ZIndex="1" Name="back16" Grid.Row="3" Grid.Column="3" Height="167" Width="116" Click="Back16_Click" Style="{DynamicResource CardBackMouseover}" Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Button.Background>
-                        <ImageBrush ImageSource="images\cards\basic\back.jpg"/>
-                    </Button.Background>
-                </Button>
+                <Button Panel.ZIndex="1" Name="back1" Grid.Row="0" Grid.Column="0" Height="167" Width="116" Click="Back1_Click" Style="{DynamicResource DefaultCardBackMouseover}" 
+                        Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <Button Panel.ZIndex="1" Name="back2" Grid.Row="0" Grid.Column="1" Height="167" Width="116" Click="Back2_Click" Style="{DynamicResource DefaultCardBackMouseover}" 
+                        Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <Button Panel.ZIndex="1" Name="back3" Grid.Row="0" Grid.Column="2" Height="167" Width="116" Click="Back3_Click" Style="{DynamicResource DefaultCardBackMouseover}" 
+                        Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <Button Panel.ZIndex="1" Name="back4" Grid.Row="0" Grid.Column="3" Height="167" Width="116" Click="Back4_Click" Style="{DynamicResource DefaultCardBackMouseover}"
+                        Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <Button Panel.ZIndex="1" Name="back5" Grid.Row="1" Grid.Column="0" Height="167" Width="116" Click="Back5_Click" Style="{DynamicResource DefaultCardBackMouseover}"
+                        Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <Button Panel.ZIndex="1" Name="back6" Grid.Row="1" Grid.Column="1" Height="167" Width="116" Click="Back6_Click" Style="{DynamicResource DefaultCardBackMouseover}"
+                        Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <Button Panel.ZIndex="1" Name="back7" Grid.Row="1" Grid.Column="2" Height="167" Width="116" Click="Back7_Click" Style="{DynamicResource DefaultCardBackMouseover}"
+                        Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Button Panel.ZIndex="1" Name="back8" Grid.Row="1" Grid.Column="3" Height="167" Width="116" Click="Back8_Click" Style="{DynamicResource DefaultCardBackMouseover}"
+                        Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Button Panel.ZIndex="1" Name="back9" Grid.Row="2" Grid.Column="0" Height="167" Width="116" Click="Back9_Click" Style="{DynamicResource DefaultCardBackMouseover}" 
+                        Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Button Panel.ZIndex="1" Name="back10" Grid.Row="2" Grid.Column="1" Height="167" Width="116" Click="Back10_Click" Style="{DynamicResource DefaultCardBackMouseover}"
+                        Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Button Panel.ZIndex="1" Name="back11" Grid.Row="2" Grid.Column="2" Height="167" Width="116" Click="Back11_Click" Style="{DynamicResource DefaultCardBackMouseover}"
+                        Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Button Panel.ZIndex="1" Name="back12" Grid.Row="2" Grid.Column="3" Height="167" Width="116" Click="Back12_Click" Style="{DynamicResource DefaultCardBackMouseover}"
+                        Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Button Panel.ZIndex="1" Name="back13" Grid.Row="3" Grid.Column="0" Height="167" Width="116" Click="Back13_Click" Style="{DynamicResource DefaultCardBackMouseover}" 
+                        Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Button Panel.ZIndex="1" Name="back14" Grid.Row="3" Grid.Column="1" Height="167" Width="116" Click="Back14_Click" Style="{DynamicResource DefaultCardBackMouseover}" 
+                        Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Button Panel.ZIndex="1" Name="back15" Grid.Row="3" Grid.Column="2" Height="167" Width="116" Click="Back15_Click" Style="{DynamicResource DefaultCardBackMouseover}" 
+                        Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Button Panel.ZIndex="1" Name="back16" Grid.Row="3" Grid.Column="3" Height="167" Width="116" Click="Back16_Click" Style="{DynamicResource DefaultCardBackMouseover}" 
+                        Opacity="1.0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
                 <Image Name="image1" Grid.Row="0" Grid.Column="0" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Image Name="image2" Grid.Row="0" Grid.Column="1" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -219,13 +373,54 @@
                 <Button x:Name="DebugButton" Content="Debug" Width="50"  Margin="5" Click="DebugButton_Click"/>
                 <Button x:Name="RulesButton" Content="Rules" Width="50"  Margin="5" Click="RulesButton_Click"/>
             </StackPanel>
-            <StackPanel x:Name="Options" Visibility="Collapsed">
-                <Label Foreground="White">Pick a theme</Label>    
-                <ComboBox Focusable="False" IsEditable="True" IsReadOnly="True" Text="Select a Theme" Width="150">
-                <ComboBoxItem x:Name="Default" Content="Default Cards" Selected="Default_Selected"/>
-                    <ComboBoxItem x:Name="Dolphins" Content="Dolphin Cards" Selected="Dolphins_Selected"/>
+            <StackPanel x:Name="Options" Visibility="Visible" Width="200">
+                <Label Margin="0 10 0 0" Foreground="White">Pick a theme</Label>    
+                <TextBlock Text="This will end your current game." Foreground="White" TextWrapping="Wrap" FontWeight="Thin"/>
+                <ComboBox x:Name="ThemeSelector" Margin="10" Focusable="False" IsReadOnly="True" Text="Select a Theme" Width="150">
+                    <ComboBoxItem x:Name="Default" Selected="Default_Selected">
+                        <DockPanel>
+                            <Image Source="images/cards/basic/back.jpg" Height="50"/>
+                            <TextBlock Text="Default Cards" VerticalAlignment="Center" Margin="10 0 0 0"/>
+                        </DockPanel>
+                    </ComboBoxItem>
+                    <ComboBoxItem x:Name="Dolphins" Selected="Dolphins_Selected">
+                        <DockPanel>
+                            <Image Source="images/cards/dolphin/back.jpg" Height="50"/>
+                            <TextBlock Text="Dolphin Cards" VerticalAlignment="Center" Margin="10 0 0 0"/>
+                        </DockPanel>
+                    </ComboBoxItem>
+                    <ComboBoxItem x:Name="Animals" Selected="Animals_Selected">
+                        <DockPanel>
+                            <Image Source="images/cards/animal/back.jpg" Height="50"/>
+                            <TextBlock Text="Animal Cards" VerticalAlignment="Center" Margin="10 0 0 0"/>
+                        </DockPanel>
+                    </ComboBoxItem>
+                    <ComboBoxItem x:Name="Flowers" Selected="Flowers_Selected">
+                        <DockPanel>
+                            <Image Source="images/cards/flowers/back.jpg" Height="50"/>
+                            <TextBlock Text="Flower Cards" VerticalAlignment="Center" Margin="10 0 0 0"/>
+                        </DockPanel>
+                    </ComboBoxItem>
+                    <ComboBoxItem x:Name="Sealife" Selected="Sealife_Selected">
+                        <DockPanel>
+                            <Image Source="images/cards/sealife/back.jpg" Height="50"/>
+                            <TextBlock Text="Sealife Cards" VerticalAlignment="Center" Margin="10 0 0 0"/>
+                        </DockPanel>
+                    </ComboBoxItem>
                 </ComboBox>
-                <Button Name="ClearHighScores" Content="Clear High Score" Click="ClearHighScores_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="2"/>
+                <Label Margin="0 10 0 0" Foreground="White">Clear High Scores</Label>
+                <Button Name="ClearHighScores" Content="Clear High Score" Click="ClearHighScores_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="10"/>
+                <Label Margin="0 10 0 0" Foreground="White">Wait Time</Label>
+                <TextBlock Text="Here you can change the time that the cards are shown before being turned back over." Foreground="White" TextWrapping="Wrap" FontWeight="Thin"/>
+
+                <ComboBox Name="SetWaitTime" Width="150" Height="30" HorizontalAlignment="Center" Margin="10">
+                    <ComboBoxItem Content="Half a Second" x:Name="HalfSecond" Selected="HalfSecond_Selected"/>
+                    <ComboBoxItem Content="A Second" x:Name="OneSecond" Selected="OneSecond_Selected"/>
+                    <ComboBoxItem Content="One and a Half Seconds" x:Name="OneHalfSecond" Selected="OneHalfSecond_Selected"/>
+                    <ComboBoxItem Content="Two Seconds" x:Name="TwoSecond" Selected="TwoSecond_Selected"/>
+                    <ComboBoxItem Content="Two and a Half Seconds" x:Name="TwoHalfSecond" Selected="TwoHalfSecond_Selected"/>
+                    <ComboBoxItem Content="Three Seconds" x:Name="ThreeSecond" Selected="ThreeSecond_Selected"/>
+                </ComboBox>
             </StackPanel>
             <StackPanel x:Name="Debug" Visibility="Collapsed">
                 <TextBlock Margin="5" Name="DebugCard1" Text="Irrelevant" Foreground="GhostWhite"/>
@@ -268,6 +463,7 @@
                 <TextBlock Margin="10" Text="There are 8 pairs of cards on the game table, face down. Turn over two cards at a time. If you uncover a pair they will remain uncovered. Your goal is to find all of the pairs." FontWeight="DemiBold" FontSize="20" Foreground="GhostWhite" TextWrapping="Wrap"/>
             </StackPanel>
         </StackPanel>
+        <Rectangle x:Name="Shield" Margin="0,0,0,0" Fill="Black" Opacity="0.2" Visibility="Hidden" Panel.ZIndex="5"/>
     </Grid>
 
 </Window>

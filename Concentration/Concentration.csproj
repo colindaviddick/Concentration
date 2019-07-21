@@ -130,5 +130,50 @@
     <Resource Include="images\cards\dolphin\backov.jpg" />
     <Resource Include="images\cards\dolphin\backsel.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\cards\animal\1.jpg" />
+    <Resource Include="images\cards\animal\2.jpg" />
+    <Resource Include="images\cards\animal\3.jpg" />
+    <Resource Include="images\cards\animal\4.jpg" />
+    <Resource Include="images\cards\animal\5.jpg" />
+    <Resource Include="images\cards\animal\6.jpg" />
+    <Resource Include="images\cards\animal\7.jpg" />
+    <Resource Include="images\cards\animal\8.jpg" />
+    <Resource Include="images\cards\animal\back.jpg" />
+    <Resource Include="images\cards\animal\backov.jpg" />
+    <Resource Include="images\cards\animal\backsel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\cards\sealife\1.jpg" />
+    <Resource Include="images\cards\sealife\2.jpg" />
+    <Resource Include="images\cards\sealife\4.jpg" />
+    <Resource Include="images\cards\sealife\5.jpg" />
+    <Resource Include="images\cards\sealife\6.jpg" />
+    <Resource Include="images\cards\sealife\7.jpg" />
+    <Resource Include="images\cards\sealife\8.jpg" />
+    <Resource Include="images\cards\sealife\back.jpg" />
+    <Resource Include="images\cards\sealife\backov.jpg" />
+    <Resource Include="images\cards\sealife\backsel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\cards\flowers\1.jpg" />
+    <Resource Include="images\cards\flowers\2.jpg" />
+    <Resource Include="images\cards\flowers\3.jpg" />
+    <Resource Include="images\cards\flowers\4.jpg" />
+    <Resource Include="images\cards\flowers\5.jpg" />
+    <Resource Include="images\cards\flowers\7.jpg" />
+    <Resource Include="images\cards\flowers\8.jpg" />
+    <Resource Include="images\cards\flowers\back.jpg" />
+    <Resource Include="images\cards\flowers\backsel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\cards\flowers\backov.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\cards\flowers\6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\cards\sealife\3.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
