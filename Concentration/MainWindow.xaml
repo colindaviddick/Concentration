@@ -10,6 +10,24 @@
     <!--Default Skin-->
 
     <Window.Resources>
+        
+        <Style TargetType="Window">
+            <Setter Property="Background" Value="Black"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="ComboBoxText">
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="FontWeight" Value="DemiBold"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+        
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
                 <Setter.Value>
@@ -360,23 +378,30 @@
                 <Button x:Name="QuitGame" Width="120" Margin="10" Click="QuitGame_Click">Quit Game</Button>
             </StackPanel>
         </StackPanel>
-        <StackPanel Grid.Column="1" Width="390" HorizontalAlignment="Right">
-            <TextBlock Margin="10" Text="Concentration" FontWeight="Bold" FontSize="55" Foreground="GhostWhite"/>
-            <TextBlock Margin="10" Name="Clicks" Text="# Clicks" FontWeight="Bold" FontSize="30" Foreground="GhostWhite"/>
-            <TextBlock Margin="10" Name="Pairs" Text="# Pairs" FontWeight="Bold" FontSize="30" Foreground="GhostWhite"/>
-            <TextBlock Margin="10" Text="High Score" FontWeight="Bold" FontSize="30" Foreground="GhostWhite"/>
-            <TextBlock Margin="10" Name="HighScore" Text="High Score" FontWeight="Bold" FontSize="20" Foreground="GhostWhite"/>
-            <TextBox Margin="10" Name="HighScoreName" Background="Black" BorderBrush="GhostWhite" FontSize="20" Visibility="Hidden" Foreground="GhostWhite"/>
-            <Button Name="HighScoreSaveName" HorizontalAlignment="Center" Background="Black" BorderBrush="GhostWhite" Content="Save High Score" Foreground="GhostWhite" FontSize="20" Width="300" Click="HighScoreSaveName_Click" Visibility="Hidden"/>
+        <StackPanel Grid.Column="1" Width="390" HorizontalAlignment="Center" CanVerticallyScroll="True">
+            <TextBlock Margin="10" Text="Concentration" FontWeight="Bold" FontSize="55" />
+            <TextBlock Margin="10" Text="HighScore" FontSize="30" />
+            <TextBlock Margin="10" Name="HighScore" Text="# HighScore" FontSize="20" TextWrapping="Wrap"/>
+            <TextBlock Margin="10" Name="Clicks" Text="# Clicks" FontSize="20" />
+            <TextBlock Margin="10" Name="Pairs" Text="# Pairs" FontSize="20" />
+            <Border x:Name="HighScorePanel" Background="SlateGray" Visibility="Collapsed" CornerRadius="40" Width="280" Height="150" Margin="5">
+                <StackPanel Width="250" HorizontalAlignment="Center" >
+                <TextBlock Margin="5" Text="Save Your Score!" FontWeight="Bold" FontSize="30"/>
+                <TextBox x:Name="HighScoreName" Margin="5" Height="30" />
+                <Button Name="HighScoreSaveButton" HorizontalAlignment="Center" Content="Save High Score" FontSize="20" Width="300" Click="HighScoreSaveButton_Click" Margin="5"/>
+            </StackPanel>
+            </Border>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button x:Name="OptionsButton" Content="Options" Width="50" Margin="5" Click="OptionsButton_Click"/>
-                <Button x:Name="DebugButton" Content="Debug" Width="50"  Margin="5" Click="DebugButton_Click"/>
+                <Button x:Name="DebugButton" Content="Debug" Width="50"  Margin="5" Click="DebugButton_Click" Visibility="Collapsed"/>
                 <Button x:Name="RulesButton" Content="Rules" Width="50"  Margin="5" Click="RulesButton_Click"/>
+                <Button x:Name="AboutButton" Content="About" Width="50"  Margin="5" Click="AboutButton_Click"/>
             </StackPanel>
-            <StackPanel x:Name="Options" Visibility="Visible" Width="200">
+            <StackPanel x:Name="Options" Visibility="Collapsed" Width="300">
+                <Label Margin="0 10 0 0" FontSize="20" Foreground="White">Options</Label>
                 <Label Margin="0 10 0 0" Foreground="White">Pick a theme</Label>    
                 <TextBlock Text="This will end your current game." Foreground="White" TextWrapping="Wrap" FontWeight="Thin"/>
-                <ComboBox x:Name="ThemeSelector" Margin="10" Focusable="False" IsReadOnly="True" Text="Select a Theme" Width="150">
+                <ComboBox x:Name="ThemeSelector"  Margin="10" Focusable="False" IsReadOnly="True" Text="Select a Theme" Width="150">
                     <ComboBoxItem x:Name="Default" Selected="Default_Selected">
                         <DockPanel>
                             <Image Source="images/cards/basic/back.jpg" Height="50"/>
@@ -409,9 +434,10 @@
                     </ComboBoxItem>
                 </ComboBox>
                 <Label Margin="0 10 0 0" Foreground="White">Clear High Scores</Label>
+                <TextBlock Text="Click to reset high score." TextWrapping="Wrap" FontWeight="Thin"/>
                 <Button Name="ClearHighScores" Content="Clear High Score" Click="ClearHighScores_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="10"/>
                 <Label Margin="0 10 0 0" Foreground="White">Wait Time</Label>
-                <TextBlock Text="Here you can change the time that the cards are shown before being turned back over." Foreground="White" TextWrapping="Wrap" FontWeight="Thin"/>
+                <TextBlock Text="Here you can change the time that the cards are shown before being turned back over." TextWrapping="Wrap" FontWeight="Thin"/>
 
                 <ComboBox Name="SetWaitTime" Width="150" Height="30" HorizontalAlignment="Center" Margin="10">
                     <ComboBoxItem Content="Half a Second" x:Name="HalfSecond" Selected="HalfSecond_Selected"/>
@@ -423,8 +449,9 @@
                 </ComboBox>
             </StackPanel>
             <StackPanel x:Name="Debug" Visibility="Collapsed">
-                <TextBlock Margin="5" Name="DebugCard1" Text="Irrelevant" Foreground="GhostWhite"/>
-                <TextBlock Margin="5" Name="DebugCard2" Text="Irrelevant" Foreground="GhostWhite"/>
+                <Label Margin="0 10 0 0" FontSize="20" Foreground="White">Debug Menu</Label>
+                <TextBlock Margin="5" Name="DebugCard1" Text="Irrelevant" />
+                <TextBlock Margin="5" Name="DebugCard2" Text="Irrelevant" />
                 <Button Name="UncoverCards" Content="Uncover Cards" Click="UncoverCards_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="2"/>
                 <Button Name="ShowNumbers" Content="Show Numbers" Click="ShowNumbers_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="2"/>
                 <Button Name="Random" Content="Random Number" Click="Random_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="2"/>
@@ -460,7 +487,17 @@
                 </Grid>
             </StackPanel>
             <StackPanel x:Name="Rules" Visibility="Collapsed">
-                <TextBlock Margin="10" Text="There are 8 pairs of cards on the game table, face down. Turn over two cards at a time. If you uncover a pair they will remain uncovered. Your goal is to find all of the pairs." FontWeight="DemiBold" FontSize="20" Foreground="GhostWhite" TextWrapping="Wrap"/>
+                <Label Margin="0 10 0 0" FontSize="20" Foreground="White">Rules</Label>
+                <TextBlock Margin="10" Text="There are 8 pairs of cards on the game table, face down. Turn over two cards at a time. If you uncover a pair they will remain uncovered. Your goal is to find all of the pairs." TextWrapping="Wrap"/>
+            </StackPanel>
+            <StackPanel x:Name="About" Visibility="Collapsed">
+                <Label Margin="0 10 0 0" FontSize="20" Foreground="White">About</Label>
+                <TextBlock Margin="10" TextWrapping="Wrap">
+                    Concentration was made by Colin Dick. <LineBreak/><LineBreak/>All of the photos are labelled as CC0 and therefore free to use. If this is not the case, the photos are yours and you would like them removed from the game please contact me at <Hyperlink NavigateUri="colindaviddick@gmail.com">colindaviddick@gmail.com</Hyperlink>
+                    <LineBreak/>
+                    <LineBreak/>
+                    <Button x:Name="ActivateDebugMode" Content="Debug Mode" HorizontalAlignment="Center" Click="ActivateDebugMode_Click"/>
+                </TextBlock>
             </StackPanel>
         </StackPanel>
         <Rectangle x:Name="Shield" Margin="0,0,0,0" Fill="Black" Opacity="0.2" Visibility="Hidden" Panel.ZIndex="5"/>

@@ -136,7 +136,7 @@ namespace Concentration
             //await Wait(500);
             UpdateDebug();
             //await Wait(500);
-            HighScore.Text = (Properties.Settings.Default.Name + " -- " + Properties.Settings.Default.LowestScore);
+            // HighScore.Text = (Properties.Settings.Default.Name + " -- " + Properties.Settings.Default.LowestScore);
         }
 
         void SortAndRandomiseCards()
@@ -233,6 +233,7 @@ namespace Concentration
         {
             Clicks.Text = ("Number of clicks : " + clicks.ToString());
             Pairs.Text = ("Number of Pairs found : " + pairs.ToString());
+            HighScore.Text = (Properties.Settings.Default.Name + " - " + Properties.Settings.Default.LowestScore);
         }
 
         void UpdateDebug()
@@ -332,6 +333,10 @@ namespace Concentration
             if (pairs == 8)
             {
                 MessageBox.Show("You have won!");
+                if(clicks <= Properties.Settings.Default.LowestScore)
+                {
+                    HighScorePanel.Visibility = Visibility.Visible;
+                }
             }
         }
 
@@ -427,7 +432,6 @@ namespace Concentration
         {
             System.Windows.Forms.Timer timer1 = new System.Windows.Forms.Timer();
             if (milliseconds == 0 || milliseconds < 0) return;
-            //Console.WriteLine("start wait timer");
             timer1.Interval = milliseconds;
             timer1.Enabled = true;
             timer1.Start();
@@ -435,7 +439,6 @@ namespace Concentration
             {
                 timer1.Enabled = false;
                 timer1.Stop();
-                //Console.WriteLine("stop wait timer");
             };
             while (timer1.Enabled)
             {
@@ -827,23 +830,13 @@ namespace Concentration
                 selection2 = 0;
             }
         }
-
-        private void HighScoreSaveName_Click(object sender, RoutedEventArgs e)
-        {
-            Properties.Settings.Default.LowestScore = clicks;
-            Properties.Settings.Default.Name = HighScoreName.Text;
-            HighScore.Text = (Properties.Settings.Default.Name + " -- " + Properties.Settings.Default.LowestScore);
-            HighScoreName.Visibility = Visibility.Hidden;
-            HighScoreSaveName.Visibility = Visibility.Hidden;
-            Properties.Settings.Default.Save();
-        }
-
+        
         private void ClearHighScores_Click(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.LowestScore = 100;
             Properties.Settings.Default.Name = "Anonymous";
             Properties.Settings.Default.Save();
-            HighScore.Text = (Properties.Settings.Default.Name + " -- " + Properties.Settings.Default.LowestScore);
+            HighScore.Text = (Properties.Settings.Default.Name + " - " + Properties.Settings.Default.LowestScore);
         }
 
         private void UncoverCards_Click(object sender, RoutedEventArgs e)
@@ -999,6 +992,7 @@ namespace Concentration
             card14found = false;
             card15found = false;
             card16found = false;
+            HighScorePanel.Visibility = Visibility.Collapsed;
             SortAndRandomiseCards();
             _ = ReCoverCards();
             pairs = 0;
@@ -1025,23 +1019,66 @@ namespace Concentration
 
         private void OptionsButton_Click(object sender, RoutedEventArgs e)
         {
-            Options.Visibility = Visibility.Visible;
-            Debug.Visibility = Visibility.Collapsed;
-            Rules.Visibility = Visibility.Collapsed;
+            if(Options.Visibility == Visibility.Visible)
+            {
+                Options.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                Options.Visibility = Visibility.Visible;
+                Debug.Visibility = Visibility.Collapsed;
+                Rules.Visibility = Visibility.Collapsed;
+                About.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void DebugButton_Click(object sender, RoutedEventArgs e)
         {
-            Options.Visibility = Visibility.Collapsed;
-            Debug.Visibility = Visibility.Visible;
-            Rules.Visibility = Visibility.Collapsed;
+            if (Debug.Visibility == Visibility.Visible)
+            {
+                Debug.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                Options.Visibility = Visibility.Collapsed;
+                Debug.Visibility = Visibility.Visible;
+                Rules.Visibility = Visibility.Collapsed;
+                About.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void RulesButton_Click(object sender, RoutedEventArgs e)
         {
-            Options.Visibility = Visibility.Collapsed;
-            Debug.Visibility = Visibility.Collapsed;
-            Rules.Visibility = Visibility.Visible;
+            if (Rules.Visibility == Visibility.Visible)
+            {
+                Rules.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                Options.Visibility = Visibility.Collapsed;
+                Debug.Visibility = Visibility.Collapsed;
+                Rules.Visibility = Visibility.Visible;
+                About.Visibility = Visibility.Collapsed;
+            }
+        }
+        private void AboutButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (About.Visibility == Visibility.Visible)
+            {   
+                About.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                Options.Visibility = Visibility.Collapsed;
+                Debug.Visibility = Visibility.Collapsed;
+                Rules.Visibility = Visibility.Collapsed;
+                About.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void ActivateDebugMode_Click(object sender, RoutedEventArgs e)
+        {
+            DebugButton.Visibility = Visibility.Visible;
         }
 
         private void HalfSecond_Selected(object sender, RoutedEventArgs e)
@@ -1142,6 +1179,16 @@ namespace Concentration
             back16.Style = (Style)FindResource("SealifeCardBackMouseover");
             NewGameSequence();
         }
+
+        private void HighScoreSaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.LowestScore = clicks;
+            Properties.Settings.Default.Name = HighScoreName.Text;
+            HighScore.Text = (Properties.Settings.Default.Name + " - " + Properties.Settings.Default.LowestScore);
+            Properties.Settings.Default.Save();
+            HighScorePanel.Visibility = Visibility.Hidden;
+        }
+
     }
 }
 
