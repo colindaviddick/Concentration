@@ -27,20 +27,20 @@ namespace Concentration
     // boxes[i] = new Box()
     //
     // Themes
-    // Space
+    /// Space
     // Mythical Creatures
     // Black and White
     // Coloursplash
     // Sports
     // Jewels
-    // Currency
+    /// Currency
     // Countries
     // Pirates
     // Mermaids
     // Unicorns
     // Movies
     // Candy
-    // Casino
+    /// Casino
     // British
     // Dinosaurs
     // Things beginning with...
@@ -97,6 +97,7 @@ namespace Concentration
         bool card14found = false;
         bool card15found = false;
         bool card16found = false;
+        // bool shieldTurn = true;
 
         int waitTime = 1500;
 
@@ -124,19 +125,14 @@ namespace Concentration
         public MainWindow()
         {
             InitializeComponent();
-
             _ = StartSequence();
         }
 
         async Task StartSequence()
         {
             SortAndRandomiseCards();
-            await Wait(500);
             UpdateClicks();
-            //await Wait(500);
             UpdateDebug();
-            //await Wait(500);
-            // HighScore.Text = (Properties.Settings.Default.Name + " -- " + Properties.Settings.Default.LowestScore);
         }
 
         void SortAndRandomiseCards()
@@ -229,10 +225,19 @@ namespace Concentration
 
         }
 
+        //public async Task SpinningShield()
+        //{
+        //    while (shieldTurn == true)
+        //    {
+        //        await Wait(5);
+        //        ShieldTurn.Angle++;
+        //    }
+        //}
+
         void UpdateClicks()
         {
-            Clicks.Text = ("Number of clicks : " + clicks.ToString());
-            Pairs.Text = ("Number of Pairs found : " + pairs.ToString());
+            Clicks.Text = ("Clicks : " + clicks.ToString());
+            Pairs.Text = ("Pairs found : " + pairs.ToString());
             HighScore.Text = (Properties.Settings.Default.Name + " - " + Properties.Settings.Default.LowestScore);
         }
 
@@ -1134,6 +1139,29 @@ namespace Concentration
             NewGameSequence();
         }
 
+        private void Animals2_Selected(object sender, RoutedEventArgs e)
+        {
+            defaultTheme = "animal2";
+
+            back1.Style = (Style)FindResource("Animal2CardBackMouseover");
+            back2.Style = (Style)FindResource("Animal2CardBackMouseover");
+            back3.Style = (Style)FindResource("Animal2CardBackMouseover");
+            back4.Style = (Style)FindResource("Animal2CardBackMouseover");
+            back5.Style = (Style)FindResource("Animal2CardBackMouseover");
+            back6.Style = (Style)FindResource("Animal2CardBackMouseover");
+            back7.Style = (Style)FindResource("Animal2CardBackMouseover");
+            back8.Style = (Style)FindResource("Animal2CardBackMouseover");
+            back9.Style = (Style)FindResource("Animal2CardBackMouseover");
+            back10.Style = (Style)FindResource("Animal2CardBackMouseover");
+            back11.Style = (Style)FindResource("Animal2CardBackMouseover");
+            back12.Style = (Style)FindResource("Animal2CardBackMouseover");
+            back13.Style = (Style)FindResource("Animal2CardBackMouseover");
+            back14.Style = (Style)FindResource("Animal2CardBackMouseover");
+            back15.Style = (Style)FindResource("Animal2CardBackMouseover");
+            back16.Style = (Style)FindResource("Animal2CardBackMouseover");
+            NewGameSequence();
+        }
+
         private void Flowers_Selected(object sender, RoutedEventArgs e)
         {
             defaultTheme = "flowers";
@@ -1187,6 +1215,213 @@ namespace Concentration
             HighScore.Text = (Properties.Settings.Default.Name + " - " + Properties.Settings.Default.LowestScore);
             Properties.Settings.Default.Save();
             HighScorePanel.Visibility = Visibility.Hidden;
+        }
+
+        private void BigCats_Selected(object sender, RoutedEventArgs e)
+        {
+            defaultTheme = "bigcats";
+
+            back1.Style = (Style)FindResource("BigCats1CardBackMouseover");
+            back2.Style = (Style)FindResource("BigCats1CardBackMouseover");
+            back3.Style = (Style)FindResource("BigCats1CardBackMouseover");
+            back4.Style = (Style)FindResource("BigCats1CardBackMouseover");
+            back5.Style = (Style)FindResource("BigCats1CardBackMouseover");
+            back6.Style = (Style)FindResource("BigCats1CardBackMouseover");
+            back7.Style = (Style)FindResource("BigCats1CardBackMouseover");
+            back8.Style = (Style)FindResource("BigCats1CardBackMouseover");
+            back9.Style = (Style)FindResource("BigCats1CardBackMouseover");
+            back10.Style = (Style)FindResource("BigCats1CardBackMouseover");
+            back11.Style = (Style)FindResource("BigCats1CardBackMouseover");
+            back12.Style = (Style)FindResource("BigCats1CardBackMouseover");
+            back13.Style = (Style)FindResource("BigCats1CardBackMouseover");
+            back14.Style = (Style)FindResource("BigCats1CardBackMouseover");
+            back15.Style = (Style)FindResource("BigCats1CardBackMouseover");
+            back16.Style = (Style)FindResource("BigCats1CardBackMouseover");
+            NewGameSequence();
+        }
+
+        private void BigCats2_Selected(object sender, RoutedEventArgs e)
+        {
+            defaultTheme = "bigcats2";
+
+            back1.Style = (Style)FindResource("BigCats2CardBackMouseover");
+            back2.Style = (Style)FindResource("BigCats2CardBackMouseover");
+            back3.Style = (Style)FindResource("BigCats2CardBackMouseover");
+            back4.Style = (Style)FindResource("BigCats2CardBackMouseover");
+            back5.Style = (Style)FindResource("BigCats2CardBackMouseover");
+            back6.Style = (Style)FindResource("BigCats2CardBackMouseover");
+            back7.Style = (Style)FindResource("BigCats2CardBackMouseover");
+            back8.Style = (Style)FindResource("BigCats2CardBackMouseover");
+            back9.Style = (Style)FindResource("BigCats2CardBackMouseover");
+            back10.Style = (Style)FindResource("BigCats2CardBackMouseover");
+            back11.Style = (Style)FindResource("BigCats2CardBackMouseover");
+            back12.Style = (Style)FindResource("BigCats2CardBackMouseover");
+            back13.Style = (Style)FindResource("BigCats2CardBackMouseover");
+            back14.Style = (Style)FindResource("BigCats2CardBackMouseover");
+            back15.Style = (Style)FindResource("BigCats2CardBackMouseover");
+            back16.Style = (Style)FindResource("BigCats2CardBackMouseover");
+            NewGameSequence();
+        }
+
+        private void Birds_Selected(object sender, RoutedEventArgs e)
+        {
+            defaultTheme = "birds";
+
+            back1.Style = (Style)FindResource("BirdsCardBackMouseover");
+            back2.Style = (Style)FindResource("BirdsCardBackMouseover");
+            back3.Style = (Style)FindResource("BirdsCardBackMouseover");
+            back4.Style = (Style)FindResource("BirdsCardBackMouseover");
+            back5.Style = (Style)FindResource("BirdsCardBackMouseover");
+            back6.Style = (Style)FindResource("BirdsCardBackMouseover");
+            back7.Style = (Style)FindResource("BirdsCardBackMouseover");
+            back8.Style = (Style)FindResource("BirdsCardBackMouseover");
+            back9.Style = (Style)FindResource("BirdsCardBackMouseover");
+            back10.Style = (Style)FindResource("BirdsCardBackMouseover");
+            back11.Style = (Style)FindResource("BirdsCardBackMouseover");
+            back12.Style = (Style)FindResource("BirdsCardBackMouseover");
+            back13.Style = (Style)FindResource("BirdsCardBackMouseover");
+            back14.Style = (Style)FindResource("BirdsCardBackMouseover");
+            back15.Style = (Style)FindResource("BirdsCardBackMouseover");
+            back16.Style = (Style)FindResource("BirdsCardBackMouseover");
+            NewGameSequence();
+        }
+
+        private void Birds2_Selected(object sender, RoutedEventArgs e)
+        {
+            defaultTheme = "birds2";
+
+            back1.Style = (Style)FindResource("Birds2CardBackMouseover");
+            back2.Style = (Style)FindResource("Birds2CardBackMouseover");
+            back3.Style = (Style)FindResource("Birds2CardBackMouseover");
+            back4.Style = (Style)FindResource("Birds2CardBackMouseover");
+            back5.Style = (Style)FindResource("Birds2CardBackMouseover");
+            back6.Style = (Style)FindResource("Birds2CardBackMouseover");
+            back7.Style = (Style)FindResource("Birds2CardBackMouseover");
+            back8.Style = (Style)FindResource("Birds2CardBackMouseover");
+            back9.Style = (Style)FindResource("Birds2CardBackMouseover");
+            back10.Style = (Style)FindResource("Birds2CardBackMouseover");
+            back11.Style = (Style)FindResource("Birds2CardBackMouseover");
+            back12.Style = (Style)FindResource("Birds2CardBackMouseover");
+            back13.Style = (Style)FindResource("Birds2CardBackMouseover");
+            back14.Style = (Style)FindResource("Birds2CardBackMouseover");
+            back15.Style = (Style)FindResource("Birds2CardBackMouseover");
+            back16.Style = (Style)FindResource("Birds2CardBackMouseover");
+            NewGameSequence();
+        }
+
+        private void Bokeh_Selected(object sender, RoutedEventArgs e)
+        {
+            defaultTheme = "bokeh";
+
+             back1.Style = (Style)FindResource("BokehCardBackMouseover");
+             back2.Style = (Style)FindResource("BokehCardBackMouseover");
+             back3.Style = (Style)FindResource("BokehCardBackMouseover");
+             back4.Style = (Style)FindResource("BokehCardBackMouseover");
+             back5.Style = (Style)FindResource("BokehCardBackMouseover");
+             back6.Style = (Style)FindResource("BokehCardBackMouseover");
+             back7.Style = (Style)FindResource("BokehCardBackMouseover");
+             back8.Style = (Style)FindResource("BokehCardBackMouseover");
+             back9.Style = (Style)FindResource("BokehCardBackMouseover");
+            back10.Style = (Style)FindResource("BokehCardBackMouseover");
+            back11.Style = (Style)FindResource("BokehCardBackMouseover");
+            back12.Style = (Style)FindResource("BokehCardBackMouseover");
+            back13.Style = (Style)FindResource("BokehCardBackMouseover");
+            back14.Style = (Style)FindResource("BokehCardBackMouseover");
+            back15.Style = (Style)FindResource("BokehCardBackMouseover");
+            back16.Style = (Style)FindResource("BokehCardBackMouseover");
+            NewGameSequence();
+        }
+
+        private void RockFormation_Selected(object sender, RoutedEventArgs e)
+        {
+            defaultTheme = "rockformation";
+
+             back1.Style = (Style)FindResource("RockFormationCardBackMouseover");
+             back2.Style = (Style)FindResource("RockFormationCardBackMouseover");
+             back3.Style = (Style)FindResource("RockFormationCardBackMouseover");
+             back4.Style = (Style)FindResource("RockFormationCardBackMouseover");
+             back5.Style = (Style)FindResource("RockFormationCardBackMouseover");
+             back6.Style = (Style)FindResource("RockFormationCardBackMouseover");
+             back7.Style = (Style)FindResource("RockFormationCardBackMouseover");
+             back8.Style = (Style)FindResource("RockFormationCardBackMouseover");
+             back9.Style = (Style)FindResource("RockFormationCardBackMouseover");
+            back10.Style = (Style)FindResource("RockFormationCardBackMouseover");
+            back11.Style = (Style)FindResource("RockFormationCardBackMouseover");
+            back12.Style = (Style)FindResource("RockFormationCardBackMouseover");
+            back13.Style = (Style)FindResource("RockFormationCardBackMouseover");
+            back14.Style = (Style)FindResource("RockFormationCardBackMouseover");
+            back15.Style = (Style)FindResource("RockFormationCardBackMouseover");
+            back16.Style = (Style)FindResource("RockFormationCardBackMouseover");
+            NewGameSequence();
+        }
+
+        private void RockFormation2_Selected(object sender, RoutedEventArgs e)
+        {
+            defaultTheme = "rockformation2";
+
+             back1.Style = (Style)FindResource("RockFormation2CardBackMouseover");
+             back2.Style = (Style)FindResource("RockFormation2CardBackMouseover");
+             back3.Style = (Style)FindResource("RockFormation2CardBackMouseover");
+             back4.Style = (Style)FindResource("RockFormation2CardBackMouseover");
+             back5.Style = (Style)FindResource("RockFormation2CardBackMouseover");
+             back6.Style = (Style)FindResource("RockFormation2CardBackMouseover");
+             back7.Style = (Style)FindResource("RockFormation2CardBackMouseover");
+             back8.Style = (Style)FindResource("RockFormation2CardBackMouseover");
+             back9.Style = (Style)FindResource("RockFormation2CardBackMouseover");
+            back10.Style = (Style)FindResource("RockFormation2CardBackMouseover");
+            back11.Style = (Style)FindResource("RockFormation2CardBackMouseover");
+            back12.Style = (Style)FindResource("RockFormation2CardBackMouseover");
+            back13.Style = (Style)FindResource("RockFormation2CardBackMouseover");
+            back14.Style = (Style)FindResource("RockFormation2CardBackMouseover");
+            back15.Style = (Style)FindResource("RockFormation2CardBackMouseover");
+            back16.Style = (Style)FindResource("RockFormation2CardBackMouseover");
+            NewGameSequence();
+        }
+
+        private void Mushrooms_Selected(object sender, RoutedEventArgs e)
+        {
+            defaultTheme = "mushrooms";
+
+             back1.Style = (Style)FindResource("MushroomsCardBackMouseover");
+             back2.Style = (Style)FindResource("MushroomsCardBackMouseover");
+             back3.Style = (Style)FindResource("MushroomsCardBackMouseover");
+             back4.Style = (Style)FindResource("MushroomsCardBackMouseover");
+             back5.Style = (Style)FindResource("MushroomsCardBackMouseover");
+             back6.Style = (Style)FindResource("MushroomsCardBackMouseover");
+             back7.Style = (Style)FindResource("MushroomsCardBackMouseover");
+             back8.Style = (Style)FindResource("MushroomsCardBackMouseover");
+             back9.Style = (Style)FindResource("MushroomsCardBackMouseover");
+            back10.Style = (Style)FindResource("MushroomsCardBackMouseover");
+            back11.Style = (Style)FindResource("MushroomsCardBackMouseover");
+            back12.Style = (Style)FindResource("MushroomsCardBackMouseover");
+            back13.Style = (Style)FindResource("MushroomsCardBackMouseover");
+            back14.Style = (Style)FindResource("MushroomsCardBackMouseover");
+            back15.Style = (Style)FindResource("MushroomsCardBackMouseover");
+            back16.Style = (Style)FindResource("MushroomsCardBackMouseover");
+            NewGameSequence();
+        }
+
+        private void Mushrooms2_Selected(object sender, RoutedEventArgs e)
+        {
+            defaultTheme = "mushrooms2";
+
+             back1.Style = (Style)FindResource("Mushrooms2CardBackMouseover");
+             back2.Style = (Style)FindResource("Mushrooms2CardBackMouseover");
+             back3.Style = (Style)FindResource("Mushrooms2CardBackMouseover");
+             back4.Style = (Style)FindResource("Mushrooms2CardBackMouseover");
+             back5.Style = (Style)FindResource("Mushrooms2CardBackMouseover");
+             back6.Style = (Style)FindResource("Mushrooms2CardBackMouseover");
+             back7.Style = (Style)FindResource("Mushrooms2CardBackMouseover");
+             back8.Style = (Style)FindResource("Mushrooms2CardBackMouseover");
+             back9.Style = (Style)FindResource("Mushrooms2CardBackMouseover");
+            back10.Style = (Style)FindResource("Mushrooms2CardBackMouseover");
+            back11.Style = (Style)FindResource("Mushrooms2CardBackMouseover");
+            back12.Style = (Style)FindResource("Mushrooms2CardBackMouseover");
+            back13.Style = (Style)FindResource("Mushrooms2CardBackMouseover");
+            back14.Style = (Style)FindResource("Mushrooms2CardBackMouseover");
+            back15.Style = (Style)FindResource("Mushrooms2CardBackMouseover");
+            back16.Style = (Style)FindResource("Mushrooms2CardBackMouseover");
+            NewGameSequence();
         }
 
     }

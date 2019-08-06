@@ -319,5 +319,140 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\cards\birds\1.jpg" />
+    <Resource Include="images\cards\birds\2.jpg" />
+    <Resource Include="images\cards\birds\3.jpg" />
+    <Resource Include="images\cards\birds\4.jpg" />
+    <Resource Include="images\cards\birds\5.jpg" />
+    <Resource Include="images\cards\birds\6.jpg" />
+    <Resource Include="images\cards\birds\7.jpg" />
+    <Resource Include="images\cards\birds\8.jpg" />
+    <Resource Include="images\cards\birds\back.jpg" />
+    <Resource Include="images\cards\birds\backov.jpg" />
+    <Resource Include="images\cards\birds\backsel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\cards\bigcats\1.jpg" />
+    <Resource Include="images\cards\bigcats\2.jpg" />
+    <Resource Include="images\cards\bigcats\3.jpg" />
+    <Resource Include="images\cards\bigcats\4.jpg" />
+    <Resource Include="images\cards\bigcats\5.jpg" />
+    <Resource Include="images\cards\bigcats\6.jpg" />
+    <Resource Include="images\cards\bigcats\7.jpg" />
+    <Resource Include="images\cards\bigcats\8.jpg" />
+    <Resource Include="images\cards\bigcats\back.jpg" />
+    <Resource Include="images\cards\bigcats\backov.jpg" />
+    <Resource Include="images\cards\bigcats\backsel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\cards\bigcats2\1.jpg" />
+    <Resource Include="images\cards\bigcats2\2.jpg" />
+    <Resource Include="images\cards\bigcats2\3.jpg" />
+    <Resource Include="images\cards\bigcats2\4.jpg" />
+    <Resource Include="images\cards\bigcats2\5.jpg" />
+    <Resource Include="images\cards\bigcats2\6.jpg" />
+    <Resource Include="images\cards\bigcats2\7.jpg" />
+    <Resource Include="images\cards\bigcats2\8.jpg" />
+    <Resource Include="images\cards\bigcats2\back.jpg" />
+    <Resource Include="images\cards\bigcats2\backov.jpg" />
+    <Resource Include="images\cards\bigcats2\backsel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\cards\birds2\1.jpg" />
+    <Resource Include="images\cards\birds2\2.jpg" />
+    <Resource Include="images\cards\birds2\3.jpg" />
+    <Resource Include="images\cards\birds2\4.jpg" />
+    <Resource Include="images\cards\birds2\5.jpg" />
+    <Resource Include="images\cards\birds2\6.jpg" />
+    <Resource Include="images\cards\birds2\7.jpg" />
+    <Resource Include="images\cards\birds2\8.jpg" />
+    <Resource Include="images\cards\birds2\back.jpg" />
+    <Resource Include="images\cards\birds2\backov.jpg" />
+    <Resource Include="images\cards\birds2\backsel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\cards\bokeh\1.jpg" />
+    <Resource Include="images\cards\bokeh\2.jpg" />
+    <Resource Include="images\cards\bokeh\3.jpg" />
+    <Resource Include="images\cards\bokeh\4.jpg" />
+    <Resource Include="images\cards\bokeh\5.jpg" />
+    <Resource Include="images\cards\bokeh\6.jpg" />
+    <Resource Include="images\cards\bokeh\7.jpg" />
+    <Resource Include="images\cards\bokeh\8.jpg" />
+    <Resource Include="images\cards\bokeh\back.jpg" />
+    <Resource Include="images\cards\bokeh\backov.jpg" />
+    <Resource Include="images\cards\bokeh\backsel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\cards\animal2\1.jpg" />
+    <Resource Include="images\cards\animal2\2.jpg" />
+    <Resource Include="images\cards\animal2\3.jpg" />
+    <Resource Include="images\cards\animal2\4.jpg" />
+    <Resource Include="images\cards\animal2\5.jpg" />
+    <Resource Include="images\cards\animal2\6.jpg" />
+    <Resource Include="images\cards\animal2\7.jpg" />
+    <Resource Include="images\cards\animal2\8.jpg" />
+    <Resource Include="images\cards\animal2\back.jpg" />
+    <Resource Include="images\cards\animal2\backov.jpg" />
+    <Resource Include="images\cards\animal2\backsel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\cards\rockformation\1.jpg" />
+    <Resource Include="images\cards\rockformation\2.jpg" />
+    <Resource Include="images\cards\rockformation\3.jpg" />
+    <Resource Include="images\cards\rockformation\4.jpg" />
+    <Resource Include="images\cards\rockformation\5.jpg" />
+    <Resource Include="images\cards\rockformation\6.jpg" />
+    <Resource Include="images\cards\rockformation\7.jpg" />
+    <Resource Include="images\cards\rockformation\8.jpg" />
+    <Resource Include="images\cards\rockformation\back.jpg" />
+    <Resource Include="images\cards\rockformation\backov.jpg" />
+    <Resource Include="images\cards\rockformation\backsel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\cards\rockformation2\1.jpg" />
+    <Resource Include="images\cards\rockformation2\2.jpg" />
+    <Resource Include="images\cards\rockformation2\3.jpg" />
+    <Resource Include="images\cards\rockformation2\4.jpg" />
+    <Resource Include="images\cards\rockformation2\5.jpg" />
+    <Resource Include="images\cards\rockformation2\6.jpg" />
+    <Resource Include="images\cards\rockformation2\7.jpg" />
+    <Resource Include="images\cards\rockformation2\8.jpg" />
+    <Resource Include="images\cards\rockformation2\back.jpg" />
+    <Resource Include="images\cards\rockformation2\backov.jpg" />
+    <Resource Include="images\cards\rockformation2\backsel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\cards\mushrooms\1.jpg" />
+    <Resource Include="images\cards\mushrooms\2.jpg" />
+    <Resource Include="images\cards\mushrooms\3.jpg" />
+    <Resource Include="images\cards\mushrooms\4.jpg" />
+    <Resource Include="images\cards\mushrooms\5.jpg" />
+    <Resource Include="images\cards\mushrooms\6.jpg" />
+    <Resource Include="images\cards\mushrooms\7.jpg" />
+    <Resource Include="images\cards\mushrooms\8.jpg" />
+    <Resource Include="images\cards\mushrooms\back.jpg" />
+    <Resource Include="images\cards\mushrooms\backov.jpg" />
+    <Resource Include="images\cards\mushrooms\backsel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="images\cards\mushrooms3\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\cards\mushrooms2\1.jpg" />
+    <Resource Include="images\cards\mushrooms2\2.jpg" />
+    <Resource Include="images\cards\mushrooms2\3.jpg" />
+    <Resource Include="images\cards\mushrooms2\4.jpg" />
+    <Resource Include="images\cards\mushrooms2\5.jpg" />
+    <Resource Include="images\cards\mushrooms2\6.jpg" />
+    <Resource Include="images\cards\mushrooms2\7.jpg" />
+    <Resource Include="images\cards\mushrooms2\8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\cards\mushrooms2\back.jpg" />
+    <Resource Include="images\cards\mushrooms2\backov.jpg" />
+    <Resource Include="images\cards\mushrooms2\backsel.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
