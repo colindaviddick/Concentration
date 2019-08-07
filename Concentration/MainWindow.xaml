@@ -693,6 +693,56 @@
             </Setter>
         </Style>
 
+        <!--Mushrooms 3-->
+
+        <ImageBrush x:Key="Mushrooms3.Button.Static.Background" ImageSource="images/cards/mushrooms3/back.jpg"/>
+        <SolidColorBrush x:Key="Mushrooms3.Button.Static.Border" Color="#00000000"/>
+        <ImageBrush x:Key="Mushrooms3.Button.Pressed.Background" ImageSource="images/cards/mushrooms3/backsel.jpg"/>
+        <ImageBrush x:Key="Mushrooms3.Button.MouseOver.Background" ImageSource="images/cards/mushrooms3/backov.jpg"/>
+        <SolidColorBrush x:Key="Mushrooms3.Button.MouseOver.Border" Color="#00000000"/>
+        <SolidColorBrush x:Key="Mushrooms3.Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Mushrooms3.Button.Disabled.Background" Color="#00000000"/>
+        <SolidColorBrush x:Key="Mushrooms3.Button.Disabled.Border" Color="#FFFF00FF"/>
+        <SolidColorBrush x:Key="Mushrooms3.Button.Disabled.Foreground" Color="#FF838383"/>
+
+        <Style x:Key="Mushrooms3CardBackMouseover" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Mushrooms3.Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Mushrooms3.Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Mushrooms3.Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Mushrooms3.Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Mushrooms3.Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Mushrooms3.Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Mushrooms3.Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Mushrooms3.Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
 
         <!--Rock Formation-->
 
@@ -794,6 +844,107 @@
             </Setter>
         </Style>
 
+        <!--Space Theme-->
+
+        <ImageBrush x:Key="Space.Button.Static.Background" ImageSource="images/cards/space/back.jpg"/>
+        <SolidColorBrush x:Key="Space.Button.Static.Border" Color="#00000000"/>
+        <ImageBrush x:Key="Space.Button.Pressed.Background" ImageSource="images/cards/space/backsel.jpg"/>
+        <ImageBrush x:Key="Space.Button.MouseOver.Background" ImageSource="images/cards/space/backov.jpg"/>
+        <SolidColorBrush x:Key="Space.Button.MouseOver.Border" Color="#00000000"/>
+        <SolidColorBrush x:Key="Space.Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Space.Button.Disabled.Background" Color="#00000000"/>
+        <SolidColorBrush x:Key="Space.Button.Disabled.Border" Color="#FFFF00FF"/>
+        <SolidColorBrush x:Key="Space.Button.Disabled.Foreground" Color="#FF838383"/>
+
+        <Style x:Key="SpaceCardBackMouseover" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Space.Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Space.Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Space.Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Space.Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Space.Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Space.Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Space.Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Space.Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--Space Theme-->
+
+        <ImageBrush x:Key="Space2.Button.Static.Background" ImageSource="images/cards/space2/back.jpg"/>
+        <SolidColorBrush x:Key="Space2.Button.Static.Border" Color="#00000000"/>
+        <ImageBrush x:Key="Space2.Button.Pressed.Background" ImageSource="images/cards/space2/backsel.jpg"/>
+        <ImageBrush x:Key="Space2.Button.MouseOver.Background" ImageSource="images/cards/space2/backov.jpg"/>
+        <SolidColorBrush x:Key="Space2.Button.MouseOver.Border" Color="#00000000"/>
+        <SolidColorBrush x:Key="Space2.Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Space2.Button.Disabled.Background" Color="#00000000"/>
+        <SolidColorBrush x:Key="Space2.Button.Disabled.Border" Color="#FFFF00FF"/>
+        <SolidColorBrush x:Key="Space2.Button.Disabled.Foreground" Color="#FF838383"/>
+
+        <Style x:Key="Space2CardBackMouseover" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Space2.Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Space2.Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Space2.Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Space2.Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Space2.Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Space2.Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Space2.Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Space2.Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
     </Window.Resources>
     <Window.Background>
         <RadialGradientBrush>
@@ -807,7 +958,7 @@
             <DropShadowEffect BlurRadius="50" ShadowDepth="20" Direction="335" Color="Black"/>
         </Border.Effect>
 
-        <Border HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="1100" MinHeight="720" Background="#FF1A2C2C" CornerRadius="50">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="1080" MinHeight="700" Background="#FF1A2C2C" CornerRadius="50">
             <Border HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="1000" MinHeight="685">
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="20" ShadowDepth="10" Direction="335" Color="Black"/>
@@ -901,8 +1052,8 @@
                         <Image Name="image16" Grid.Row="3" Grid.Column="3" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
 
-                    <Border Grid.Column="1" HorizontalAlignment="Center" Background="#FF4B8B8B" CornerRadius="20" Margin="20">
-                        <Border Grid.Column="1" HorizontalAlignment="Center" Background="#FF141436" Margin="5" CornerRadius="20">
+                    <Border Grid.Column="1" HorizontalAlignment="Center" Background="#FF4B8B8B" CornerRadius="20" Margin="20" MaxWidth="360" MinWidth="360">
+                        <Border Grid.Column="1" HorizontalAlignment="Center" Background="#FF141436" Margin="5" CornerRadius="20" MinWidth="350">
                             <StackPanel>
                                 <Border Background="#7F008B8B" CornerRadius="20" Margin="3">
                                     <Border Background="#FF1A2C2C" Margin="2" CornerRadius="20">
@@ -1009,6 +1160,12 @@
                                             <TextBlock Text="Mushroom Cards 2" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
                                         </DockPanel>
                                     </ComboBoxItem>
+                                    <ComboBoxItem x:Name="Mushrooms3" Selected="Mushrooms3_Selected">
+                                        <DockPanel>
+                                            <Image Source="images/cards/mushrooms3/back.jpg" Height="50"/>
+                                            <TextBlock Text="Mushroom Cards 3" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
+                                        </DockPanel>
+                                    </ComboBoxItem>
                                     <ComboBoxItem x:Name="RockFormation" Selected="RockFormation_Selected">
                                         <DockPanel>
                                             <Image Source="images/cards/rockformation/back.jpg" Height="50"/>
@@ -1019,6 +1176,18 @@
                                         <DockPanel>
                                             <Image Source="images/cards/rockformation2/back.jpg" Height="50"/>
                                             <TextBlock Text="Rock Formation Cards 2" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
+                                        </DockPanel>
+                                    </ComboBoxItem>
+                                    <ComboBoxItem x:Name="Space" Selected="Space_Selected">
+                                        <DockPanel>
+                                            <Image Source="images/cards/space/back.jpg" Height="50"/>
+                                            <TextBlock Text="Space Cards" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
+                                        </DockPanel>
+                                    </ComboBoxItem>
+                                    <ComboBoxItem x:Name="Space2" Selected="Space2_Selected">
+                                        <DockPanel>
+                                            <Image Source="images/cards/space2/back.jpg" Height="50"/>
+                                            <TextBlock Text="Space Cards 2" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
                                         </DockPanel>
                                     </ComboBoxItem>
                                     <ComboBoxItem x:Name="Sealife" Selected="Sealife_Selected">
@@ -1111,7 +1280,7 @@
                             </StackPanel>
                         </Border>
                     </Border>
-                    <Rectangle x:Name="Shield" Margin="0,0,0,0" Opacity="1" Visibility="Hidden" Panel.ZIndex="5">
+                    <Rectangle x:Name="Shield" Margin="0,0,0,0" Opacity="0.6" Visibility="Hidden" Panel.ZIndex="5">
                         <Rectangle.Fill>
                             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                                 <LinearGradientBrush.RelativeTransform>

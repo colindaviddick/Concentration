@@ -1424,11 +1424,80 @@ namespace Concentration
             NewGameSequence();
         }
 
+        private void Mushrooms3_Selected(object sender, RoutedEventArgs e)
+        {
+            defaultTheme = "mushrooms3";
+
+            back1.Style = (Style)FindResource("Mushrooms3CardBackMouseover");
+            back2.Style = (Style)FindResource("Mushrooms3CardBackMouseover");
+            back3.Style = (Style)FindResource("Mushrooms3CardBackMouseover");
+            back4.Style = (Style)FindResource("Mushrooms3CardBackMouseover");
+            back5.Style = (Style)FindResource("Mushrooms3CardBackMouseover");
+            back6.Style = (Style)FindResource("Mushrooms3CardBackMouseover");
+            back7.Style = (Style)FindResource("Mushrooms3CardBackMouseover");
+            back8.Style = (Style)FindResource("Mushrooms3CardBackMouseover");
+            back9.Style = (Style)FindResource("Mushrooms3CardBackMouseover");
+            back10.Style = (Style)FindResource("Mushrooms3CardBackMouseover");
+            back11.Style = (Style)FindResource("Mushrooms3CardBackMouseover");
+            back12.Style = (Style)FindResource("Mushrooms3CardBackMouseover");
+            back13.Style = (Style)FindResource("Mushrooms3CardBackMouseover");
+            back14.Style = (Style)FindResource("Mushrooms3CardBackMouseover");
+            back15.Style = (Style)FindResource("Mushrooms3CardBackMouseover");
+            back16.Style = (Style)FindResource("Mushrooms3CardBackMouseover");
+            NewGameSequence();
+        }
+
+        private void Space_Selected(object sender, RoutedEventArgs e)
+        {
+            defaultTheme = "space";
+
+             back1.Style = (Style)FindResource("SpaceCardBackMouseover");
+             back2.Style = (Style)FindResource("SpaceCardBackMouseover");
+             back3.Style = (Style)FindResource("SpaceCardBackMouseover");
+             back4.Style = (Style)FindResource("SpaceCardBackMouseover");
+             back5.Style = (Style)FindResource("SpaceCardBackMouseover");
+             back6.Style = (Style)FindResource("SpaceCardBackMouseover");
+             back7.Style = (Style)FindResource("SpaceCardBackMouseover");
+             back8.Style = (Style)FindResource("SpaceCardBackMouseover");
+             back9.Style = (Style)FindResource("SpaceCardBackMouseover");
+            back10.Style = (Style)FindResource("SpaceCardBackMouseover");
+            back11.Style = (Style)FindResource("SpaceCardBackMouseover");
+            back12.Style = (Style)FindResource("SpaceCardBackMouseover");
+            back13.Style = (Style)FindResource("SpaceCardBackMouseover");
+            back14.Style = (Style)FindResource("SpaceCardBackMouseover");
+            back15.Style = (Style)FindResource("SpaceCardBackMouseover");
+            back16.Style = (Style)FindResource("SpaceCardBackMouseover");
+            NewGameSequence();
+        }
+
+        private void Space2_Selected(object sender, RoutedEventArgs e)
+        {
+            defaultTheme = "space2";
+
+             back1.Style = (Style)FindResource("Space2CardBackMouseover");
+             back2.Style = (Style)FindResource("Space2CardBackMouseover");
+             back3.Style = (Style)FindResource("Space2CardBackMouseover");
+             back4.Style = (Style)FindResource("Space2CardBackMouseover");
+             back5.Style = (Style)FindResource("Space2CardBackMouseover");
+             back6.Style = (Style)FindResource("Space2CardBackMouseover");
+             back7.Style = (Style)FindResource("Space2CardBackMouseover");
+             back8.Style = (Style)FindResource("Space2CardBackMouseover");
+             back9.Style = (Style)FindResource("Space2CardBackMouseover");
+            back10.Style = (Style)FindResource("Space2CardBackMouseover");
+            back11.Style = (Style)FindResource("Space2CardBackMouseover");
+            back12.Style = (Style)FindResource("Space2CardBackMouseover");
+            back13.Style = (Style)FindResource("Space2CardBackMouseover");
+            back14.Style = (Style)FindResource("Space2CardBackMouseover");
+            back15.Style = (Style)FindResource("Space2CardBackMouseover");
+            back16.Style = (Style)FindResource("Space2CardBackMouseover");
+            NewGameSequence();
+        }
     }
 }
 
-
-//// todo after two cards are uncovered, if not a pair, re-cover the cards.
-// todo once a pair is found, they should remain shown. Can a button be deleted? Will it cause problems when they're being shown again?
-// todo look at implementing delays in display
-
+// TODO
+//
+// Change the shield to something more attractive. I'd like a small spinning icon and maybe a slight darkening of all of the cards?
+// Also add the Sunset images that were created tonight.
+// Maybe rejig the layout as the High Score thing messes with the size of the page.
+// Add a small splash screen?

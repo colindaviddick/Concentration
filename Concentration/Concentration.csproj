@@ -115,47 +115,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="images\cards\basic\back.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\cards\basic\1.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="images\cards\basic\2.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="images\cards\basic\3.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="images\cards\basic\4.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\cards\basic\5.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="images\cards\basic\6.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="images\cards\basic\7.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="images\cards\basic\8.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\cards\basic\backov.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="images\cards\basic\backsel.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="ToDo.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -437,7 +396,17 @@
     <Resource Include="images\cards\mushrooms\backsel.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="images\cards\mushrooms3\" />
+    <Resource Include="images\cards\basic\1.jpg" />
+    <Resource Include="images\cards\basic\2.jpg" />
+    <Resource Include="images\cards\basic\3.jpg" />
+    <Resource Include="images\cards\basic\4.jpg" />
+    <Resource Include="images\cards\basic\5.jpg" />
+    <Resource Include="images\cards\basic\6.jpg" />
+    <Resource Include="images\cards\basic\7.jpg" />
+    <Resource Include="images\cards\basic\8.jpg" />
+    <Resource Include="images\cards\basic\back.jpg" />
+    <Resource Include="images\cards\basic\backov.jpg" />
+    <Resource Include="images\cards\basic\backsel.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\cards\mushrooms2\1.jpg" />
@@ -453,6 +422,45 @@
     <Resource Include="images\cards\mushrooms2\back.jpg" />
     <Resource Include="images\cards\mushrooms2\backov.jpg" />
     <Resource Include="images\cards\mushrooms2\backsel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\cards\mushrooms3\1.jpg" />
+    <Resource Include="images\cards\mushrooms3\2.jpg" />
+    <Resource Include="images\cards\mushrooms3\3.jpg" />
+    <Resource Include="images\cards\mushrooms3\4.jpg" />
+    <Resource Include="images\cards\mushrooms3\5.jpg" />
+    <Resource Include="images\cards\mushrooms3\6.jpg" />
+    <Resource Include="images\cards\mushrooms3\7.jpg" />
+    <Resource Include="images\cards\mushrooms3\8.jpg" />
+    <Resource Include="images\cards\mushrooms3\back.jpg" />
+    <Resource Include="images\cards\mushrooms3\backov.jpg" />
+    <Resource Include="images\cards\mushrooms3\backsel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\cards\space\1.jpg" />
+    <Resource Include="images\cards\space\2.jpg" />
+    <Resource Include="images\cards\space\3.jpg" />
+    <Resource Include="images\cards\space\4.jpg" />
+    <Resource Include="images\cards\space\5.jpg" />
+    <Resource Include="images\cards\space\6.jpg" />
+    <Resource Include="images\cards\space\7.jpg" />
+    <Resource Include="images\cards\space\8.jpg" />
+    <Resource Include="images\cards\space\back.jpg" />
+    <Resource Include="images\cards\space\backov.jpg" />
+    <Resource Include="images\cards\space\backsel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\cards\space2\1.jpg" />
+    <Resource Include="images\cards\space2\2.jpg" />
+    <Resource Include="images\cards\space2\3.jpg" />
+    <Resource Include="images\cards\space2\4.jpg" />
+    <Resource Include="images\cards\space2\5.jpg" />
+    <Resource Include="images\cards\space2\6.jpg" />
+    <Resource Include="images\cards\space2\7.jpg" />
+    <Resource Include="images\cards\space2\8.jpg" />
+    <Resource Include="images\cards\space2\back.jpg" />
+    <Resource Include="images\cards\space2\backov.jpg" />
+    <Resource Include="images\cards\space2\backsel.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
