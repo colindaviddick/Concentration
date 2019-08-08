@@ -74,6 +74,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="SplashScreen.xaml.cs">
+      <DependentUpon>SplashScreen.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -86,6 +89,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="SplashScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -461,6 +468,23 @@
     <Resource Include="images\cards\space2\back.jpg" />
     <Resource Include="images\cards\space2\backov.jpg" />
     <Resource Include="images\cards\space2\backsel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\ConcentrationLogo2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\ConcentrationLogo3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\ConcentrationLogo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\ConcentrationLogo4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\ConcentrationLogo5.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

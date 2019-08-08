@@ -343,7 +343,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        
+
         <!--Big Cats 1 Skin-->
 
         <ImageBrush x:Key="BigCats1.Button.Static.Background" ImageSource="images/cards/bigcats/back.jpg"/>
@@ -443,7 +443,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        
+
         <!--Birds-->
         <ImageBrush x:Key="Birds.Button.Static.Background" ImageSource="images/cards/birds/back.jpg"/>
         <SolidColorBrush x:Key="Birds.Button.Static.Border" Color="#00000000"/>
@@ -1280,36 +1280,40 @@
                             </StackPanel>
                         </Border>
                     </Border>
-                    <Rectangle x:Name="Shield" Margin="0,0,0,0" Opacity="0.6" Visibility="Hidden" Panel.ZIndex="5">
-                        <Rectangle.Fill>
-                            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                                <LinearGradientBrush.RelativeTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleY="1.5"/>
-                                        <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                        <RotateTransform x:Name="ShieldTurn" Angle="-47.291" CenterY="0.5" CenterX="0.5"/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </LinearGradientBrush.RelativeTransform>
-                                <GradientStop Color="#FF1A2C2C" Offset="0"/>
-                                <GradientStop Color="#001A2C2C" Offset="0.05"/>
-                                <GradientStop Color="#FF1A2C2C" Offset="0.1"/>
-                                <GradientStop Color="#001A2C2C" Offset="0.2"/>
-                                <GradientStop Color="#FF1A2C2C" Offset="0.3"/>
-                                <GradientStop Color="#001A2C2C" Offset="0.4"/>
-                                <GradientStop Color="#FF1A2C2C" Offset="0.5"/>
-                                <GradientStop Color="#001A2C2C" Offset="0.6"/>
-                                <GradientStop Color="#FF1A2C2C" Offset="0.7"/>
-                                <GradientStop Color="#001A2C2C" Offset="0.8"/>
-                                <GradientStop Color="#FF1A2C2C" Offset="0.9"/>
-                                <GradientStop Color="#001A2C2C" Offset="0.95"/>
-                                <GradientStop Color="#FF1A2C2C" Offset="1"/>
-
-                            </LinearGradientBrush>
-                        </Rectangle.Fill>
-                    </Rectangle>
+                    <Rectangle x:Name="Shield" Margin="-585,-358,-605,-370" Grid.ColumnSpan="2" Fill="Black" Opacity="0.1" Visibility="Hidden"/>
                 </Grid>
             </Border>
         </Border>
     </Border>
 </Window>
+
+
+
+<!--<Rectangle x:Name="Shield" Margin="0,0,0,0" Opacity="0.6" Visibility="Hidden" Panel.ZIndex="5">
+    <Rectangle.Fill>
+        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+            <LinearGradientBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleY="1.5"/>
+                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                    <RotateTransform x:Name="ShieldTurn" Angle="-47.291" CenterY="0.5" CenterX="0.5"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </LinearGradientBrush.RelativeTransform>
+            <GradientStop Color="#FF1A2C2C" Offset="0"/>
+            <GradientStop Color="#001A2C2C" Offset="0.05"/>
+            <GradientStop Color="#FF1A2C2C" Offset="0.1"/>
+            <GradientStop Color="#001A2C2C" Offset="0.2"/>
+            <GradientStop Color="#FF1A2C2C" Offset="0.3"/>
+            <GradientStop Color="#001A2C2C" Offset="0.4"/>
+            <GradientStop Color="#FF1A2C2C" Offset="0.5"/>
+            <GradientStop Color="#001A2C2C" Offset="0.6"/>
+            <GradientStop Color="#FF1A2C2C" Offset="0.7"/>
+            <GradientStop Color="#001A2C2C" Offset="0.8"/>
+            <GradientStop Color="#FF1A2C2C" Offset="0.9"/>
+            <GradientStop Color="#001A2C2C" Offset="0.95"/>
+            <GradientStop Color="#FF1A2C2C" Offset="1"/>
+
+        </LinearGradientBrush>
+    </Rectangle.Fill>
+</Rectangle>-->
