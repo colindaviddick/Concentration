@@ -26,24 +26,72 @@ namespace Concentration.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("100")]
-        public int LowestScore {
+        public int Score1 {
             get {
-                return ((int)(this["LowestScore"]));
+                return ((int)(this["Score1"]));
             }
             set {
-                this["LowestScore"] = value;
+                this["Score1"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Anonymous")]
-        public string Name {
+        public string Name1 {
             get {
-                return ((string)(this["Name"]));
+                return ((string)(this["Name1"]));
             }
             set {
-                this["Name"] = value;
+                this["Name1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Name2 {
+            get {
+                return ((string)(this["Name2"]));
+            }
+            set {
+                this["Name2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Name3 {
+            get {
+                return ((string)(this["Name3"]));
+            }
+            set {
+                this["Name3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public int Score2 {
+            get {
+                return ((int)(this["Score2"]));
+            }
+            set {
+                this["Score2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public int Score3 {
+            get {
+                return ((int)(this["Score3"]));
+            }
+            set {
+                this["Score3"] = value;
             }
         }
     }

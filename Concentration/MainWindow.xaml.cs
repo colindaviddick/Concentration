@@ -238,7 +238,9 @@ namespace Concentration
         {
             Clicks.Text = ("Clicks : " + clicks.ToString());
             Pairs.Text = ("Pairs found : " + pairs.ToString());
-            HighScore.Text = (Properties.Settings.Default.Name + " - " + Properties.Settings.Default.LowestScore);
+            HighScore1.Text = (Properties.Settings.Default.Name1 + " - " + Properties.Settings.Default.Score1);
+            HighScore2.Text = (Properties.Settings.Default.Name2 + " - " + Properties.Settings.Default.Score2);
+            HighScore3.Text = (Properties.Settings.Default.Name3 + " - " + Properties.Settings.Default.Score3);
         }
 
         void UpdateDebug()
@@ -338,9 +340,15 @@ namespace Concentration
             if (pairs == 8)
             {
                 MessageBox.Show("You have won!");
-                if(clicks <= Properties.Settings.Default.LowestScore)
+                if(clicks <= Properties.Settings.Default.Score3)
                 {
+                    HighestScoresPanel.Visibility = Visibility.Visible;
                     HighScorePanel.Visibility = Visibility.Visible;
+                    Options.Visibility = Visibility.Collapsed;
+                    Debug.Visibility = Visibility.Collapsed;
+                    About.Visibility = Visibility.Collapsed;
+                    Rules.Visibility = Visibility.Collapsed;
+                    HighscoresPanel.Height = 300;
                 }
             }
         }
@@ -838,10 +846,16 @@ namespace Concentration
         
         private void ClearHighScores_Click(object sender, RoutedEventArgs e)
         {
-            Properties.Settings.Default.LowestScore = 100;
-            Properties.Settings.Default.Name = "Anonymous";
+            Properties.Settings.Default.Score1 = 100;
+            Properties.Settings.Default.Name1 = "Anonymous";
+            Properties.Settings.Default.Score2 = 100;
+            Properties.Settings.Default.Name2 = "Anonymous";
+            Properties.Settings.Default.Score3 = 100;
+            Properties.Settings.Default.Name3 = "Anonymous";
             Properties.Settings.Default.Save();
-            HighScore.Text = (Properties.Settings.Default.Name + " - " + Properties.Settings.Default.LowestScore);
+            HighScore1.Text = (Properties.Settings.Default.Name1 + " - " + Properties.Settings.Default.Score1);
+            HighScore2.Text = (Properties.Settings.Default.Name2 + " - " + Properties.Settings.Default.Score2);
+            HighScore3.Text = (Properties.Settings.Default.Name3 + " - " + Properties.Settings.Default.Score3);
         }
 
         private void UncoverCards_Click(object sender, RoutedEventArgs e)
@@ -1034,6 +1048,7 @@ namespace Concentration
                 Debug.Visibility = Visibility.Collapsed;
                 Rules.Visibility = Visibility.Collapsed;
                 About.Visibility = Visibility.Collapsed;
+                HighestScoresPanel.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -1049,6 +1064,7 @@ namespace Concentration
                 Debug.Visibility = Visibility.Visible;
                 Rules.Visibility = Visibility.Collapsed;
                 About.Visibility = Visibility.Collapsed;
+                HighestScoresPanel.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -1064,6 +1080,7 @@ namespace Concentration
                 Debug.Visibility = Visibility.Collapsed;
                 Rules.Visibility = Visibility.Visible;
                 About.Visibility = Visibility.Collapsed;
+                HighestScoresPanel.Visibility = Visibility.Collapsed;
             }
         }
         private void AboutButton_Click(object sender, RoutedEventArgs e)
@@ -1078,8 +1095,26 @@ namespace Concentration
                 Debug.Visibility = Visibility.Collapsed;
                 Rules.Visibility = Visibility.Collapsed;
                 About.Visibility = Visibility.Visible;
+                HighestScoresPanel.Visibility = Visibility.Collapsed;
             }
         }
+
+        private void HScoresButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (HighestScoresPanel.Visibility == Visibility.Visible)
+            {
+                HighestScoresPanel.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                Options.Visibility = Visibility.Collapsed;
+                Debug.Visibility = Visibility.Collapsed;
+                Rules.Visibility = Visibility.Collapsed;
+                About.Visibility = Visibility.Collapsed;
+                HighestScoresPanel.Visibility = Visibility.Visible;
+            }
+        }
+
 
         private void ActivateDebugMode_Click(object sender, RoutedEventArgs e)
         {
@@ -1210,10 +1245,36 @@ namespace Concentration
 
         private void HighScoreSaveButton_Click(object sender, RoutedEventArgs e)
         {
-            Properties.Settings.Default.LowestScore = clicks;
-            Properties.Settings.Default.Name = HighScoreName.Text;
-            HighScore.Text = (Properties.Settings.Default.Name + " - " + Properties.Settings.Default.LowestScore);
+            if(clicks < Properties.Settings.Default.Score1)
+            {
+                Properties.Settings.Default.Name3 = Properties.Settings.Default.Name2;
+                Properties.Settings.Default.Score3 = Properties.Settings.Default.Score2;
+                Properties.Settings.Default.Name2 = Properties.Settings.Default.Name1;
+                Properties.Settings.Default.Score2 = Properties.Settings.Default.Score1;
+                Properties.Settings.Default.Name1 = HighScoreName.Text;
+                Properties.Settings.Default.Score1 = clicks;
+                Properties.Settings.Default.Save();
+            }
+            else if (clicks < Properties.Settings.Default.Score2)
+            {
+                Properties.Settings.Default.Name3 = Properties.Settings.Default.Name2;
+                Properties.Settings.Default.Score3 = Properties.Settings.Default.Score2;
+                Properties.Settings.Default.Name2 = HighScoreName.Text;
+                Properties.Settings.Default.Score2 = clicks;
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                Properties.Settings.Default.Name3 = HighScoreName.Text;
+                Properties.Settings.Default.Score3 = clicks;
+                Properties.Settings.Default.Save();
+            }
+
+            HighScore1.Text = (Properties.Settings.Default.Name1 + " - " + Properties.Settings.Default.Score1);
+            HighScore2.Text = (Properties.Settings.Default.Name2 + " - " + Properties.Settings.Default.Score2);
+            HighScore3.Text = (Properties.Settings.Default.Name3 + " - " + Properties.Settings.Default.Score3);
             Properties.Settings.Default.Save();
+            HighscoresPanel.Height = 145;
             HighScorePanel.Visibility = Visibility.Hidden;
         }
 

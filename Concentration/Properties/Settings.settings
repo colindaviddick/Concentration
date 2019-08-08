@@ -2,11 +2,23 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Concentration.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="LowestScore" Type="System.Int32" Scope="User">
+    <Setting Name="Score1" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">100</Value>
     </Setting>
-    <Setting Name="Name" Type="System.String" Scope="User">
+    <Setting Name="Name1" Type="System.String" Scope="User">
       <Value Profile="(Default)">Anonymous</Value>
+    </Setting>
+    <Setting Name="Name2" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Name3" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Score2" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="Score3" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">100</Value>
     </Setting>
   </Settings>
 </SettingsFile>
