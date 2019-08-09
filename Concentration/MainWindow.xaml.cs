@@ -343,12 +343,25 @@ namespace Concentration
                 if(clicks <= Properties.Settings.Default.Score3)
                 {
                     HighestScoresPanel.Visibility = Visibility.Visible;
-                    HighScorePanel.Visibility = Visibility.Visible;
+                    SaveHighScorePanel.Visibility = Visibility.Visible;
                     Options.Visibility = Visibility.Collapsed;
                     Debug.Visibility = Visibility.Collapsed;
                     About.Visibility = Visibility.Collapsed;
                     Rules.Visibility = Visibility.Collapsed;
-                    HighscoresPanel.Height = 300;
+
+                    if(clicks < Properties.Settings.Default.Score1)
+                    {
+                        HighScoreExplanation.Text = "Your score is better than " + Properties.Settings.Default.Name3 + ", " + Properties.Settings.Default.Name2 + " AND " + Properties.Settings.Default.Name1 + ". Save your score here!";
+                    }
+                    else if (clicks < Properties.Settings.Default.Score2)
+                    {
+                        HighScoreExplanation.Text = "Your score is better than " + Properties.Settings.Default.Name3 + " and " + Properties.Settings.Default.Name2 + ". Save your score here!";
+                    }
+                    else
+                    {
+                        HighScoreExplanation.Text = "Your score is better than " + Properties.Settings.Default.Name3 + ", save it here!";
+                    }
+                    HighScoreName.Focus();
                 }
             }
         }
@@ -1011,7 +1024,7 @@ namespace Concentration
             card14found = false;
             card15found = false;
             card16found = false;
-            HighScorePanel.Visibility = Visibility.Collapsed;
+            SaveHighScorePanel.Visibility = Visibility.Collapsed;
             SortAndRandomiseCards();
             _ = ReCoverCards();
             pairs = 0;
@@ -1243,9 +1256,9 @@ namespace Concentration
             NewGameSequence();
         }
 
-        private void HighScoreSaveButton_Click(object sender, RoutedEventArgs e)
+        private void SaveScore()
         {
-            if(clicks < Properties.Settings.Default.Score1)
+            if (clicks < Properties.Settings.Default.Score1)
             {
                 Properties.Settings.Default.Name3 = Properties.Settings.Default.Name2;
                 Properties.Settings.Default.Score3 = Properties.Settings.Default.Score2;
@@ -1275,7 +1288,12 @@ namespace Concentration
             HighScore3.Text = (Properties.Settings.Default.Name3 + " - " + Properties.Settings.Default.Score3);
             Properties.Settings.Default.Save();
             HighscoresPanel.Height = 145;
-            HighScorePanel.Visibility = Visibility.Hidden;
+            SaveHighScorePanel.Visibility = Visibility.Hidden;
+        }
+
+        private void HighScoreSaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            SaveScore();
         }
 
         private void BigCats_Selected(object sender, RoutedEventArgs e)
@@ -1552,6 +1570,15 @@ namespace Concentration
             back15.Style = (Style)FindResource("Space2CardBackMouseover");
             back16.Style = (Style)FindResource("Space2CardBackMouseover");
             NewGameSequence();
+        }
+
+        private void HighScoreName_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter || e.Key == Key.Return)
+            {
+                SaveScore();
+            }
+
         }
     }
 }
