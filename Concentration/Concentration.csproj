@@ -486,5 +486,10 @@
     <Resource Include="images\cards\basic\backov.jpg" />
     <Resource Include="images\cards\basic\backsel.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="NameList.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

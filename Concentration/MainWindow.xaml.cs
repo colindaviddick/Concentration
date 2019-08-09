@@ -97,6 +97,9 @@ namespace Concentration
         bool card14found = false;
         bool card15found = false;
         bool card16found = false;
+
+        string[] anonymousNames = System.IO.File.ReadAllLines(@"C:\Users\User\source\repos\Concentration\Concentration\NameList.txt");
+        int anonymousNamesLength;
         // bool shieldTurn = true;
 
         int waitTime = 1500;
@@ -131,8 +134,32 @@ namespace Concentration
         async Task StartSequence()
         {
             SortAndRandomiseCards();
+            AnonymizeNames();
             UpdateClicks();
             UpdateDebug();
+        }
+
+        void AnonymizeNames()
+        {
+            anonymousNamesLength = anonymousNames.Length;
+            Random r = new Random();
+
+            if(Properties.Settings.Default.Name1 == "Anonymous")
+            {
+                int rInt = r.Next(1, anonymousNamesLength);
+                Properties.Settings.Default.Name1 = anonymousNames[rInt];
+            }
+            if (Properties.Settings.Default.Name2 == "Anonymous")
+            {
+                int rInt = r.Next(1, anonymousNamesLength);
+                Properties.Settings.Default.Name2 = anonymousNames[rInt];
+            }
+
+            if (Properties.Settings.Default.Name3 == "Anonymous")
+            {
+                int rInt = r.Next(1, anonymousNamesLength);
+                Properties.Settings.Default.Name3 = anonymousNames[rInt];
+            }
         }
 
         void SortAndRandomiseCards()
@@ -340,28 +367,15 @@ namespace Concentration
             if (pairs == 8)
             {
                 MessageBox.Show("You have won!");
-                if(clicks <= Properties.Settings.Default.Score3)
+                if (clicks <= Properties.Settings.Default.Score3)
                 {
                     HighestScoresPanel.Visibility = Visibility.Visible;
-                    SaveHighScorePanel.Visibility = Visibility.Visible;
+                    HighScorePanel.Visibility = Visibility.Visible;
                     Options.Visibility = Visibility.Collapsed;
                     Debug.Visibility = Visibility.Collapsed;
                     About.Visibility = Visibility.Collapsed;
                     Rules.Visibility = Visibility.Collapsed;
-
-                    if(clicks < Properties.Settings.Default.Score1)
-                    {
-                        HighScoreExplanation.Text = "Your score is better than " + Properties.Settings.Default.Name3 + ", " + Properties.Settings.Default.Name2 + " AND " + Properties.Settings.Default.Name1 + ". Save your score here!";
-                    }
-                    else if (clicks < Properties.Settings.Default.Score2)
-                    {
-                        HighScoreExplanation.Text = "Your score is better than " + Properties.Settings.Default.Name3 + " and " + Properties.Settings.Default.Name2 + ". Save your score here!";
-                    }
-                    else
-                    {
-                        HighScoreExplanation.Text = "Your score is better than " + Properties.Settings.Default.Name3 + ", save it here!";
-                    }
-                    HighScoreName.Focus();
+                    HighscoresPanel.Height = 300;
                 }
             }
         }
@@ -856,7 +870,7 @@ namespace Concentration
                 selection2 = 0;
             }
         }
-        
+
         private void ClearHighScores_Click(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.Score1 = 100;
@@ -866,6 +880,7 @@ namespace Concentration
             Properties.Settings.Default.Score3 = 100;
             Properties.Settings.Default.Name3 = "Anonymous";
             Properties.Settings.Default.Save();
+            AnonymizeNames();
             HighScore1.Text = (Properties.Settings.Default.Name1 + " - " + Properties.Settings.Default.Score1);
             HighScore2.Text = (Properties.Settings.Default.Name2 + " - " + Properties.Settings.Default.Score2);
             HighScore3.Text = (Properties.Settings.Default.Name3 + " - " + Properties.Settings.Default.Score3);
@@ -1024,7 +1039,7 @@ namespace Concentration
             card14found = false;
             card15found = false;
             card16found = false;
-            SaveHighScorePanel.Visibility = Visibility.Collapsed;
+            HighScorePanel.Visibility = Visibility.Collapsed;
             SortAndRandomiseCards();
             _ = ReCoverCards();
             pairs = 0;
@@ -1051,7 +1066,7 @@ namespace Concentration
 
         private void OptionsButton_Click(object sender, RoutedEventArgs e)
         {
-            if(Options.Visibility == Visibility.Visible)
+            if (Options.Visibility == Visibility.Visible)
             {
                 Options.Visibility = Visibility.Collapsed;
             }
@@ -1099,7 +1114,7 @@ namespace Concentration
         private void AboutButton_Click(object sender, RoutedEventArgs e)
         {
             if (About.Visibility == Visibility.Visible)
-            {   
+            {
                 About.Visibility = Visibility.Collapsed;
             }
             else
@@ -1256,7 +1271,7 @@ namespace Concentration
             NewGameSequence();
         }
 
-        private void SaveScore()
+        private void HighScoreSaveButton_Click(object sender, RoutedEventArgs e)
         {
             if (clicks < Properties.Settings.Default.Score1)
             {
@@ -1288,12 +1303,7 @@ namespace Concentration
             HighScore3.Text = (Properties.Settings.Default.Name3 + " - " + Properties.Settings.Default.Score3);
             Properties.Settings.Default.Save();
             HighscoresPanel.Height = 145;
-            SaveHighScorePanel.Visibility = Visibility.Hidden;
-        }
-
-        private void HighScoreSaveButton_Click(object sender, RoutedEventArgs e)
-        {
-            SaveScore();
+            HighScorePanel.Visibility = Visibility.Hidden;
         }
 
         private void BigCats_Selected(object sender, RoutedEventArgs e)
@@ -1392,15 +1402,15 @@ namespace Concentration
         {
             defaultTheme = "bokeh";
 
-             back1.Style = (Style)FindResource("BokehCardBackMouseover");
-             back2.Style = (Style)FindResource("BokehCardBackMouseover");
-             back3.Style = (Style)FindResource("BokehCardBackMouseover");
-             back4.Style = (Style)FindResource("BokehCardBackMouseover");
-             back5.Style = (Style)FindResource("BokehCardBackMouseover");
-             back6.Style = (Style)FindResource("BokehCardBackMouseover");
-             back7.Style = (Style)FindResource("BokehCardBackMouseover");
-             back8.Style = (Style)FindResource("BokehCardBackMouseover");
-             back9.Style = (Style)FindResource("BokehCardBackMouseover");
+            back1.Style = (Style)FindResource("BokehCardBackMouseover");
+            back2.Style = (Style)FindResource("BokehCardBackMouseover");
+            back3.Style = (Style)FindResource("BokehCardBackMouseover");
+            back4.Style = (Style)FindResource("BokehCardBackMouseover");
+            back5.Style = (Style)FindResource("BokehCardBackMouseover");
+            back6.Style = (Style)FindResource("BokehCardBackMouseover");
+            back7.Style = (Style)FindResource("BokehCardBackMouseover");
+            back8.Style = (Style)FindResource("BokehCardBackMouseover");
+            back9.Style = (Style)FindResource("BokehCardBackMouseover");
             back10.Style = (Style)FindResource("BokehCardBackMouseover");
             back11.Style = (Style)FindResource("BokehCardBackMouseover");
             back12.Style = (Style)FindResource("BokehCardBackMouseover");
@@ -1415,15 +1425,15 @@ namespace Concentration
         {
             defaultTheme = "rockformation";
 
-             back1.Style = (Style)FindResource("RockFormationCardBackMouseover");
-             back2.Style = (Style)FindResource("RockFormationCardBackMouseover");
-             back3.Style = (Style)FindResource("RockFormationCardBackMouseover");
-             back4.Style = (Style)FindResource("RockFormationCardBackMouseover");
-             back5.Style = (Style)FindResource("RockFormationCardBackMouseover");
-             back6.Style = (Style)FindResource("RockFormationCardBackMouseover");
-             back7.Style = (Style)FindResource("RockFormationCardBackMouseover");
-             back8.Style = (Style)FindResource("RockFormationCardBackMouseover");
-             back9.Style = (Style)FindResource("RockFormationCardBackMouseover");
+            back1.Style = (Style)FindResource("RockFormationCardBackMouseover");
+            back2.Style = (Style)FindResource("RockFormationCardBackMouseover");
+            back3.Style = (Style)FindResource("RockFormationCardBackMouseover");
+            back4.Style = (Style)FindResource("RockFormationCardBackMouseover");
+            back5.Style = (Style)FindResource("RockFormationCardBackMouseover");
+            back6.Style = (Style)FindResource("RockFormationCardBackMouseover");
+            back7.Style = (Style)FindResource("RockFormationCardBackMouseover");
+            back8.Style = (Style)FindResource("RockFormationCardBackMouseover");
+            back9.Style = (Style)FindResource("RockFormationCardBackMouseover");
             back10.Style = (Style)FindResource("RockFormationCardBackMouseover");
             back11.Style = (Style)FindResource("RockFormationCardBackMouseover");
             back12.Style = (Style)FindResource("RockFormationCardBackMouseover");
@@ -1438,15 +1448,15 @@ namespace Concentration
         {
             defaultTheme = "rockformation2";
 
-             back1.Style = (Style)FindResource("RockFormation2CardBackMouseover");
-             back2.Style = (Style)FindResource("RockFormation2CardBackMouseover");
-             back3.Style = (Style)FindResource("RockFormation2CardBackMouseover");
-             back4.Style = (Style)FindResource("RockFormation2CardBackMouseover");
-             back5.Style = (Style)FindResource("RockFormation2CardBackMouseover");
-             back6.Style = (Style)FindResource("RockFormation2CardBackMouseover");
-             back7.Style = (Style)FindResource("RockFormation2CardBackMouseover");
-             back8.Style = (Style)FindResource("RockFormation2CardBackMouseover");
-             back9.Style = (Style)FindResource("RockFormation2CardBackMouseover");
+            back1.Style = (Style)FindResource("RockFormation2CardBackMouseover");
+            back2.Style = (Style)FindResource("RockFormation2CardBackMouseover");
+            back3.Style = (Style)FindResource("RockFormation2CardBackMouseover");
+            back4.Style = (Style)FindResource("RockFormation2CardBackMouseover");
+            back5.Style = (Style)FindResource("RockFormation2CardBackMouseover");
+            back6.Style = (Style)FindResource("RockFormation2CardBackMouseover");
+            back7.Style = (Style)FindResource("RockFormation2CardBackMouseover");
+            back8.Style = (Style)FindResource("RockFormation2CardBackMouseover");
+            back9.Style = (Style)FindResource("RockFormation2CardBackMouseover");
             back10.Style = (Style)FindResource("RockFormation2CardBackMouseover");
             back11.Style = (Style)FindResource("RockFormation2CardBackMouseover");
             back12.Style = (Style)FindResource("RockFormation2CardBackMouseover");
@@ -1461,15 +1471,15 @@ namespace Concentration
         {
             defaultTheme = "mushrooms";
 
-             back1.Style = (Style)FindResource("MushroomsCardBackMouseover");
-             back2.Style = (Style)FindResource("MushroomsCardBackMouseover");
-             back3.Style = (Style)FindResource("MushroomsCardBackMouseover");
-             back4.Style = (Style)FindResource("MushroomsCardBackMouseover");
-             back5.Style = (Style)FindResource("MushroomsCardBackMouseover");
-             back6.Style = (Style)FindResource("MushroomsCardBackMouseover");
-             back7.Style = (Style)FindResource("MushroomsCardBackMouseover");
-             back8.Style = (Style)FindResource("MushroomsCardBackMouseover");
-             back9.Style = (Style)FindResource("MushroomsCardBackMouseover");
+            back1.Style = (Style)FindResource("MushroomsCardBackMouseover");
+            back2.Style = (Style)FindResource("MushroomsCardBackMouseover");
+            back3.Style = (Style)FindResource("MushroomsCardBackMouseover");
+            back4.Style = (Style)FindResource("MushroomsCardBackMouseover");
+            back5.Style = (Style)FindResource("MushroomsCardBackMouseover");
+            back6.Style = (Style)FindResource("MushroomsCardBackMouseover");
+            back7.Style = (Style)FindResource("MushroomsCardBackMouseover");
+            back8.Style = (Style)FindResource("MushroomsCardBackMouseover");
+            back9.Style = (Style)FindResource("MushroomsCardBackMouseover");
             back10.Style = (Style)FindResource("MushroomsCardBackMouseover");
             back11.Style = (Style)FindResource("MushroomsCardBackMouseover");
             back12.Style = (Style)FindResource("MushroomsCardBackMouseover");
@@ -1484,15 +1494,15 @@ namespace Concentration
         {
             defaultTheme = "mushrooms2";
 
-             back1.Style = (Style)FindResource("Mushrooms2CardBackMouseover");
-             back2.Style = (Style)FindResource("Mushrooms2CardBackMouseover");
-             back3.Style = (Style)FindResource("Mushrooms2CardBackMouseover");
-             back4.Style = (Style)FindResource("Mushrooms2CardBackMouseover");
-             back5.Style = (Style)FindResource("Mushrooms2CardBackMouseover");
-             back6.Style = (Style)FindResource("Mushrooms2CardBackMouseover");
-             back7.Style = (Style)FindResource("Mushrooms2CardBackMouseover");
-             back8.Style = (Style)FindResource("Mushrooms2CardBackMouseover");
-             back9.Style = (Style)FindResource("Mushrooms2CardBackMouseover");
+            back1.Style = (Style)FindResource("Mushrooms2CardBackMouseover");
+            back2.Style = (Style)FindResource("Mushrooms2CardBackMouseover");
+            back3.Style = (Style)FindResource("Mushrooms2CardBackMouseover");
+            back4.Style = (Style)FindResource("Mushrooms2CardBackMouseover");
+            back5.Style = (Style)FindResource("Mushrooms2CardBackMouseover");
+            back6.Style = (Style)FindResource("Mushrooms2CardBackMouseover");
+            back7.Style = (Style)FindResource("Mushrooms2CardBackMouseover");
+            back8.Style = (Style)FindResource("Mushrooms2CardBackMouseover");
+            back9.Style = (Style)FindResource("Mushrooms2CardBackMouseover");
             back10.Style = (Style)FindResource("Mushrooms2CardBackMouseover");
             back11.Style = (Style)FindResource("Mushrooms2CardBackMouseover");
             back12.Style = (Style)FindResource("Mushrooms2CardBackMouseover");
@@ -1530,15 +1540,15 @@ namespace Concentration
         {
             defaultTheme = "space";
 
-             back1.Style = (Style)FindResource("SpaceCardBackMouseover");
-             back2.Style = (Style)FindResource("SpaceCardBackMouseover");
-             back3.Style = (Style)FindResource("SpaceCardBackMouseover");
-             back4.Style = (Style)FindResource("SpaceCardBackMouseover");
-             back5.Style = (Style)FindResource("SpaceCardBackMouseover");
-             back6.Style = (Style)FindResource("SpaceCardBackMouseover");
-             back7.Style = (Style)FindResource("SpaceCardBackMouseover");
-             back8.Style = (Style)FindResource("SpaceCardBackMouseover");
-             back9.Style = (Style)FindResource("SpaceCardBackMouseover");
+            back1.Style = (Style)FindResource("SpaceCardBackMouseover");
+            back2.Style = (Style)FindResource("SpaceCardBackMouseover");
+            back3.Style = (Style)FindResource("SpaceCardBackMouseover");
+            back4.Style = (Style)FindResource("SpaceCardBackMouseover");
+            back5.Style = (Style)FindResource("SpaceCardBackMouseover");
+            back6.Style = (Style)FindResource("SpaceCardBackMouseover");
+            back7.Style = (Style)FindResource("SpaceCardBackMouseover");
+            back8.Style = (Style)FindResource("SpaceCardBackMouseover");
+            back9.Style = (Style)FindResource("SpaceCardBackMouseover");
             back10.Style = (Style)FindResource("SpaceCardBackMouseover");
             back11.Style = (Style)FindResource("SpaceCardBackMouseover");
             back12.Style = (Style)FindResource("SpaceCardBackMouseover");
@@ -1553,15 +1563,15 @@ namespace Concentration
         {
             defaultTheme = "space2";
 
-             back1.Style = (Style)FindResource("Space2CardBackMouseover");
-             back2.Style = (Style)FindResource("Space2CardBackMouseover");
-             back3.Style = (Style)FindResource("Space2CardBackMouseover");
-             back4.Style = (Style)FindResource("Space2CardBackMouseover");
-             back5.Style = (Style)FindResource("Space2CardBackMouseover");
-             back6.Style = (Style)FindResource("Space2CardBackMouseover");
-             back7.Style = (Style)FindResource("Space2CardBackMouseover");
-             back8.Style = (Style)FindResource("Space2CardBackMouseover");
-             back9.Style = (Style)FindResource("Space2CardBackMouseover");
+            back1.Style = (Style)FindResource("Space2CardBackMouseover");
+            back2.Style = (Style)FindResource("Space2CardBackMouseover");
+            back3.Style = (Style)FindResource("Space2CardBackMouseover");
+            back4.Style = (Style)FindResource("Space2CardBackMouseover");
+            back5.Style = (Style)FindResource("Space2CardBackMouseover");
+            back6.Style = (Style)FindResource("Space2CardBackMouseover");
+            back7.Style = (Style)FindResource("Space2CardBackMouseover");
+            back8.Style = (Style)FindResource("Space2CardBackMouseover");
+            back9.Style = (Style)FindResource("Space2CardBackMouseover");
             back10.Style = (Style)FindResource("Space2CardBackMouseover");
             back11.Style = (Style)FindResource("Space2CardBackMouseover");
             back12.Style = (Style)FindResource("Space2CardBackMouseover");
@@ -1570,15 +1580,6 @@ namespace Concentration
             back15.Style = (Style)FindResource("Space2CardBackMouseover");
             back16.Style = (Style)FindResource("Space2CardBackMouseover");
             NewGameSequence();
-        }
-
-        private void HighScoreName_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
-        {
-            if(e.Key == Key.Enter || e.Key == Key.Return)
-            {
-                SaveScore();
-            }
-
         }
     }
 }

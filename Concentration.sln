@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Concentration", "Concentration\Concentration.csproj", "{7FF11C03-608E-43A2-9B7C-7F7A5584236E}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Install Concentration", "Install Concentration\Install Concentration.vdproj", "{4419CB70-838B-4C45-BBCC-8C996978FA4B}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Install Concentration", "..\Install Concentration\Install Concentration.vdproj", "{6645E9C4-27FB-44E5-9B50-81BC8527DB12}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,11 +15,12 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{7FF11C03-608E-43A2-9B7C-7F7A5584236E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7FF11C03-608E-43A2-9B7C-7F7A5584236E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7FF11C03-608E-43A2-9B7C-7F7A5584236E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7FF11C03-608E-43A2-9B7C-7F7A5584236E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4419CB70-838B-4C45-BBCC-8C996978FA4B}.Debug|Any CPU.ActiveCfg = Debug
-		{4419CB70-838B-4C45-BBCC-8C996978FA4B}.Release|Any CPU.ActiveCfg = Release
-		{4419CB70-838B-4C45-BBCC-8C996978FA4B}.Release|Any CPU.Build.0 = Release
+		{7FF11C03-608E-43A2-9B7C-7F7A5584236E}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FF11C03-608E-43A2-9B7C-7F7A5584236E}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{6645E9C4-27FB-44E5-9B50-81BC8527DB12}.Debug|Any CPU.ActiveCfg = Debug
+		{6645E9C4-27FB-44E5-9B50-81BC8527DB12}.Debug|Any CPU.Build.0 = Debug
+		{6645E9C4-27FB-44E5-9B50-81BC8527DB12}.Release|Any CPU.ActiveCfg = Release
+		{6645E9C4-27FB-44E5-9B50-81BC8527DB12}.Release|Any CPU.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

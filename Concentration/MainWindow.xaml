@@ -3,9 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Concentration"
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="1200" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" WindowState="Maximized">
-        <!--xmlns:local="clr-namespace:Concentration"-->
 
     <!--Default Skin-->
 
@@ -1054,266 +1054,240 @@
 
                     <Border Grid.Column="1" HorizontalAlignment="Center" Background="#FF4B8B8B" CornerRadius="20" Margin="20" MaxWidth="360" MinWidth="360" Height="650" VerticalAlignment="Center">
                         <Border Grid.Column="1" HorizontalAlignment="Center" Background="#FF141436" Margin="5" CornerRadius="20" MinWidth="350">
-                            <Grid Height="640">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="60"/>
-                                    <RowDefinition Height="30"/>
-                                    <RowDefinition Height="*"/>
-                                    <RowDefinition Height="120"/>
-                                </Grid.RowDefinitions>
-                                <!--Title-->
-                                <Border Background="#7F008B8B" CornerRadius="20" Margin="3" Grid.Row="0">
+                            <StackPanel CanVerticallyScroll="True">
+                                <Border Background="#7F008B8B" CornerRadius="20" Margin="3">
                                     <Border Background="#FF1A2C2C" Margin="2" CornerRadius="20">
-                                        <TextBlock Margin="0" Text="Concentration" FontWeight="Bold" FontSize="45" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        <TextBlock Margin="5 0 5 5" Text="Concentration" FontWeight="Bold" FontSize="45" HorizontalAlignment="Center"/>
                                     </Border>
                                 </Border>
+                                <Border Background="#7F008B8B" CornerRadius="20" Margin="5" x:Name="HighestScoresPanel" MaxWidth="260" MinWidth="200">
+                                    <Border Background="#FF1A2C2C" Margin="2" CornerRadius="20">
+                                        <StackPanel x:Name="HighscoresPanel" HorizontalAlignment="Center" Height="145">
+                                            <TextBlock Margin="2" Text="HighScore" FontSize="30" FontWeight="Medium" HorizontalAlignment="Center"/>
+                                            <TextBlock Margin="5" Name="HighScore1" Text="# HighScore" FontSize="20" TextWrapping="NoWrap" HorizontalAlignment="Center"/>
+                                            <TextBlock Margin="5" Name="HighScore2" Text="# HighScore" FontSize="20" TextWrapping="NoWrap" HorizontalAlignment="Center"/>
+                                            <TextBlock Margin="5" Name="HighScore3" Text="# HighScore" FontSize="20" TextWrapping="NoWrap" HorizontalAlignment="Center"/>
+                                            <Border x:Name="HighScorePanel" Background="Cyan" Visibility="Hidden" CornerRadius="20" Width="280" Height="150" Margin="5">
+                                                <Border Background="#FF1A2C2C" Margin="2" CornerRadius="20">
+                                                    <StackPanel Width="250" HorizontalAlignment="Center" >
+                                                        <TextBlock Margin="5" Text="Save Your Score!" FontWeight="DemiBold" HorizontalAlignment="Center" FontSize="30"/>
+                                                        <TextBox x:Name="HighScoreName" Margin="5" Height="30" HorizontalAlignment="Center" Width="240" TextAlignment="Center" FontSize="20" VerticalContentAlignment="Center"/>
+                                                        <Button Name="HighScoreSaveButton" HorizontalAlignment="Center" Content="Save High Score" FontSize="20" Width="240" Click="HighScoreSaveButton_Click" Margin="5"/>
+                                                    </StackPanel>
+                                                </Border>
+                                            </Border>
+                                        </StackPanel>
+                                    </Border>
+                                </Border>
+                                <StackPanel>
+                                    <TextBlock Margin="5" Text="Current Player Progress" FontSize="15" TextWrapping="Wrap" HorizontalAlignment="Center" FontWeight="DemiBold"/>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <TextBlock Margin="2" Name="Clicks" Text="# Clicks" FontSize="20" />
+                                        <TextBlock Margin="2" Name="Pairs" Text="# Pairs" FontSize="20" />
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                                    <Button x:Name="NewGame" Width="120" Height="25" Margin="10" Click="NewGame_Click">New Game</Button>
+                                    <Button x:Name="QuitGame" Width="120" Height="25" Margin="10" Click="QuitGame_Click">Quit Game</Button>
+                                </StackPanel>
+                                <Line Margin="5" Stroke="White" Height="3" Width="200" HorizontalAlignment="Center" OpacityMask="White" UseLayoutRounding="False" X2="200">
+                                    <Line.Fill>
+                                        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.MenuHighlightColorKey}}"/>
+                                    </Line.Fill>
+                                </Line>
+                                <TextBlock Margin="0 0 0 5" Text="Theme" FontSize="15" TextWrapping="Wrap" HorizontalAlignment="Center" FontWeight="DemiBold"/>
+                                <ComboBox x:Name="ThemeSelector"  Margin="2" Focusable="False" IsReadOnly="True" Text="Select a Theme" Width="150" ToolTip="This will clear your current game.">
+                                    <ComboBoxItem x:Name="Animals" Selected="Animals_Selected">
+                                        <DockPanel>
+                                            <Image Source="images/cards/animal/back.jpg" Height="70"/>
+                                            <TextBlock Text="Animal Cards" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
+                                        </DockPanel>
+                                    </ComboBoxItem>
+                                    <ComboBoxItem x:Name="Animals2" Selected="Animals2_Selected">
+                                        <DockPanel>
+                                            <Image Source="images/cards/animal2/back.jpg" Height="70"/>
+                                            <TextBlock Text="Animal Cards 2" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
+                                        </DockPanel>
+                                    </ComboBoxItem>
+                                    <ComboBoxItem x:Name="BigCats" Selected="BigCats_Selected">
+                                        <DockPanel>
+                                            <Image Source="images/cards/bigcats/back.jpg" Height="70"/>
+                                            <TextBlock Text="Big Cats Cards" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
+                                        </DockPanel>
+                                    </ComboBoxItem>
+                                    <ComboBoxItem x:Name="BigCats2" Selected="BigCats2_Selected">
+                                        <DockPanel>
+                                            <Image Source="images/cards/bigcats2/back.jpg" Height="70"/>
+                                            <TextBlock Text="Big Cats Cards 2" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
+                                        </DockPanel>
+                                    </ComboBoxItem>
+                                    <ComboBoxItem x:Name="Birds" Selected="Birds_Selected">
+                                        <DockPanel>
+                                            <Image Source="images/cards/birds/back.jpg" Height="70"/>
+                                            <TextBlock Text="Bird Cards" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
+                                        </DockPanel>
+                                    </ComboBoxItem>
+                                    <ComboBoxItem x:Name="Birds2" Selected="Birds2_Selected">
+                                        <DockPanel>
+                                            <Image Source="images/cards/birds2/back.jpg" Height="70"/>
+                                            <TextBlock Text="Bird Cards 2" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
+                                        </DockPanel>
+                                    </ComboBoxItem>
+                                    <ComboBoxItem x:Name="Bokeh" Selected="Bokeh_Selected">
+                                        <DockPanel>
+                                            <Image Source="images/cards/bokeh/back.jpg" Height="70"/>
+                                            <TextBlock Text="Bokeh Cards" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
+                                        </DockPanel>
+                                    </ComboBoxItem>
 
-                                <!--Options Buttons-->
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1">
+                                    <ComboBoxItem x:Name="Default" Selected="Default_Selected">
+                                        <DockPanel>
+                                            <Image Source="images/cards/basic/back.jpg" Height="70"/>
+                                            <TextBlock Text="Default Cards" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
+                                        </DockPanel>
+                                    </ComboBoxItem>
+                                    <ComboBoxItem x:Name="Dolphins" Selected="Dolphins_Selected">
+                                        <DockPanel>
+                                            <Image Source="images/cards/dolphin/back.jpg" Height="70"/>
+                                            <TextBlock Text="Dolphin Cards" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
+                                        </DockPanel>
+                                    </ComboBoxItem>
+                                    <ComboBoxItem x:Name="Flowers" Selected="Flowers_Selected">
+                                        <DockPanel>
+                                            <Image Source="images/cards/flowers/back.jpg" Height="70"/>
+                                            <TextBlock Text="Flower Cards" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
+                                        </DockPanel>
+                                    </ComboBoxItem>
+                                    <ComboBoxItem x:Name="Mushrooms" Selected="Mushrooms_Selected">
+                                        <DockPanel>
+                                            <Image Source="images/cards/mushrooms/back.jpg" Height="70"/>
+                                            <TextBlock Text="Mushroom Cards" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
+                                        </DockPanel>
+                                    </ComboBoxItem>
+                                    <ComboBoxItem x:Name="Mushrooms2" Selected="Mushrooms2_Selected">
+                                        <DockPanel>
+                                            <Image Source="images/cards/mushrooms2/back.jpg" Height="70"/>
+                                            <TextBlock Text="Mushroom Cards 2" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
+                                        </DockPanel>
+                                    </ComboBoxItem>
+                                    <ComboBoxItem x:Name="Mushrooms3" Selected="Mushrooms3_Selected">
+                                        <DockPanel>
+                                            <Image Source="images/cards/mushrooms3/back.jpg" Height="70"/>
+                                            <TextBlock Text="Mushroom Cards 3" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
+                                        </DockPanel>
+                                    </ComboBoxItem>
+                                    <ComboBoxItem x:Name="RockFormation" Selected="RockFormation_Selected">
+                                        <DockPanel>
+                                            <Image Source="images/cards/rockformation/back.jpg" Height="70"/>
+                                            <TextBlock Text="Rock Formation Cards" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
+                                        </DockPanel>
+                                    </ComboBoxItem>
+                                    <ComboBoxItem x:Name="RockFormation2" Selected="RockFormation2_Selected">
+                                        <DockPanel>
+                                            <Image Source="images/cards/rockformation2/back.jpg" Height="70"/>
+                                            <TextBlock Text="Rock Formation Cards 2" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
+                                        </DockPanel>
+                                    </ComboBoxItem>
+                                    <ComboBoxItem x:Name="Space" Selected="Space_Selected">
+                                        <DockPanel>
+                                            <Image Source="images/cards/space/back.jpg" Height="70"/>
+                                            <TextBlock Text="Space Cards" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
+                                        </DockPanel>
+                                    </ComboBoxItem>
+                                    <ComboBoxItem x:Name="Space2" Selected="Space2_Selected">
+                                        <DockPanel>
+                                            <Image Source="images/cards/space2/back.jpg" Height="70"/>
+                                            <TextBlock Text="Space Cards 2" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
+                                        </DockPanel>
+                                    </ComboBoxItem>
+                                    <ComboBoxItem x:Name="Sealife" Selected="Sealife_Selected">
+                                        <DockPanel>
+                                            <Image Source="images/cards/sealife/back.jpg" Height="70"/>
+                                            <TextBlock Text="Sealife Cards" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
+                                        </DockPanel>
+                                    </ComboBoxItem>
+                                </ComboBox>
+                                <Line Margin="0 10 0 5" Stroke="White" Height="3" Width="200" HorizontalAlignment="Center" OpacityMask="White" UseLayoutRounding="False" X2="200">
+                                    <Line.Fill>
+                                        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.MenuHighlightColorKey}}"/>
+                                    </Line.Fill>
+                                </Line>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                     <Button x:Name="HScoresButton" Content="Scores" Width="50"  Margin="5" Click="HScoresButton_Click"/>
                                     <Button x:Name="OptionsButton" Content="Options" Width="50" Margin="5" Click="OptionsButton_Click"/>
                                     <Button x:Name="DebugButton" Content="Debug" Width="50"  Margin="5" Click="DebugButton_Click" Visibility="Collapsed"/>
                                     <Button x:Name="RulesButton" Content="Rules" Width="50"  Margin="5" Click="RulesButton_Click"/>
                                     <Button x:Name="AboutButton" Content="About" Width="50"  Margin="5" Click="AboutButton_Click"/>
                                 </StackPanel>
+                                <StackPanel x:Name="Options" Visibility="Hidden" Width="300">
+                                    <TextBlock Margin="2" FontSize="20" Foreground="White" Text="Options" HorizontalAlignment="Center" TextDecorations="Underline"/>
+                                    <Label Margin="0 10 0 0" Foreground="White">Clear High Scores</Label>
+                                    <TextBlock Margin="5 0 5 0" Text="Click to reset high score." TextWrapping="Wrap" FontWeight="Thin"/>
+                                    <Button Name="ClearHighScores" Content="Clear High Score" Click="ClearHighScores_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="10"/>
+                                    <Label Margin="0 10 0 0" Foreground="White">Wait Time</Label>
+                                    <TextBlock Margin="5 0 5 0" Text="Here you can change the time that the cards are shown before being turned back over." TextWrapping="Wrap" FontWeight="Thin"/>
 
-                                <!--Options Panels-->
-                                <StackPanel x:Name="HighestScoresPanel" Visibility="Visible" Grid.Row="2">
-                                    <Border Background="#7F008B8B" CornerRadius="20" Margin="5" MaxWidth="260" MinWidth="200" >
-                                    <Border Background="#FF1A2C2C" Margin="2" CornerRadius="20">
-                                        <StackPanel x:Name="HighscoresPanel" HorizontalAlignment="Center" VerticalAlignment="Top">
-                                            <TextBlock Margin="2" Text="HighScore" FontSize="30" FontWeight="Medium" HorizontalAlignment="Center"/>
-                                            <TextBlock Margin="5" Name="HighScore1" Text="# HighScore" FontSize="20" TextWrapping="NoWrap" HorizontalAlignment="Center"/>
-                                            <TextBlock Margin="5" Name="HighScore2" Text="# HighScore" FontSize="20" TextWrapping="NoWrap" HorizontalAlignment="Center"/>
-                                                <TextBlock Margin="5" Name="HighScore3" Text="# HighScore" FontSize="20" TextWrapping="NoWrap" HorizontalAlignment="Center"/>
-                                            </StackPanel>
-                                    </Border>
-                                </Border>
-                                <Border x:Name="SaveHighScorePanel" Background="Cyan" Visibility="Hidden" CornerRadius="20" Width="240" Margin="5">
-                                    <Border Background="#FF1A2C2C" Margin="2" CornerRadius="20">
-                                        <StackPanel Width="240" HorizontalAlignment="Center" >
-                                            <TextBlock Margin="5" Text="Save Your Score!" FontWeight="DemiBold" HorizontalAlignment="Center" FontSize="30"/>
-                                                <TextBlock x:Name="HighScoreExplanation" Text="Placeholder" Margin="5" Width="220" TextWrapping="Wrap"/>
-                                                <TextBox x:Name="HighScoreName" Margin="5" Height="30" HorizontalAlignment="Center" Width="220" TextAlignment="Center" FontSize="20" VerticalContentAlignment="Center" KeyDown="HighScoreName_KeyDown"/>
-                                            <Button Name="HighScoreSaveButton" HorizontalAlignment="Center" Content="Save High Score" FontSize="20" Width="220" Click="HighScoreSaveButton_Click" Margin="5 5 5 10"/>
-                                        </StackPanel>
-                                    </Border>
-                                </Border>
+                                    <ComboBox Name="SetWaitTime" Width="150" Height="30" HorizontalAlignment="Center" Margin="10">
+                                        <ComboBoxItem Content="Half a Second" x:Name="HalfSecond" Selected="HalfSecond_Selected"/>
+                                        <ComboBoxItem Content="A Second" x:Name="OneSecond" Selected="OneSecond_Selected"/>
+                                        <ComboBoxItem Content="One and a Half Seconds" x:Name="OneHalfSecond" Selected="OneHalfSecond_Selected"/>
+                                        <ComboBoxItem Content="Two Seconds" x:Name="TwoSecond" Selected="TwoSecond_Selected"/>
+                                        <ComboBoxItem Content="Two and a Half Seconds" x:Name="TwoHalfSecond" Selected="TwoHalfSecond_Selected"/>
+                                        <ComboBoxItem Content="Three Seconds" x:Name="ThreeSecond" Selected="ThreeSecond_Selected"/>
+                                    </ComboBox>
                                 </StackPanel>
-                                <Border Background="#7F008B8B" CornerRadius="20" Margin="5" x:Name="Options" MaxWidth="260" Grid.Row="2" Visibility="Hidden" Height="380" VerticalAlignment="Top">
-                                    <Border Background="#FF1A2C2C" Margin="2" CornerRadius="20">
-                                        <StackPanel Visibility="Visible" Width="260">
-                                            <TextBlock Margin="2" FontSize="20" Foreground="White" Text="Options" HorizontalAlignment="Center" TextDecorations="Underline"/>
-                                            <Label Margin="0 10 0 0" Foreground="White">Wait Time</Label>
-                                            <TextBlock Margin="5 0 5 0" Width="200" Text="Here you can change the time that the cards are shown before being turned back over." TextWrapping="Wrap" FontWeight="Thin"/>
-                                            <ComboBox Name="SetWaitTime" Width="150" HorizontalAlignment="Center" Margin="10">
-                                                <ComboBoxItem Content="Half a Second" x:Name="HalfSecond" Selected="HalfSecond_Selected"/>
-                                                <ComboBoxItem Content="A Second" x:Name="OneSecond" Selected="OneSecond_Selected"/>
-                                                <ComboBoxItem Content="One and a Half Seconds" x:Name="OneHalfSecond" Selected="OneHalfSecond_Selected"/>
-                                                <ComboBoxItem Content="Two Seconds" x:Name="TwoSecond" Selected="TwoSecond_Selected"/>
-                                                <ComboBoxItem Content="Two and a Half Seconds" x:Name="TwoHalfSecond" Selected="TwoHalfSecond_Selected"/>
-                                                <ComboBoxItem Content="Three Seconds" x:Name="ThreeSecond" Selected="ThreeSecond_Selected"/>
-                                            </ComboBox>
-                                            <Label Margin="0 10 0 0" Foreground="White">Clear High Scores</Label>
-                                            <TextBlock Margin="5 0 5 0" Width="200" Text="Click to reset high score." TextWrapping="Wrap" FontWeight="Thin"/>
-                                            <Button Name="ClearHighScores" Content="Clear High Score" Click="ClearHighScores_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="10"/>
-                                            <Label Content="Theme" FontSize="15" HorizontalAlignment="Center" FontWeight="DemiBold" Foreground="White"/>
-                                            <ComboBox x:Name="ThemeSelector"  Margin="5" Focusable="False" IsReadOnly="True" Text="Select a Theme" Width="150" ToolTip="This will clear your current game." SelectedIndex="7">
-                                                <ComboBoxItem x:Name="Animals" Selected="Animals_Selected">
-                                                    <DockPanel>
-                                                        <Image Source="images/cards/animal/back.jpg" Height="65"/>
-                                                        <TextBlock Text="Animal Cards" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
-                                                    </DockPanel>
-                                                </ComboBoxItem>
-                                                <ComboBoxItem x:Name="Animals2" Selected="Animals2_Selected">
-                                                    <DockPanel>
-                                                        <Image Source="images/cards/animal2/back.jpg" Height="65"/>
-                                                        <TextBlock Text="Animal Cards 2" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
-                                                    </DockPanel>
-                                                </ComboBoxItem>
-                                                <ComboBoxItem x:Name="BigCats" Selected="BigCats_Selected">
-                                                    <DockPanel>
-                                                        <Image Source="images/cards/bigcats/back.jpg" Height="65"/>
-                                                        <TextBlock Text="Big Cats Cards" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
-                                                    </DockPanel>
-                                                </ComboBoxItem>
-                                                <ComboBoxItem x:Name="BigCats2" Selected="BigCats2_Selected">
-                                                    <DockPanel>
-                                                        <Image Source="images/cards/bigcats2/back.jpg" Height="65"/>
-                                                        <TextBlock Text="Big Cats Cards 2" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
-                                                    </DockPanel>
-                                                </ComboBoxItem>
-                                                <ComboBoxItem x:Name="Birds" Selected="Birds_Selected">
-                                                    <DockPanel>
-                                                        <Image Source="images/cards/birds/back.jpg" Height="65"/>
-                                                        <TextBlock Text="Bird Cards" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
-                                                    </DockPanel>
-                                                </ComboBoxItem>
-                                                <ComboBoxItem x:Name="Birds2" Selected="Birds2_Selected">
-                                                    <DockPanel>
-                                                        <Image Source="images/cards/birds2/back.jpg" Height="65"/>
-                                                        <TextBlock Text="Bird Cards 2" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
-                                                    </DockPanel>
-                                                </ComboBoxItem>
-                                                <ComboBoxItem x:Name="Bokeh" Selected="Bokeh_Selected">
-                                                    <DockPanel>
-                                                        <Image Source="images/cards/bokeh/back.jpg" Height="65"/>
-                                                        <TextBlock Text="Bokeh Cards" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
-                                                    </DockPanel>
-                                                </ComboBoxItem>
-                                                <ComboBoxItem x:Name="Default" Selected="Default_Selected">
-                                                    <DockPanel>
-                                                        <Image Source="images/cards/basic/back.jpg" Height="65"/>
-                                                        <TextBlock Text="Default Cards" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
-                                                    </DockPanel>
-                                                </ComboBoxItem>
-                                                <ComboBoxItem x:Name="Dolphins" Selected="Dolphins_Selected">
-                                                    <DockPanel>
-                                                        <Image Source="images/cards/dolphin/back.jpg" Height="65"/>
-                                                        <TextBlock Text="Dolphin Cards" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
-                                                    </DockPanel>
-                                                </ComboBoxItem>
-                                                <ComboBoxItem x:Name="Flowers" Selected="Flowers_Selected">
-                                                    <DockPanel>
-                                                        <Image Source="images/cards/flowers/back.jpg" Height="65"/>
-                                                        <TextBlock Text="Flower Cards" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
-                                                    </DockPanel>
-                                                </ComboBoxItem>
-                                                <ComboBoxItem x:Name="Mushrooms" Selected="Mushrooms_Selected">
-                                                    <DockPanel>
-                                                        <Image Source="images/cards/mushrooms/back.jpg" Height="65"/>
-                                                        <TextBlock Text="Mushroom Cards" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
-                                                    </DockPanel>
-                                                </ComboBoxItem>
-                                                <ComboBoxItem x:Name="Mushrooms2" Selected="Mushrooms2_Selected">
-                                                    <DockPanel>
-                                                        <Image Source="images/cards/mushrooms2/back.jpg" Height="65"/>
-                                                        <TextBlock Text="Mushroom Cards 2" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
-                                                    </DockPanel>
-                                                </ComboBoxItem>
-                                                <ComboBoxItem x:Name="Mushrooms3" Selected="Mushrooms3_Selected">
-                                                    <DockPanel>
-                                                        <Image Source="images/cards/mushrooms3/back.jpg" Height="65"/>
-                                                        <TextBlock Text="Mushroom Cards 3" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
-                                                    </DockPanel>
-                                                </ComboBoxItem>
-                                                <ComboBoxItem x:Name="RockFormation" Selected="RockFormation_Selected">
-                                                    <DockPanel>
-                                                        <Image Source="images/cards/rockformation/back.jpg" Height="65"/>
-                                                        <TextBlock Text="Rock Formation Cards" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
-                                                    </DockPanel>
-                                                </ComboBoxItem>
-                                                <ComboBoxItem x:Name="RockFormation2" Selected="RockFormation2_Selected">
-                                                    <DockPanel>
-                                                        <Image Source="images/cards/rockformation2/back.jpg" Height="65"/>
-                                                        <TextBlock Text="Rock Formation Cards 2" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
-                                                    </DockPanel>
-                                                </ComboBoxItem>
-                                                <ComboBoxItem x:Name="Space" Selected="Space_Selected">
-                                                    <DockPanel>
-                                                        <Image Source="images/cards/space/back.jpg" Height="65"/>
-                                                        <TextBlock Text="Space Cards" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
-                                                    </DockPanel>
-                                                </ComboBoxItem>
-                                                <ComboBoxItem x:Name="Space2" Selected="Space2_Selected">
-                                                    <DockPanel>
-                                                        <Image Source="images/cards/space2/back.jpg" Height="65"/>
-                                                        <TextBlock Text="Space Cards 2" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
-                                                    </DockPanel>
-                                                </ComboBoxItem>
-                                                <ComboBoxItem x:Name="Sealife" Selected="Sealife_Selected">
-                                                    <DockPanel>
-                                                        <Image Source="images/cards/sealife/back.jpg" Height="65"/>
-                                                        <TextBlock Text="Sealife Cards" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black"/>
-                                                    </DockPanel>
-                                                </ComboBoxItem>
-                                            </ComboBox>
-                                        </StackPanel>
-                                    </Border>
-                                </Border>
-                                <Border Background="#7F008B8B" CornerRadius="20" Margin="5" x:Name="Debug" MaxWidth="260" Grid.Row="2" Visibility="Collapsed" MaxHeight="300" VerticalAlignment="Top">
-                                    <Border Background="#FF1A2C2C" Margin="2" CornerRadius="20">
-                                        <StackPanel>
-                                            <TextBlock Margin="2" FontSize="20" Foreground="White" Text="Debug Menu" HorizontalAlignment="Center" TextDecorations="Underline"/>
-                                            <TextBlock Margin="5" Name="DebugCard1" Text="Irrelevant" />
-                                            <TextBlock Margin="5" Name="DebugCard2" Text="Irrelevant" />
-                                            <Button Name="UncoverCards" Content="Uncover Cards" Click="UncoverCards_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="2"/>
-                                            <Button Name="ShowNumbers" Content="Show Numbers" Click="ShowNumbers_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="2"/>
-                                            <Button Name="Random" Content="Random Number" Click="Random_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="2"/>
-                                            <Grid Height="60" Width="100" Margin="10">
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="25"></ColumnDefinition>
-                                                    <ColumnDefinition Width="25"></ColumnDefinition>
-                                                    <ColumnDefinition Width="25"></ColumnDefinition>
-                                                    <ColumnDefinition Width="25"></ColumnDefinition>
-                                                </Grid.ColumnDefinitions>
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition Height="15"></RowDefinition>
-                                                    <RowDefinition Height="15"></RowDefinition>
-                                                    <RowDefinition Height="15"></RowDefinition>
-                                                    <RowDefinition Height="15"></RowDefinition>
-                                                </Grid.RowDefinitions>
-                                                <TextBlock Foreground="White" x:Name="tb1" Grid.Row="0" Grid.Column="0"/>
-                                                <TextBlock Foreground="White" x:Name="tb2" Grid.Row="0" Grid.Column="1"/>
-                                                <TextBlock Foreground="White" x:Name="tb3" Grid.Row="0" Grid.Column="2"/>
-                                                <TextBlock Foreground="White" x:Name="tb4" Grid.Row="0" Grid.Column="3"/>
-                                                <TextBlock Foreground="White" x:Name="tb5" Grid.Row="1" Grid.Column="0"/>
-                                                <TextBlock Foreground="White" x:Name="tb6" Grid.Row="1" Grid.Column="1"/>
-                                                <TextBlock Foreground="White" x:Name="tb7" Grid.Row="1" Grid.Column="2"/>
-                                                <TextBlock Foreground="White" x:Name="tb8" Grid.Row="1" Grid.Column="3"/>
-                                                <TextBlock Foreground="White" x:Name="tb9" Grid.Row="2" Grid.Column="0"/>
-                                                <TextBlock Foreground="White" x:Name="tb10" Grid.Row="2" Grid.Column="1"/>
-                                                <TextBlock Foreground="White" x:Name="tb11" Grid.Row="2" Grid.Column="2"/>
-                                                <TextBlock Foreground="White" x:Name="tb12" Grid.Row="2" Grid.Column="3"/>
-                                                <TextBlock Foreground="White" x:Name="tb13" Grid.Row="3" Grid.Column="0"/>
-                                                <TextBlock Foreground="White" x:Name="tb14" Grid.Row="3" Grid.Column="1"/>
-                                                <TextBlock Foreground="White" x:Name="tb15" Grid.Row="3" Grid.Column="2"/>
-                                                <TextBlock Foreground="White" x:Name="tb16" Grid.Row="3" Grid.Column="3"/>
-                                            </Grid>
-                                        </StackPanel>
-                                    </Border>
-                                </Border>
-                                <Border Background="#7F008B8B" CornerRadius="20" Margin="5" x:Name="Rules" MaxWidth="260" Grid.Row="2" Visibility="Collapsed" MaxHeight="300" VerticalAlignment="Top">
-                                    <Border Background="#FF1A2C2C" Margin="2" CornerRadius="20">
-                                        <StackPanel>
-                                            <TextBlock Margin="2" FontSize="20" Foreground="White" Text="Rules" HorizontalAlignment="Center" TextDecorations="Underline"/>
-                                            <TextBlock Margin="10" Text="There are 8 pairs of cards on the game table, face down. Turn over two cards at a time. If you uncover a pair they will remain uncovered. Your goal is to find all of the pairs." TextWrapping="Wrap"/>
-                                        </StackPanel>
-                                    </Border>
-                                </Border>
-                                <Border Background="#7F008B8B" CornerRadius="20" Margin="5" x:Name="About" MaxWidth="260" Grid.Row="2" Visibility="Collapsed" MaxHeight="300" VerticalAlignment="Top">
-                                    <Border Background="#FF1A2C2C" Margin="2" CornerRadius="20">
-                                        <StackPanel>
-                                            <TextBlock Margin="2" FontSize="20" Foreground="White" Text="About" HorizontalAlignment="Center" TextDecorations="Underline"/>
-                                            <TextBlock Margin="10" TextWrapping="Wrap">
-                    Concentration was made by Colin Dick. <LineBreak/><LineBreak/>All of the photos have been found labelled as CC0 and therefore free to use for modification and commercial use. If this is incorrect, the photos are yours and you would like them removed from the game please contact me at <Hyperlink NavigateUri="colindaviddick@gmail.com">colindaviddick@gmail.com</Hyperlink>
+                                <StackPanel x:Name="Debug" Visibility="Collapsed">
+                                    <TextBlock Margin="2" FontSize="20" Foreground="White" Text="Debug Menu" HorizontalAlignment="Center" TextDecorations="Underline"/>
+                                    <TextBlock Margin="5" Name="DebugCard1" Text="Irrelevant" />
+                                    <TextBlock Margin="5" Name="DebugCard2" Text="Irrelevant" />
+                                    <Button Name="UncoverCards" Content="Uncover Cards" Click="UncoverCards_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="2"/>
+                                    <Button Name="ShowNumbers" Content="Show Numbers" Click="ShowNumbers_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="2"/>
+                                    <Button Name="Random" Content="Random Number" Click="Random_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="2"/>
+                                    <Grid Height="60" Width="100" Margin="10">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="25"></ColumnDefinition>
+                                            <ColumnDefinition Width="25"></ColumnDefinition>
+                                            <ColumnDefinition Width="25"></ColumnDefinition>
+                                            <ColumnDefinition Width="25"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="15"></RowDefinition>
+                                            <RowDefinition Height="15"></RowDefinition>
+                                            <RowDefinition Height="15"></RowDefinition>
+                                            <RowDefinition Height="15"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock Foreground="White" x:Name="tb1" Grid.Row="0" Grid.Column="0"/>
+                                        <TextBlock Foreground="White" x:Name="tb2" Grid.Row="0" Grid.Column="1"/>
+                                        <TextBlock Foreground="White" x:Name="tb3" Grid.Row="0" Grid.Column="2"/>
+                                        <TextBlock Foreground="White" x:Name="tb4" Grid.Row="0" Grid.Column="3"/>
+                                        <TextBlock Foreground="White" x:Name="tb5" Grid.Row="1" Grid.Column="0"/>
+                                        <TextBlock Foreground="White" x:Name="tb6" Grid.Row="1" Grid.Column="1"/>
+                                        <TextBlock Foreground="White" x:Name="tb7" Grid.Row="1" Grid.Column="2"/>
+                                        <TextBlock Foreground="White" x:Name="tb8" Grid.Row="1" Grid.Column="3"/>
+                                        <TextBlock Foreground="White" x:Name="tb9" Grid.Row="2" Grid.Column="0"/>
+                                        <TextBlock Foreground="White" x:Name="tb10" Grid.Row="2" Grid.Column="1"/>
+                                        <TextBlock Foreground="White" x:Name="tb11" Grid.Row="2" Grid.Column="2"/>
+                                        <TextBlock Foreground="White" x:Name="tb12" Grid.Row="2" Grid.Column="3"/>
+                                        <TextBlock Foreground="White" x:Name="tb13" Grid.Row="3" Grid.Column="0"/>
+                                        <TextBlock Foreground="White" x:Name="tb14" Grid.Row="3" Grid.Column="1"/>
+                                        <TextBlock Foreground="White" x:Name="tb15" Grid.Row="3" Grid.Column="2"/>
+                                        <TextBlock Foreground="White" x:Name="tb16" Grid.Row="3" Grid.Column="3"/>
+                                    </Grid>
+                                </StackPanel>
+                                <StackPanel x:Name="Rules" Visibility="Collapsed">
+                                    <TextBlock Margin="2" FontSize="20" Foreground="White" Text="Rules" HorizontalAlignment="Center" TextDecorations="Underline"/>
+                                    <TextBlock Margin="10" Text="There are 8 pairs of cards on the game table, face down. Turn over two cards at a time. If you uncover a pair they will remain uncovered. Your goal is to find all of the pairs." TextWrapping="Wrap"/>
+                                </StackPanel>
+                                <StackPanel x:Name="About" Visibility="Collapsed">
+                                    <TextBlock Margin="2" FontSize="20" Foreground="White" Text="About" HorizontalAlignment="Center" TextDecorations="Underline"/>
+                                    <TextBlock Margin="10" TextWrapping="Wrap">
+                    Concentration was made by Colin Dick. <LineBreak/><LineBreak/>All of the photos are labelled as CC0 and therefore free to use. If this is not the case, the photos are yours and you would like them removed from the game please contact me at <Hyperlink NavigateUri="colindaviddick@gmail.com">colindaviddick@gmail.com</Hyperlink>
                     <LineBreak/>
-                    
+                    <LineBreak/>
                     <Button x:Name="ActivateDebugMode" Content="Debug Mode" HorizontalAlignment="Center" Click="ActivateDebugMode_Click"/>
-                    <LineBreak/>
-                                            </TextBlock>
-                                        </StackPanel>
-                                    </Border>
-                                </Border>
-                                <!--Player Progress Box-->
-                                <Border Background="#7F008B8B" CornerRadius="20" Margin="0 0 0 5" Width="260" Grid.Row="5" MaxHeight="110" VerticalAlignment="Bottom">
-                                    <Border Background="#FF1A2C2C" Margin="2" CornerRadius="20" Height="171" MaxHeight="106">
-                                        <StackPanel>
-                                            <TextBlock Margin="5" Text="Current Player Progress" FontSize="15" TextWrapping="Wrap" HorizontalAlignment="Center" FontWeight="DemiBold"/>
-                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                                <TextBlock Margin="2" Name="Clicks" Text="# Clicks" FontSize="20" />
-                                                <TextBlock Margin="2" Name="Pairs" Text="# Pairs" FontSize="20" />
-                                            </StackPanel>
-                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                                <Button x:Name="NewGame" Width="100" Height="25" Margin="10" Click="NewGame_Click" Background="#FF4B8B62" >New Game</Button>
-                                                <Button x:Name="QuitGame" Width="100" Height="25" Margin="10" Click="QuitGame_Click" Background="#FF8B4B4B">Quit Game</Button>
-                                            </StackPanel>
-
-                                            
-                                        </StackPanel>
-                                    </Border>
-                                </Border>
-                            </Grid>
+                                    </TextBlock>
+                                </StackPanel>
+                            </StackPanel>
                         </Border>
                     </Border>
                     <Rectangle x:Name="Shield" Margin="-585,-358,-605,-370" Grid.ColumnSpan="2" Fill="Black" Opacity="0.1" Visibility="Hidden"/>
@@ -1353,8 +1327,3 @@
         </LinearGradientBrush>
     </Rectangle.Fill>
 </Rectangle>-->
-
-
-<!--I need the player progress to be pinned to the bottom of the panel, so I'll need to add a grid to format it properly.-->
-    
-    <!--Maybe change the theme select to a grid that pops up over the whole page, with full size card backs?-->

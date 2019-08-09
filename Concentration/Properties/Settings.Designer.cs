@@ -49,7 +49,7 @@ namespace Concentration.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Anonymous")]
         public string Name2 {
             get {
                 return ((string)(this["Name2"]));
@@ -61,7 +61,7 @@ namespace Concentration.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Anonymous")]
         public string Name3 {
             get {
                 return ((string)(this["Name3"]));
