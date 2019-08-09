@@ -25,7 +25,7 @@ namespace Concentration
 
     // A better way of doing this would be to create a class of Box, and add the boxes using an array
     // boxes[i] = new Box()
-    //
+
     // Themes
     /// Space
     // Mythical Creatures
@@ -46,17 +46,10 @@ namespace Concentration
     // Things beginning with...
     // 90s
 
-
-
-
-
     public partial class MainWindow : Window
     {
         /// <summary>
-        /// I should be able to pass the box information into a 
-        /// method and search for it's pair that way, box 1 and box 2 = pair, box 3 and box 4 = pair, etc.
-        /// This would make the code a lot cleaner but take longer for me to work out... :)
-        /// 
+        
         /// Hi, let's do a small code review. 
         ///1) The class file is big, would you be able to extract some logic to standalone class and pass just the arguments needed using method parameters?
         ///2) Methods are too long. They should ideally be 20 lines max(soft limit). Try to break them to multiple smaller methods.
