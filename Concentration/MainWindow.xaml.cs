@@ -387,13 +387,27 @@ namespace Concentration
                 MessageBox.Show("You have won!");
                 if (clicks <= Properties.Settings.Default.Score3)
                 {
+                    if(clicks < Properties.Settings.Default.Score1)
+                    {
+                        HighScoreExplanation.Text = "You are the new top scorer! You've beaten " + Properties.Settings.Default.Name1 + ", " 
+                            + Properties.Settings.Default.Name2 + " AND " + Properties.Settings.Default.Name3 + "! Save your score now!";
+                    }
+                    else if (clicks < Properties.Settings.Default.Score2)
+                    {
+                        HighScoreExplanation.Text = "You managed a better score than " + Properties.Settings.Default.Name2 + " & " + 
+                            Properties.Settings.Default.Name3 + "! Amazing job. Save your score now!";
+                    }
+                    else
+                    {
+                        HighScoreExplanation.Text = "You finished in less clicks than " + Properties.Settings.Default.Name3 + "! Save your score now!";
+                    }
+
                     HighestScoresPanel.Visibility = Visibility.Visible;
                     HighScorePanel.Visibility = Visibility.Visible;
                     Options.Visibility = Visibility.Collapsed;
                     Debug.Visibility = Visibility.Collapsed;
                     About.Visibility = Visibility.Collapsed;
                     Rules.Visibility = Visibility.Collapsed;
-                    HighscoresPanel.Height = 300;
                 }
             }
         }

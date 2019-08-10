@@ -36,7 +36,7 @@
             <Setter Property="FontWeight" Value="DemiBold"/>
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="FontFamily" Value="Calibri"/>
-            <Setter Property="Margin" Value="0 5 0 0"/>
+            <Setter Property="Margin" Value="0 15 0 0"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="Foreground" Value="Aqua"/>
             <Setter Property="Opacity" Value="0.6"/>
@@ -1085,36 +1085,22 @@
                                 </StackPanel>
 
                                 <!--High Score Panel-->
-                                <Border Grid.Row="2" Background="#7F008B8B" CornerRadius="20" Margin="5" x:Name="HighestScoresPanel" Width="240" VerticalAlignment="Top" Visibility="Collapsed">
+                                <Border Grid.Row="2" Background="#7F008B8B" CornerRadius="20" Margin="5" x:Name="HighestScoresPanel" Width="260" VerticalAlignment="Top" Visibility="Visible">
                                     <Border Background="#FF1A2C2C" Margin="2" CornerRadius="20">
-                                        <StackPanel x:Name="HighscoresPanel" HorizontalAlignment="Center" VerticalAlignment="Top" Height="145">
-                                            <TextBlock Margin="2" Text="HighScore" FontSize="30" FontWeight="Medium" HorizontalAlignment="Center"/>
+                                        <StackPanel x:Name="HighscoresPanel" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 10 0 0">
+                                            <TextBlock Margin="0 10 0 0" FontSize="20" Foreground="White" Text="High Scores" HorizontalAlignment="Center" TextDecorations="Underline"/>
                                             <TextBlock Margin="5" Name="HighScore1" Text="# HighScore" FontSize="20" TextWrapping="NoWrap" HorizontalAlignment="Center"/>
                                             <TextBlock Margin="5" Name="HighScore2" Text="# HighScore" FontSize="20" TextWrapping="NoWrap" HorizontalAlignment="Center"/>
                                             <TextBlock Margin="5" Name="HighScore3" Text="# HighScore" FontSize="20" TextWrapping="NoWrap" HorizontalAlignment="Center"/>
-                                            <StackPanel x:Name="HighScorePanel" Visibility="Visible" Height="150" Margin="5" VerticalAlignment="Top">
+                                            <StackPanel x:Name="HighScorePanel" Visibility="Visible" Width="240" Margin="5" VerticalAlignment="Top">
                                                 <Border Background="Cyan" CornerRadius="20">
                                                     <Border Background="#FF1A2C2C" Margin="2" CornerRadius="20">
-                                                        <StackPanel 
-                                                            Width="220" 
-                                                            HorizontalAlignment="Center">
-                                                            <TextBlock 
-                                                                Margin="5" 
-                                                                Text="Save Your Score!" 
-                                                                FontWeight="DemiBold" 
-                                                                HorizontalAlignment="Center" 
-                                                                FontSize="30"/>
-                                                            <TextBox 
-                                                                x:Name="HighScoreName" 
-                                                                FontSize="20" 
-                                                                Height="30" 
-                                                                HorizontalAlignment="Center" 
-                                                                Margin="5" 
-                                                                TextAlignment="Center" 
-                                                                VerticalContentAlignment="Center"
-                                                                Width="200" 
-                                                                />
-                                                            <Button Name="HighScoreSaveButton" HorizontalAlignment="Center" Content="Save High Score" FontSize="20" Width="200" Click="HighScoreSaveButton_Click" Margin="5"/>
+                                                        <StackPanel Width="220" HorizontalAlignment="Center">
+                                                            <TextBlock Margin="5" Text="Save Your Score!" FontWeight="DemiBold" HorizontalAlignment="Center" FontSize="30"/>
+                                                            <TextBlock Margin="5 0 5 0" Text="Placeholder text" TextWrapping="Wrap" FontWeight="Thin" Width="200" x:Name="HighScoreExplanation"/>
+                                                            <TextBox x:Name="HighScoreName" FontSize="20" Height="30" HorizontalAlignment="Center" 
+                                                                     Margin="5" TextAlignment="Center" VerticalContentAlignment="Center" Width="200"/>
+                                                            <Button Name="HighScoreSaveButton" HorizontalAlignment="Center" Content="Save High Score" FontSize="20" Width="200" Click="HighScoreSaveButton_Click" Margin="0 5 0 10"/>
                                                         </StackPanel>
                                                     </Border>
                                                 </Border>
@@ -1124,7 +1110,7 @@
                                 </Border>
 
                                 <!--Current Player Progress-->
-                                <Border Grid.Row="5" Background="#7F008B8B" CornerRadius="20" Margin="5" Width="240" Height="105" VerticalAlignment="Bottom">
+                                <Border Grid.Row="5" Background="#7F008B8B" CornerRadius="20" Margin="5" Width="260" Height="105" VerticalAlignment="Bottom">
                                     <Border Background="#FF1A2C2C" Margin="2" CornerRadius="20">
                                         <StackPanel>
                                             <TextBlock Margin="5" Text="Current Player Progress" FontSize="15" TextWrapping="Wrap" HorizontalAlignment="Center" FontWeight="DemiBold"/>
@@ -1142,10 +1128,10 @@
                             
                                 <!--Options-->
                                 
-                                <Border Background="#7F008B8B" CornerRadius="20" Margin="5" Width="240" x:Name="Options" Visibility="Visible" Grid.Row="2" VerticalAlignment="Top">
+                                <Border Background="#7F008B8B" CornerRadius="20" Margin="5" Width="260" x:Name="Options" Visibility="Collapsed" Grid.Row="2" VerticalAlignment="Top">
                                     <Border Background="#FF1A2C2C" Margin="2" CornerRadius="20">
                                         <StackPanel Width="240" VerticalAlignment="Top">
-                                            <TextBlock Margin="2" FontSize="20" Foreground="White" Text="Options" HorizontalAlignment="Center" TextDecorations="Underline"/>
+                                            <TextBlock Margin="0 10 0 0" FontSize="20" Foreground="White" Text="Options" HorizontalAlignment="Center" TextDecorations="Underline"/>
                                             <Label Content="Theme" HorizontalAlignment="Center" FontWeight="DemiBold"/>
                                             <DockPanel Width="220">
                                                 <Button x:Name="RandomTheme" Click="RandomTheme_Click" Content="Random" Width="60" VerticalAlignment="Center"/>
@@ -1265,10 +1251,10 @@
 
                                             <Label Content="Clear High Scores" FontWeight="DemiBold"/>
                                             <TextBlock Margin="5 0 5 0" Text="Click to reset high score." TextWrapping="Wrap" FontWeight="Thin" Width="200"/>
-                                            <Button Name="ClearHighScores" Content="Clear High Score" Click="ClearHighScores_Click" Width="220" Height="30" HorizontalAlignment="Center" Margin="10"/>
+                                            <Button Name="ClearHighScores" Content="Clear High Score" Click="ClearHighScores_Click" Width="220" Height="30" HorizontalAlignment="Center" Margin="5"/>
+                                            
                                             <Label Content="Wait Time" HorizontalAlignment="Center" FontWeight="DemiBold"/>
                                             <TextBlock Margin="5 0 5 0" Text="Here you can change the time that the cards are shown before being turned back over." TextWrapping="Wrap" FontWeight="Thin" Width="200"/>
-
                                             <ComboBox Name="SetWaitTime" Width="220" HorizontalAlignment="Center" VerticalContentAlignment="Center" Margin="3 3 3 15">
                                                 <ComboBoxItem Content="Half a Second" x:Name="HalfSecond" Selected="HalfSecond_Selected"/>
                                                 <ComboBoxItem Content="A Second" x:Name="OneSecond" Selected="OneSecond_Selected"/>
@@ -1286,7 +1272,7 @@
                                 <Border Background="#7F008B8B" CornerRadius="20" Margin="5" Width="260" x:Name="Debug" Visibility="Collapsed" Grid.Row="2" VerticalAlignment="Top">
                                     <Border Background="#FF1A2C2C" Margin="2" CornerRadius="20">
                                         <StackPanel>
-                                            <TextBlock Margin="2" FontSize="20" Foreground="White" Text="Debug Menu" HorizontalAlignment="Center" TextDecorations="Underline"/>
+                                            <TextBlock Margin="0 10 0 0" FontSize="20" Foreground="White" Text="Debug Menu" HorizontalAlignment="Center" TextDecorations="Underline"/>
                                             <TextBlock Margin="5" Name="DebugCard1" Text="Irrelevant" />
                                             <TextBlock Margin="5" Name="DebugCard2" Text="Irrelevant" />
                                             <Button Name="UncoverCards" Content="Uncover Cards" Click="UncoverCards_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="2"/>
@@ -1331,7 +1317,7 @@
                                 <Border Background="#7F008B8B" CornerRadius="20" Margin="5" Width="260" x:Name="Rules" Visibility="Collapsed" Grid.Row="2" VerticalAlignment="Top">
                                     <Border Background="#FF1A2C2C" Margin="2" CornerRadius="20">
                                         <StackPanel>
-                                            <TextBlock Margin="2" FontSize="20" Foreground="White" Text="Rules" HorizontalAlignment="Center" TextDecorations="Underline"/>
+                                            <TextBlock Margin="0 10 0 0" FontSize="20" Foreground="White" Text="Rules" HorizontalAlignment="Center" TextDecorations="Underline"/>
                                             <TextBlock Margin="10" Text="There are 8 pairs of cards on the game table, face down. Turn over two cards at a time. If you uncover a pair they will remain uncovered. Your goal is to find all of the pairs." TextWrapping="Wrap"/>
                                         </StackPanel>
                                     </Border>
@@ -1342,7 +1328,7 @@
                                 <Border Background="#7F008B8B" CornerRadius="20" Margin="5" Width="260" x:Name="About" Visibility="Collapsed" Grid.Row="2" VerticalAlignment="Top">
                                     <Border Background="#FF1A2C2C" Margin="2" CornerRadius="20">
                                         <StackPanel>
-                                            <TextBlock Margin="2" FontSize="20" Foreground="White" Text="About" HorizontalAlignment="Center" TextDecorations="Underline"/>
+                                            <TextBlock Margin="0 10 0 0" FontSize="20" Foreground="White" Text="About" HorizontalAlignment="Center" TextDecorations="Underline"/>
                                             <TextBlock Margin="10" TextWrapping="Wrap">
                     Concentration was made by Colin Dick. <LineBreak/><LineBreak/>All of the photos are labelled as CC0 and therefore free to use. If this is not the case, the photos are yours and you would like them removed from the game please contact me at <Hyperlink NavigateUri="colindaviddick@gmail.com">colindaviddick@gmail.com</Hyperlink>
                     <LineBreak/>
