@@ -19,6 +19,23 @@ using MessageBox = System.Windows.MessageBox;
 
 namespace Concentration
 {
+
+
+    // Sort out the right hand side panel.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -70,6 +87,7 @@ namespace Concentration
         int selection2 = 0;
         int clicks = 0;
         int pairs = 0;
+        int numberOfDecks = 18;
         string defaultTheme = "basic";
         //StringBuilder backPath = new StringBuilder(@"images\cards\" + theme + @"\backse.jpg");
         bool cardsHidden = true;
@@ -90,7 +108,7 @@ namespace Concentration
         bool card14found = false;
         bool card15found = false;
         bool card16found = false;
-
+        Random r = new Random();
         string[] anonymousNames = System.IO.File.ReadAllLines(@"C:\Users\User\source\repos\Concentration\Concentration\NameList.txt");
         int anonymousNamesLength;
         // bool shieldTurn = true;
@@ -127,15 +145,23 @@ namespace Concentration
         async Task StartSequence()
         {
             SortAndRandomiseCards();
+
             AnonymizeNames();
+            RandomizeTheme();
             UpdateClicks();
             UpdateDebug();
+            SetWaitTime.SelectedIndex = 3;
+        }
+
+        private void RandomizeTheme()
+        {
+            ThemeSelector.SelectedIndex = r.Next(0, numberOfDecks);
         }
 
         void AnonymizeNames()
         {
             anonymousNamesLength = anonymousNames.Length;
-            Random r = new Random();
+            
 
             if(Properties.Settings.Default.Name1 == "Anonymous")
             {
@@ -242,7 +268,6 @@ namespace Concentration
             tb14.Text = shuffledCards[13].ToString();
             tb15.Text = shuffledCards[14].ToString();
             tb16.Text = shuffledCards[15].ToString();
-
         }
 
         //public async Task SpinningShield()
@@ -1573,6 +1598,11 @@ namespace Concentration
             back15.Style = (Style)FindResource("Space2CardBackMouseover");
             back16.Style = (Style)FindResource("Space2CardBackMouseover");
             NewGameSequence();
+        }
+
+        private void RandomTheme_Click(object sender, RoutedEventArgs e)
+        {
+            RandomizeTheme();
         }
     }
 }
