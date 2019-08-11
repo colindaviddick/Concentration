@@ -1547,13 +1547,13 @@
 
                                 <!--Options-->
 
-                                <Border Background="#7F008B8B" CornerRadius="20" Margin="5" Width="260" x:Name="Options" Visibility="Visible" Grid.Row="2" VerticalAlignment="Top">
+                                <Border Background="#7F008B8B" CornerRadius="20" Margin="5" Width="260" x:Name="Options" Visibility="Collapsed" Grid.Row="2" VerticalAlignment="Top">
                                     <Border Background="#FF1A2C2C" Margin="2" CornerRadius="20">
                                         <StackPanel Width="240" VerticalAlignment="Top">
                                             <TextBlock Margin="0 10 0 0" FontSize="20" Foreground="White" Text="Options" HorizontalAlignment="Center" TextDecorations="Underline"/>
                                             <Label Content="Theme" HorizontalAlignment="Center" FontWeight="DemiBold"/>
                                             <DockPanel Width="220">
-                                                <ComboBox x:Name="ThemeSelector" SelectedIndex="2" Focusable="False" IsReadOnly="True" VerticalAlignment="Center" 
+                                                <ComboBox x:Name="ThemeSelector" Focusable="False" IsReadOnly="True" VerticalAlignment="Center" 
                                                           Text="Select a Theme" Width="132" ToolTip="This will clear your current game." Margin="0 0 0 0">
                                                     <ComboBoxItem x:Name="Animals" Selected="Animals_Selected">
                                                         <DockPanel>
@@ -1824,7 +1824,7 @@
 
 
 
-<!--<Rectangle x:Name="Shield" Margin="0,0,0,0" Opacity="0.6" Visibility="Hidden" Panel.ZIndex="5">
+<!--<Rectangle x:Name="Shield" Margin="0,0,0,0" Opacity="0.6" Visibility="Hidden" Panel.Z="5">
     <Rectangle.Fill>
         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
             <LinearGradientBrush.RelativeTransform>

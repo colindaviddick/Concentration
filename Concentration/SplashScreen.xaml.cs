@@ -28,8 +28,8 @@ namespace Concentration
             InitializeComponent();
 
             //Just for trialling new images.
-            RandomImage.Source = new BitmapImage(new Uri((@"/images/ConcentrationLogo6.png"), UriKind.RelativeOrAbsolute));
-            //RandomImage.Source = new BitmapImage(new Uri((@"/images/ConcentrationLogo" + rInt + ".png"), UriKind.RelativeOrAbsolute));
+            //RandomImage.Source = new BitmapImage(new Uri((@"/images/ConcentrationLogo6.png"), UriKind.RelativeOrAbsolute));
+            RandomImage.Source = new BitmapImage(new Uri((@"/images/ConcentrationLogo" + rInt + ".png"), UriKind.RelativeOrAbsolute));
         }
 
 
