@@ -24,12 +24,12 @@ namespace Concentration
 
         public SplashScreen()
         {
-            int rInt = randomNumber.Next(1, 6);
+            int rInt = randomNumber.Next(1, 7);
             InitializeComponent();
 
             //Just for trialling new images.
-            //RandomImage.Source = new BitmapImage(new Uri((@"/images/ConcentrationLogo5.png"), UriKind.RelativeOrAbsolute));
-            RandomImage.Source = new BitmapImage(new Uri((@"/images/ConcentrationLogo" + rInt + ".png"), UriKind.RelativeOrAbsolute));
+            RandomImage.Source = new BitmapImage(new Uri((@"/images/ConcentrationLogo6.png"), UriKind.RelativeOrAbsolute));
+            //RandomImage.Source = new BitmapImage(new Uri((@"/images/ConcentrationLogo" + rInt + ".png"), UriKind.RelativeOrAbsolute));
         }
 
 

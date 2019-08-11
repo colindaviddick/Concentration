@@ -20,5 +20,17 @@
     <Setting Name="Score3" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">100</Value>
     </Setting>
+    <Setting Name="Name4" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Anonymous</Value>
+    </Setting>
+    <Setting Name="Name5" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Anonymous</Value>
+    </Setting>
+    <Setting Name="Score4" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="Score5" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

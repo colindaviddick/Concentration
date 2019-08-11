@@ -597,6 +597,106 @@
             </Setter>
         </Style>
 
+        <!--Ice Cream Theme-->
+
+        <ImageBrush x:Key="IceCream.Button.Static.Background" ImageSource="images/cards/icecream/back.jpg"/>
+        <SolidColorBrush x:Key="IceCream.Button.Static.Border" Color="#00000000"/>
+        <ImageBrush x:Key="IceCream.Button.Pressed.Background" ImageSource="images/cards/icecream/backsel.jpg"/>
+        <ImageBrush x:Key="IceCream.Button.MouseOver.Background" ImageSource="images/cards/icecream/backov.jpg"/>
+        <SolidColorBrush x:Key="IceCream.Button.MouseOver.Border" Color="#00000000"/>
+        <SolidColorBrush x:Key="IceCream.Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="IceCream.Button.Disabled.Background" Color="#00000000"/>
+        <SolidColorBrush x:Key="IceCream.Button.Disabled.Border" Color="#FFFF00FF"/>
+        <SolidColorBrush x:Key="IceCream.Button.Disabled.Foreground" Color="#FF838383"/>
+
+        <Style x:Key="IceCreamCardBackMouseover" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource IceCream.Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource IceCream.Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource IceCream.Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource IceCream.Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource IceCream.Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource IceCream.Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource IceCream.Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource IceCream.Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--Minerals Theme-->
+
+        <ImageBrush x:Key="Minerals.Button.Static.Background" ImageSource="images/cards/minerals/back.jpg"/>
+        <SolidColorBrush x:Key="Minerals.Button.Static.Border" Color="#00000000"/>
+        <ImageBrush x:Key="Minerals.Button.Pressed.Background" ImageSource="images/cards/minerals/backsel.jpg"/>
+        <ImageBrush x:Key="Minerals.Button.MouseOver.Background" ImageSource="images/cards/minerals/backov.jpg"/>
+        <SolidColorBrush x:Key="Minerals.Button.MouseOver.Border" Color="#00000000"/>
+        <SolidColorBrush x:Key="Minerals.Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Minerals.Button.Disabled.Background" Color="#00000000"/>
+        <SolidColorBrush x:Key="Minerals.Button.Disabled.Border" Color="#FFFF00FF"/>
+        <SolidColorBrush x:Key="Minerals.Button.Disabled.Foreground" Color="#FF838383"/>
+
+        <Style x:Key="MineralsCardBackMouseover" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Minerals.Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Minerals.Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Minerals.Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Minerals.Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Minerals.Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Minerals.Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Minerals.Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Minerals.Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <!--Mushrooms 1-->
 
         <ImageBrush x:Key="Mushrooms.Button.Static.Background" ImageSource="images/cards/mushrooms/back.jpg"/>
@@ -899,7 +999,7 @@
             </Setter>
         </Style>
 
-        <!--Space Theme-->
+        <!--Space Theme 2-->
 
         <ImageBrush x:Key="Space2.Button.Static.Background" ImageSource="images/cards/space2/back.jpg"/>
         <SolidColorBrush x:Key="Space2.Button.Static.Border" Color="#00000000"/>
@@ -949,7 +1049,305 @@
             </Setter>
         </Style>
 
+        <!--Sweets Theme-->
 
+        <ImageBrush x:Key="Sweets.Button.Static.Background" ImageSource="images/cards/sweets/back.jpg"/>
+        <SolidColorBrush x:Key="Sweets.Button.Static.Border" Color="#00000000"/>
+        <ImageBrush x:Key="Sweets.Button.Pressed.Background" ImageSource="images/cards/sweets/backsel.jpg"/>
+        <ImageBrush x:Key="Sweets.Button.MouseOver.Background" ImageSource="images/cards/sweets/backov.jpg"/>
+        <SolidColorBrush x:Key="Sweets.Button.MouseOver.Border" Color="#00000000"/>
+        <SolidColorBrush x:Key="Sweets.Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Sweets.Button.Disabled.Background" Color="#00000000"/>
+        <SolidColorBrush x:Key="Sweets.Button.Disabled.Border" Color="#FFFF00FF"/>
+        <SolidColorBrush x:Key="Sweets.Button.Disabled.Foreground" Color="#FF838383"/>
+
+        <Style x:Key="SweetsCardBackMouseover" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Sweets.Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Sweets.Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Sweets.Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Sweets.Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Sweets.Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Sweets.Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Sweets.Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Sweets.Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--Sweets2 Theme-->
+
+        <ImageBrush x:Key="Sweets2.Button.Static.Background" ImageSource="images/cards/sweets2/back.jpg"/>
+        <SolidColorBrush x:Key="Sweets2.Button.Static.Border" Color="#00000000"/>
+        <ImageBrush x:Key="Sweets2.Button.Pressed.Background" ImageSource="images/cards/sweets2/backsel.jpg"/>
+        <ImageBrush x:Key="Sweets2.Button.MouseOver.Background" ImageSource="images/cards/sweets2/backov.jpg"/>
+        <SolidColorBrush x:Key="Sweets2.Button.MouseOver.Border" Color="#00000000"/>
+        <SolidColorBrush x:Key="Sweets2.Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Sweets2.Button.Disabled.Background" Color="#00000000"/>
+        <SolidColorBrush x:Key="Sweets2.Button.Disabled.Border" Color="#FFFF00FF"/>
+        <SolidColorBrush x:Key="Sweets2.Button.Disabled.Foreground" Color="#FF838383"/>
+
+        <Style x:Key="Sweets2CardBackMouseover" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Sweets2.Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Sweets2.Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Sweets2.Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Sweets2.Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Sweets2.Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Sweets2.Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Sweets2.Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Sweets2.Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--Sweets3 Theme-->
+
+        <ImageBrush x:Key="Sweets3.Button.Static.Background" ImageSource="images/cards/sweets3/back.jpg"/>
+        <SolidColorBrush x:Key="Sweets3.Button.Static.Border" Color="#00000000"/>
+        <ImageBrush x:Key="Sweets3.Button.Pressed.Background" ImageSource="images/cards/sweets3/backsel.jpg"/>
+        <ImageBrush x:Key="Sweets3.Button.MouseOver.Background" ImageSource="images/cards/sweets3/backov.jpg"/>
+        <SolidColorBrush x:Key="Sweets3.Button.MouseOver.Border" Color="#00000000"/>
+        <SolidColorBrush x:Key="Sweets3.Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Sweets3.Button.Disabled.Background" Color="#00000000"/>
+        <SolidColorBrush x:Key="Sweets3.Button.Disabled.Border" Color="#FFFF00FF"/>
+        <SolidColorBrush x:Key="Sweets3.Button.Disabled.Foreground" Color="#FF838383"/>
+
+        <Style x:Key="Sweets3CardBackMouseover" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Sweets3.Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Sweets3.Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Sweets3.Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Sweets3.Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Sweets3.Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Sweets3.Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Sweets3.Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Sweets3.Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--Water Theme-->
+
+        <ImageBrush x:Key="Water.Button.Static.Background" ImageSource="images/cards/water/back.jpg"/>
+        <SolidColorBrush x:Key="Water.Button.Static.Border" Color="#00000000"/>
+        <ImageBrush x:Key="Water.Button.Pressed.Background" ImageSource="images/cards/water/backsel.jpg"/>
+        <ImageBrush x:Key="Water.Button.MouseOver.Background" ImageSource="images/cards/water/backov.jpg"/>
+        <SolidColorBrush x:Key="Water.Button.MouseOver.Border" Color="#00000000"/>
+        <SolidColorBrush x:Key="Water.Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Water.Button.Disabled.Background" Color="#00000000"/>
+        <SolidColorBrush x:Key="Water.Button.Disabled.Border" Color="#FFFF00FF"/>
+        <SolidColorBrush x:Key="Water.Button.Disabled.Foreground" Color="#FF838383"/>
+
+        <Style x:Key="WaterCardBackMouseover" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Water.Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Water.Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Water.Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Water.Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Water.Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Water.Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Water.Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Water.Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--Water2 Theme-->
+
+        <ImageBrush x:Key="Water2.Button.Static.Background" ImageSource="images/cards/water2/back.jpg"/>
+        <SolidColorBrush x:Key="Water2.Button.Static.Border" Color="#00000000"/>
+        <ImageBrush x:Key="Water2.Button.Pressed.Background" ImageSource="images/cards/water2/backsel.jpg"/>
+        <ImageBrush x:Key="Water2.Button.MouseOver.Background" ImageSource="images/cards/water2/backov.jpg"/>
+        <SolidColorBrush x:Key="Water2.Button.MouseOver.Border" Color="#00000000"/>
+        <SolidColorBrush x:Key="Water2.Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Water2.Button.Disabled.Background" Color="#00000000"/>
+        <SolidColorBrush x:Key="Water2.Button.Disabled.Border" Color="#FFFF00FF"/>
+        <SolidColorBrush x:Key="Water2.Button.Disabled.Foreground" Color="#FF838383"/>
+
+        <Style x:Key="Water2CardBackMouseover" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Water2.Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Water2.Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Water2.Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Water2.Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Water2.Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Water2.Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Water2.Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Water2.Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--Water3 Theme-->
+
+        <ImageBrush x:Key="Water3.Button.Static.Background" ImageSource="images/cards/water3/back.jpg"/>
+        <SolidColorBrush x:Key="Water3.Button.Static.Border" Color="#00000000"/>
+        <ImageBrush x:Key="Water3.Button.Pressed.Background" ImageSource="images/cards/water3/backsel.jpg"/>
+        <ImageBrush x:Key="Water3.Button.MouseOver.Background" ImageSource="images/cards/water3/backov.jpg"/>
+        <SolidColorBrush x:Key="Water3.Button.MouseOver.Border" Color="#00000000"/>
+        <SolidColorBrush x:Key="Water3.Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Water3.Button.Disabled.Background" Color="#00000000"/>
+        <SolidColorBrush x:Key="Water3.Button.Disabled.Border" Color="#FFFF00FF"/>
+        <SolidColorBrush x:Key="Water3.Button.Disabled.Foreground" Color="#FF838383"/>
+
+        <Style x:Key="Water3CardBackMouseover" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Water3.Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Water3.Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Water3.Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Water3.Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Water3.Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Water3.Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Water3.Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Water3.Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
     <Window.Background>
         <RadialGradientBrush>
@@ -976,6 +1374,9 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" MinHeight="685"/>
                     </Grid.RowDefinitions>
+
+                    <!--Game Grid-->
+
                     <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="140*" MaxWidth="170" MinWidth="116"/>
@@ -1067,13 +1468,13 @@
                                     <RowDefinition Height="115"/>
                                 </Grid.RowDefinitions>
                                 <!--Title-->
-                                
+
                                 <Border x:Name="Title" Grid.Row="0" Background="#7F008B8B" CornerRadius="20" Margin="3" HorizontalAlignment="Stretch">
                                     <Border Background="#FF1A2C2C" Margin="2" CornerRadius="20">
                                         <TextBlock Text="Concentration" FontWeight="Bold" FontSize="45" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                     </Border>
                                 </Border>
-                                
+
                                 <!--Menu Buttons-->
 
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1" Height="30">
@@ -1085,21 +1486,38 @@
                                 </StackPanel>
 
                                 <!--High Score Panel-->
+
                                 <Border Grid.Row="2" Background="#7F008B8B" CornerRadius="20" Margin="5" x:Name="HighestScoresPanel" Width="260" VerticalAlignment="Top" Visibility="Visible">
                                     <Border Background="#FF1A2C2C" Margin="2" CornerRadius="20">
-                                        <StackPanel x:Name="HighscoresPanel" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 10 0 0">
+                                        <StackPanel x:Name="HighscoresPanel" HorizontalAlignment="Center" VerticalAlignment="Top">
                                             <TextBlock Margin="0 10 0 0" FontSize="20" Foreground="White" Text="High Scores" HorizontalAlignment="Center" TextDecorations="Underline"/>
-                                            <TextBlock Margin="5" Name="HighScore1" Text="# HighScore" FontSize="20" TextWrapping="NoWrap" HorizontalAlignment="Center"/>
-                                            <TextBlock Margin="5" Name="HighScore2" Text="# HighScore" FontSize="20" TextWrapping="NoWrap" HorizontalAlignment="Center"/>
-                                            <TextBlock Margin="5" Name="HighScore3" Text="# HighScore" FontSize="20" TextWrapping="NoWrap" HorizontalAlignment="Center"/>
-                                            <StackPanel x:Name="HighScorePanel" Visibility="Visible" Width="240" Margin="5" VerticalAlignment="Top">
+                                            <DockPanel Width="240" Margin="0 0 0 5">
+                                                <StackPanel HorizontalAlignment="Left" MaxWidth="190">
+                                                    <Label Content="Name" HorizontalAlignment="Left" Margin="0 0 5 0"/>
+                                                    <TextBlock Margin="5 3 0 0" Name="HighScoreName1" Text="#1 HighScore" FontSize="20" TextWrapping="NoWrap" HorizontalAlignment="Left"/>
+                                                    <TextBlock Margin="5 3 0 0" Name="HighScoreName2" Text="#2 HighScore" FontSize="20" TextWrapping="NoWrap" HorizontalAlignment="Left"/>
+                                                    <TextBlock Margin="5 3 0 0" Name="HighScoreName3" Text="#3 HighScore" FontSize="20" TextWrapping="NoWrap" HorizontalAlignment="Left"/>
+                                                    <TextBlock Margin="5 3 0 0" Name="HighScoreName4" Text="#4 HighScore" FontSize="20" TextWrapping="NoWrap" HorizontalAlignment="Left"/>
+                                                    <TextBlock Margin="5 3 0 0" Name="HighScoreName5" Text="#5 HighScore" FontSize="20" TextWrapping="NoWrap" HorizontalAlignment="Left"/>
+                                                </StackPanel>
+                                                <StackPanel HorizontalAlignment="Right" Width="50">
+                                                    <Label Content="Score" HorizontalAlignment="Right" Margin="0 0 5 0"/>
+                                                    <TextBlock Margin="5 3 0 0" Name="HighScore1" Text="#1" FontSize="20" TextWrapping="NoWrap" HorizontalAlignment="Center"/>
+                                                    <TextBlock Margin="5 3 0 0" Name="HighScore2" Text="#2" FontSize="20" TextWrapping="NoWrap" HorizontalAlignment="Center"/>
+                                                    <TextBlock Margin="5 3 0 0" Name="HighScore3" Text="#3" FontSize="20" TextWrapping="NoWrap" HorizontalAlignment="Center"/>
+                                                    <TextBlock Margin="5 3 0 0" Name="HighScore4" Text="#4" FontSize="20" TextWrapping="NoWrap" HorizontalAlignment="Center"/>
+                                                    <TextBlock Margin="5 3 0 0" Name="HighScore5" Text="#5" FontSize="20" TextWrapping="NoWrap" HorizontalAlignment="Center"/>
+                                                </StackPanel>
+                                            </DockPanel>
+                                            <StackPanel x:Name="HighScorePanel" Visibility="Collapsed" Width="240" Margin="5" VerticalAlignment="Top">
                                                 <Border Background="Cyan" CornerRadius="20">
                                                     <Border Background="#FF1A2C2C" Margin="2" CornerRadius="20">
                                                         <StackPanel Width="220" HorizontalAlignment="Center">
                                                             <TextBlock Margin="5" Text="Save Your Score!" FontWeight="DemiBold" HorizontalAlignment="Center" FontSize="30"/>
-                                                            <TextBlock Margin="5 0 5 0" Text="Placeholder text" TextWrapping="Wrap" FontWeight="Thin" Width="200" x:Name="HighScoreExplanation"/>
+                                                            <TextBlock Margin="5 0 5 0" Text="# About the user's score." TextWrapping="Wrap" FontWeight="Thin" Width="200" x:Name="HighScoreExplanation"/>
                                                             <TextBox x:Name="HighScoreName" FontSize="20" Height="30" HorizontalAlignment="Center" 
-                                                                     Margin="5" TextAlignment="Center" VerticalContentAlignment="Center" Width="200"/>
+                                                                     Margin="5" TextAlignment="Center" VerticalContentAlignment="Center" Width="200" KeyDown="HighScoreName_KeyDown"/>
+                                                            <TextBlock Margin="5 0 5 0" Text="Please enter a name before saving." TextWrapping="Wrap" FontWeight="Thin" Width="200" x:Name="NoNameWarning" Visibility="Hidden"/>
                                                             <Button Name="HighScoreSaveButton" HorizontalAlignment="Center" Content="Save High Score" FontSize="20" Width="200" Click="HighScoreSaveButton_Click" Margin="0 5 0 10"/>
                                                         </StackPanel>
                                                     </Border>
@@ -1110,6 +1528,7 @@
                                 </Border>
 
                                 <!--Current Player Progress-->
+
                                 <Border Grid.Row="5" Background="#7F008B8B" CornerRadius="20" Margin="5" Width="260" Height="105" VerticalAlignment="Bottom">
                                     <Border Background="#FF1A2C2C" Margin="2" CornerRadius="20">
                                         <StackPanel>
@@ -1118,141 +1537,196 @@
                                                 <TextBlock Margin="2" Name="Clicks" Text="# Clicks" FontSize="20" />
                                                 <TextBlock Margin="2" Name="Pairs" Text="# Pairs" FontSize="20" />
                                             </StackPanel>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
-                                    <Button x:Name="NewGame"  Width="100" Height="25" Margin="5" Click="NewGame_Click" Background="#FF4B8B62">New Game</Button>
-                                    <Button x:Name="QuitGame" Width="100" Height="25" Margin="5" Click="QuitGame_Click" Background="#FF8B4B4B">Quit Game</Button>
-                                </StackPanel>
+                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                                                <Button x:Name="NewGame"  Width="100" Height="25" Margin="5" Click="NewGame_Click" Background="#FF4B8B62">New Game</Button>
+                                                <Button x:Name="QuitGame" Width="100" Height="25" Margin="5" Click="QuitGame_Click" Background="#FF8B4B4B">Quit Game</Button>
+                                            </StackPanel>
                                         </StackPanel>
                                     </Border>
                                 </Border>
-                            
+
                                 <!--Options-->
-                                
-                                <Border Background="#7F008B8B" CornerRadius="20" Margin="5" Width="260" x:Name="Options" Visibility="Collapsed" Grid.Row="2" VerticalAlignment="Top">
+
+                                <Border Background="#7F008B8B" CornerRadius="20" Margin="5" Width="260" x:Name="Options" Visibility="Visible" Grid.Row="2" VerticalAlignment="Top">
                                     <Border Background="#FF1A2C2C" Margin="2" CornerRadius="20">
                                         <StackPanel Width="240" VerticalAlignment="Top">
                                             <TextBlock Margin="0 10 0 0" FontSize="20" Foreground="White" Text="Options" HorizontalAlignment="Center" TextDecorations="Underline"/>
                                             <Label Content="Theme" HorizontalAlignment="Center" FontWeight="DemiBold"/>
                                             <DockPanel Width="220">
-                                                <Button x:Name="RandomTheme" Click="RandomTheme_Click" Content="Random" Width="60" VerticalAlignment="Center"/>
-                                                <TextBlock Text="or" Margin="5" VerticalAlignment="Center"/>
-                                                <ComboBox x:Name="ThemeSelector" Focusable="False" IsReadOnly="True" VerticalAlignment="Center" Text="Select a Theme" Width="150" ToolTip="This will clear your current game.">
-                                                <ComboBoxItem x:Name="Animals" Selected="Animals_Selected">
-                                                    <DockPanel>
-                                                        <Image Source="images/cards/animal/back.jpg" Height="70"/>
-                                                            <TextBlock Text="Animal Cards" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="65"/>
-                                                    </DockPanel>
-                                                </ComboBoxItem>
-                                                <ComboBoxItem x:Name="Animals2" Selected="Animals2_Selected">
-                                                    <DockPanel>
-                                                        <Image Source="images/cards/animal2/back.jpg" Height="70"/>
-                                                            <TextBlock Text="Animal Cards 2" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="65"/>
-                                                    </DockPanel>
-                                                </ComboBoxItem>
-                                                <ComboBoxItem x:Name="BigCats" Selected="BigCats_Selected">
-                                                    <DockPanel>
-                                                        <Image Source="images/cards/bigcats/back.jpg" Height="70"/>
-                                                            <TextBlock Text="Big Cats Cards" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="65"/>
-                                                    </DockPanel>
-                                                </ComboBoxItem>
-                                                <ComboBoxItem x:Name="BigCats2" Selected="BigCats2_Selected">
-                                                    <DockPanel>
-                                                        <Image Source="images/cards/bigcats2/back.jpg" Height="70"/>
-                                                            <TextBlock Text="Big Cats Cards 2" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="65"/>
-                                                    </DockPanel>
-                                                </ComboBoxItem>
-                                                <ComboBoxItem x:Name="Birds" Selected="Birds_Selected">
-                                                    <DockPanel>
-                                                        <Image Source="images/cards/birds/back.jpg" Height="70"/>
-                                                            <TextBlock Text="Bird Cards" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="65"/>
-                                                    </DockPanel>
-                                                </ComboBoxItem>
-                                                <ComboBoxItem x:Name="Birds2" Selected="Birds2_Selected">
-                                                    <DockPanel>
-                                                        <Image Source="images/cards/birds2/back.jpg" Height="70"/>
-                                                            <TextBlock Text="Bird Cards 2" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="65"/>
-                                                    </DockPanel>
-                                                </ComboBoxItem>
-                                                <ComboBoxItem x:Name="Bokeh" Selected="Bokeh_Selected">
-                                                    <DockPanel>
-                                                        <Image Source="images/cards/bokeh/back.jpg" Height="70"/>
-                                                            <TextBlock Text="Bokeh Cards" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="65"/>
-                                                    </DockPanel>
-                                                </ComboBoxItem>
+                                                <ComboBox x:Name="ThemeSelector" SelectedIndex="2" Focusable="False" IsReadOnly="True" VerticalAlignment="Center" 
+                                                          Text="Select a Theme" Width="132" ToolTip="This will clear your current game." Margin="0 0 0 0">
+                                                    <ComboBoxItem x:Name="Animals" Selected="Animals_Selected">
+                                                        <DockPanel>
+                                                            <Image Source="images/cards/animal/back.jpg" Height="70"/>
+                                                            <TextBlock Text="Animal Cards" VerticalAlignment="Center" Margin="5 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="60"/>
+                                                        </DockPanel>
+                                                    </ComboBoxItem>
+                                                    <ComboBoxItem x:Name="Animals2" Selected="Animals2_Selected">
+                                                        <DockPanel>
+                                                            <Image Source="images/cards/animal2/back.jpg" Height="70"/>
+                                                            <TextBlock Text="Animal Cards 2" VerticalAlignment="Center" Margin="5 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="60"/>
+                                                        </DockPanel>
+                                                    </ComboBoxItem>
+                                                    <ComboBoxItem x:Name="BigCats" Selected="BigCats_Selected">
+                                                        <DockPanel>
+                                                            <Image Source="images/cards/bigcats/back.jpg" Height="70"/>
+                                                            <TextBlock Text="Big Cats Cards" VerticalAlignment="Center" Margin="5 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="60"/>
+                                                        </DockPanel>
+                                                    </ComboBoxItem>
+                                                    <ComboBoxItem x:Name="BigCats2" Selected="BigCats2_Selected">
+                                                        <DockPanel>
+                                                            <Image Source="images/cards/bigcats2/back.jpg" Height="70"/>
+                                                            <TextBlock Text="Big Cats Cards 2" VerticalAlignment="Center" Margin="5 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="60"/>
+                                                        </DockPanel>
+                                                    </ComboBoxItem>
+                                                    <ComboBoxItem x:Name="Birds" Selected="Birds_Selected">
+                                                        <DockPanel>
+                                                            <Image Source="images/cards/birds/back.jpg" Height="70"/>
+                                                            <TextBlock Text="Bird Cards" VerticalAlignment="Center" Margin="5 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="60"/>
+                                                        </DockPanel>
+                                                    </ComboBoxItem>
+                                                    <ComboBoxItem x:Name="Birds2" Selected="Birds2_Selected">
+                                                        <DockPanel>
+                                                            <Image Source="images/cards/birds2/back.jpg" Height="70"/>
+                                                            <TextBlock Text="Bird Cards 2" VerticalAlignment="Center" Margin="5 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="60"/>
+                                                        </DockPanel>
+                                                    </ComboBoxItem>
+                                                    <ComboBoxItem x:Name="Bokeh" Selected="Bokeh_Selected">
+                                                        <DockPanel>
+                                                            <Image Source="images/cards/bokeh/back.jpg" Height="70"/>
+                                                            <TextBlock Text="Bokeh Cards" VerticalAlignment="Center" Margin="5 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="60"/>
+                                                        </DockPanel>
+                                                    </ComboBoxItem>
 
-                                                <ComboBoxItem x:Name="Default" Selected="Default_Selected">
-                                                    <DockPanel>
-                                                        <Image Source="images/cards/basic/back.jpg" Height="70"/>
-                                                            <TextBlock Text="Default Cards" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="65"/>
-                                                    </DockPanel>
-                                                </ComboBoxItem>
-                                                <ComboBoxItem x:Name="Dolphins" Selected="Dolphins_Selected">
-                                                    <DockPanel>
-                                                        <Image Source="images/cards/dolphin/back.jpg" Height="70"/>
-                                                            <TextBlock Text="Dolphin Cards" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="65"/>
-                                                    </DockPanel>
-                                                </ComboBoxItem>
-                                                <ComboBoxItem x:Name="Flowers" Selected="Flowers_Selected">
-                                                    <DockPanel>
-                                                        <Image Source="images/cards/flowers/back.jpg" Height="70"/>
-                                                            <TextBlock Text="Flower Cards" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="65"/>
-                                                    </DockPanel>
-                                                </ComboBoxItem>
-                                                <ComboBoxItem x:Name="Mushrooms" Selected="Mushrooms_Selected">
-                                                    <DockPanel>
-                                                        <Image Source="images/cards/mushrooms/back.jpg" Height="70"/>
-                                                            <TextBlock Text="Mushroom Cards" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="65"/>
-                                                    </DockPanel>
-                                                </ComboBoxItem>
-                                                <ComboBoxItem x:Name="Mushrooms2" Selected="Mushrooms2_Selected">
-                                                    <DockPanel>
-                                                        <Image Source="images/cards/mushrooms2/back.jpg" Height="70"/>
-                                                            <TextBlock Text="Mushroom Cards 2" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="65"/>
-                                                    </DockPanel>
-                                                </ComboBoxItem>
-                                                <ComboBoxItem x:Name="Mushrooms3" Selected="Mushrooms3_Selected">
-                                                    <DockPanel>
-                                                        <Image Source="images/cards/mushrooms3/back.jpg" Height="70"/>
-                                                            <TextBlock Text="Mushroom Cards 3" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="65" />
-                                                    </DockPanel>
-                                                </ComboBoxItem>
-                                                <ComboBoxItem x:Name="RockFormation" Selected="RockFormation_Selected">
-                                                    <DockPanel>
-                                                        <Image Source="images/cards/rockformation/back.jpg" Height="70"/>
-                                                            <TextBlock Text="Rock Formation Cards" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="65"/>
-                                                    </DockPanel>
-                                                </ComboBoxItem>
-                                                <ComboBoxItem x:Name="RockFormation2" Selected="RockFormation2_Selected">
-                                                    <DockPanel>
-                                                        <Image Source="images/cards/rockformation2/back.jpg" Height="70"/>
-                                                            <TextBlock Text="Rock Formation Cards 2" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="65"/>
-                                                    </DockPanel>
-                                                </ComboBoxItem>
-                                                <ComboBoxItem x:Name="Space" Selected="Space_Selected">
-                                                    <DockPanel>
-                                                        <Image Source="images/cards/space/back.jpg" Height="70"/>
-                                                            <TextBlock Text="Space Cards" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="65"/>
-                                                    </DockPanel>
-                                                </ComboBoxItem>
-                                                <ComboBoxItem x:Name="Space2" Selected="Space2_Selected">
-                                                    <DockPanel>
-                                                        <Image Source="images/cards/space2/back.jpg" Height="70"/>
-                                                            <TextBlock Text="Space Cards 2" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="65"/>
-                                                    </DockPanel>
-                                                </ComboBoxItem>
-                                                <ComboBoxItem x:Name="Sealife" Selected="Sealife_Selected">
-                                                    <DockPanel>
-                                                        <Image Source="images/cards/sealife/back.jpg" Height="70"/>
-                                                            <TextBlock Text="Sealife Cards" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="65"/>
-                                                    </DockPanel>
-                                                </ComboBoxItem>
-                                            </ComboBox>
+                                                    <ComboBoxItem x:Name="Default" Selected="Default_Selected">
+                                                        <DockPanel>
+                                                            <Image Source="images/cards/basic/back.jpg" Height="70"/>
+                                                            <TextBlock Text="Default Cards" VerticalAlignment="Center" Margin="5 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="60"/>
+                                                        </DockPanel>
+                                                    </ComboBoxItem>
+                                                    <ComboBoxItem x:Name="Dolphins" Selected="Dolphins_Selected">
+                                                        <DockPanel>
+                                                            <Image Source="images/cards/dolphin/back.jpg" Height="70"/>
+                                                            <TextBlock Text="Dolphin Cards" VerticalAlignment="Center" Margin="5 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="60"/>
+                                                        </DockPanel>
+                                                    </ComboBoxItem>
+                                                    <ComboBoxItem x:Name="Flowers" Selected="Flowers_Selected">
+                                                        <DockPanel>
+                                                            <Image Source="images/cards/flowers/back.jpg" Height="70"/>
+                                                            <TextBlock Text="Flower Cards" VerticalAlignment="Center" Margin="5 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="60"/>
+                                                        </DockPanel>
+                                                    </ComboBoxItem>
+                                                    <ComboBoxItem x:Name="IceCream" Selected="IceCream_Selected">
+                                                        <DockPanel>
+                                                            <Image Source="images/cards/icecream/back.jpg" Height="70"/>
+                                                            <TextBlock Text="Ice Cream Cards" VerticalAlignment="Center" Margin="5 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="60"/>
+                                                        </DockPanel>
+                                                    </ComboBoxItem>
+                                                    <ComboBoxItem x:Name="Minerals" Selected="Minerals_Selected">
+                                                        <DockPanel>
+                                                            <Image Source="images/cards/minerals/back.jpg" Height="70"/>
+                                                            <TextBlock Text="Mineral Cards" VerticalAlignment="Center" Margin="5 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="60"/>
+                                                        </DockPanel>
+                                                    </ComboBoxItem>
+                                                    <ComboBoxItem x:Name="Mushrooms" Selected="Mushrooms_Selected">
+                                                        <DockPanel>
+                                                            <Image Source="images/cards/mushrooms/back.jpg" Height="70"/>
+                                                            <TextBlock Text="Mushroom Cards" VerticalAlignment="Center" Margin="5 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="60"/>
+                                                        </DockPanel>
+                                                    </ComboBoxItem>
+                                                    <ComboBoxItem x:Name="Mushrooms2" Selected="Mushrooms2_Selected">
+                                                        <DockPanel>
+                                                            <Image Source="images/cards/mushrooms2/back.jpg" Height="70"/>
+                                                            <TextBlock Text="Mushroom Cards 2" VerticalAlignment="Center" Margin="5 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="60"/>
+                                                        </DockPanel>
+                                                    </ComboBoxItem>
+                                                    <ComboBoxItem x:Name="Mushrooms3" Selected="Mushrooms3_Selected">
+                                                        <DockPanel>
+                                                            <Image Source="images/cards/mushrooms3/back.jpg" Height="70"/>
+                                                            <TextBlock Text="Mushroom Cards 3" VerticalAlignment="Center" Margin="5 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="60" />
+                                                        </DockPanel>
+                                                    </ComboBoxItem>
+                                                    <ComboBoxItem x:Name="RockFormation" Selected="RockFormation_Selected">
+                                                        <DockPanel>
+                                                            <Image Source="images/cards/rockformation/back.jpg" Height="70"/>
+                                                            <TextBlock Text="Rock Formation Cards" VerticalAlignment="Center" Margin="5 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="60"/>
+                                                        </DockPanel>
+                                                    </ComboBoxItem>
+                                                    <ComboBoxItem x:Name="RockFormation2" Selected="RockFormation2_Selected">
+                                                        <DockPanel>
+                                                            <Image Source="images/cards/rockformation2/back.jpg" Height="70"/>
+                                                            <TextBlock Text="Rock Formation Cards 2" VerticalAlignment="Center" Margin="5 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="60"/>
+                                                        </DockPanel>
+                                                    </ComboBoxItem>
+                                                    <ComboBoxItem x:Name="Space" Selected="Space_Selected">
+                                                        <DockPanel>
+                                                            <Image Source="images/cards/space/back.jpg" Height="70"/>
+                                                            <TextBlock Text="Space Cards" VerticalAlignment="Center" Margin="5 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="60"/>
+                                                        </DockPanel>
+                                                    </ComboBoxItem>
+                                                    <ComboBoxItem x:Name="Space2" Selected="Space2_Selected">
+                                                        <DockPanel>
+                                                            <Image Source="images/cards/space2/back.jpg" Height="70"/>
+                                                            <TextBlock Text="Space Cards 2" VerticalAlignment="Center" Margin="5 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="60"/>
+                                                        </DockPanel>
+                                                    </ComboBoxItem>
+                                                    <ComboBoxItem x:Name="Sealife" Selected="Sealife_Selected">
+                                                        <DockPanel>
+                                                            <Image Source="images/cards/sealife/back.jpg" Height="70"/>
+                                                            <TextBlock Text="Sealife Cards" VerticalAlignment="Center" Margin="5 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="60"/>
+                                                        </DockPanel>
+                                                    </ComboBoxItem>
+                                                    <ComboBoxItem x:Name="Sweets" Selected="Sweets_Selected">
+                                                        <DockPanel>
+                                                            <Image Source="images/cards/sweets/back.jpg" Height="70"/>
+                                                            <TextBlock Text="Sweets Cards" VerticalAlignment="Center" Margin="5 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="60"/>
+                                                        </DockPanel>
+                                                    </ComboBoxItem>
+                                                    <ComboBoxItem x:Name="Sweets2" Selected="Sweets2_Selected">
+                                                        <DockPanel>
+                                                            <Image Source="images/cards/sweets2/back.jpg" Height="70"/>
+                                                            <TextBlock Text="Sweets Cards 2" VerticalAlignment="Center" Margin="5 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="60"/>
+                                                        </DockPanel>
+                                                    </ComboBoxItem>
+                                                    <ComboBoxItem x:Name="Sweets3" Selected="Sweets3_Selected">
+                                                        <DockPanel>
+                                                            <Image Source="images/cards/sweets3/back.jpg" Height="70"/>
+                                                            <TextBlock Text="Sweets Cards 3" VerticalAlignment="Center" Margin="5 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="60"/>
+                                                        </DockPanel>
+                                                    </ComboBoxItem>
+                                                    <ComboBoxItem x:Name="Water" Selected="Water_Selected">
+                                                        <DockPanel>
+                                                            <Image Source="images/cards/water/back.jpg" Height="70"/>
+                                                            <TextBlock Text="Water Cards" VerticalAlignment="Center" Margin="5 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="60"/>
+                                                        </DockPanel>
+                                                    </ComboBoxItem>
+                                                    <ComboBoxItem x:Name="Water2" Selected="Water2_Selected">
+                                                        <DockPanel>
+                                                            <Image Source="images/cards/water2/back.jpg" Height="70"/>
+                                                            <TextBlock Text="Water Cards 2" VerticalAlignment="Center" Margin="5 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="60"/>
+                                                        </DockPanel>
+                                                    </ComboBoxItem>
+                                                    <ComboBoxItem x:Name="Water3" Selected="Water3_Selected">
+                                                        <DockPanel>
+                                                            <Image Source="images/cards/water3/back.jpg" Height="70"/>
+                                                            <TextBlock Text="Water Cards 3" VerticalAlignment="Center" Margin="5 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="60"/>
+                                                        </DockPanel>
+                                                    </ComboBoxItem>
+                                                </ComboBox>
+
+                                                <StackPanel>
+                                                    <TextBlock Text="or" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                                    <Button x:Name="RandomTheme" Click="RandomTheme_Click" Width="80" Height="40" 
+                                                            VerticalAlignment="Center" HorizontalAlignment="Right">
+                                                        <TextBlock Text="Random Theme" TextWrapping="Wrap" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                    </Button>
+                                                </StackPanel>
                                             </DockPanel>
 
                                             <Label Content="Clear High Scores" FontWeight="DemiBold"/>
-                                            <TextBlock Margin="5 0 5 0" Text="Click to reset high score." TextWrapping="Wrap" FontWeight="Thin" Width="200"/>
-                                            <Button Name="ClearHighScores" Content="Clear High Score" Click="ClearHighScores_Click" Width="220" Height="30" HorizontalAlignment="Center" Margin="5"/>
-                                            
+                                            <TextBlock Margin="5 0 5 0" Text="Click to reset high scores." TextWrapping="Wrap" FontWeight="Thin" Width="200"/>
+                                            <Button Name="ClearHighScores" Content="Clear High Scores" Click="ClearHighScores_Click" Width="220" Height="30" HorizontalAlignment="Center" Margin="5"/>
+                                            <TextBlock x:Name="HighScoreClearConfirmation" Margin="5 0 5 0" Text="High scores cleared." Visibility="Collapsed" TextWrapping="Wrap" FontWeight="Thin" Width="200"/>
                                             <Label Content="Wait Time" HorizontalAlignment="Center" FontWeight="DemiBold"/>
                                             <TextBlock Margin="5 0 5 0" Text="Here you can change the time that the cards are shown before being turned back over." TextWrapping="Wrap" FontWeight="Thin" Width="200"/>
                                             <ComboBox Name="SetWaitTime" Width="220" HorizontalAlignment="Center" VerticalContentAlignment="Center" Margin="3 3 3 15">
@@ -1266,7 +1740,7 @@
                                         </StackPanel>
                                     </Border>
                                 </Border>
-                                
+
                                 <!--Debug-->
 
                                 <Border Background="#7F008B8B" CornerRadius="20" Margin="5" Width="260" x:Name="Debug" Visibility="Collapsed" Grid.Row="2" VerticalAlignment="Top">
@@ -1313,7 +1787,7 @@
                                 </Border>
 
                                 <!--Rules-->
-                                
+
                                 <Border Background="#7F008B8B" CornerRadius="20" Margin="5" Width="260" x:Name="Rules" Visibility="Collapsed" Grid.Row="2" VerticalAlignment="Top">
                                     <Border Background="#FF1A2C2C" Margin="2" CornerRadius="20">
                                         <StackPanel>
@@ -1322,9 +1796,9 @@
                                         </StackPanel>
                                     </Border>
                                 </Border>
-                                
+
                                 <!--About-->
-                                
+
                                 <Border Background="#7F008B8B" CornerRadius="20" Margin="5" Width="260" x:Name="About" Visibility="Collapsed" Grid.Row="2" VerticalAlignment="Top">
                                     <Border Background="#FF1A2C2C" Margin="2" CornerRadius="20">
                                         <StackPanel>
@@ -1333,7 +1807,7 @@
                     Concentration was made by Colin Dick. <LineBreak/><LineBreak/>All of the photos are labelled as CC0 and therefore free to use. If this is not the case, the photos are yours and you would like them removed from the game please contact me at <Hyperlink NavigateUri="colindaviddick@gmail.com">colindaviddick@gmail.com</Hyperlink>
                     <LineBreak/>
                     <LineBreak/>
-                    <Button x:Name="ActivateDebugMode" Content="Debug Mode" HorizontalAlignment="Center" Click="ActivateDebugMode_Click"/>
+                    <!--<Button x:Name="ActivateDebugMode" Content="Debug Mode" HorizontalAlignment="Center" Click="ActivateDebugMode_Click"/>-->
                                             </TextBlock>
                                         </StackPanel>
                                     </Border>

@@ -94,5 +94,53 @@ namespace Concentration.Properties {
                 this["Score3"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Anonymous")]
+        public string Name4 {
+            get {
+                return ((string)(this["Name4"]));
+            }
+            set {
+                this["Name4"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Anonymous")]
+        public string Name5 {
+            get {
+                return ((string)(this["Name5"]));
+            }
+            set {
+                this["Name5"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public int Score4 {
+            get {
+                return ((int)(this["Score4"]));
+            }
+            set {
+                this["Score4"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public int Score5 {
+            get {
+                return ((int)(this["Score5"]));
+            }
+            set {
+                this["Score5"] = value;
+            }
+        }
     }
 }
