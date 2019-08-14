@@ -351,20 +351,20 @@
 
         <!--Big Cats 1 Skin-->
 
-        <ImageBrush x:Key="BigCats1.Button.Static.Background" ImageSource="images/cards/bigcats/back.jpg"/>
-        <SolidColorBrush x:Key="BigCats1.Button.Static.Border" Color="#00000000"/>
-        <ImageBrush x:Key="BigCats1.Button.Pressed.Background" ImageSource="images/cards/bigcats/backsel.jpg"/>
-        <ImageBrush x:Key="BigCats1.Button.MouseOver.Background" ImageSource="images/cards/bigcats/backov.jpg"/>
-        <SolidColorBrush x:Key="BigCats1.Button.MouseOver.Border" Color="#00000000"/>
-        <SolidColorBrush x:Key="BigCats1.Button.Pressed.Border" Color="#FF2C628B"/>
-        <SolidColorBrush x:Key="BigCats1.Button.Disabled.Background" Color="#00000000"/>
-        <SolidColorBrush x:Key="BigCats1.Button.Disabled.Border" Color="#FFFF00FF"/>
-        <SolidColorBrush x:Key="BigCats1.Button.Disabled.Foreground" Color="#FF838383"/>
+        <ImageBrush x:Key="BigCats.Button.Static.Background" ImageSource="images/cards/bigcats/back.jpg"/>
+        <SolidColorBrush x:Key="BigCats.Button.Static.Border" Color="#00000000"/>
+        <ImageBrush x:Key="BigCats.Button.Pressed.Background" ImageSource="images/cards/bigcats/backsel.jpg"/>
+        <ImageBrush x:Key="BigCats.Button.MouseOver.Background" ImageSource="images/cards/bigcats/backov.jpg"/>
+        <SolidColorBrush x:Key="BigCats.Button.MouseOver.Border" Color="#00000000"/>
+        <SolidColorBrush x:Key="BigCats.Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="BigCats.Button.Disabled.Background" Color="#00000000"/>
+        <SolidColorBrush x:Key="BigCats.Button.Disabled.Border" Color="#FFFF00FF"/>
+        <SolidColorBrush x:Key="BigCats.Button.Disabled.Foreground" Color="#FF838383"/>
 
-        <Style x:Key="BigCats1CardBackMouseover" TargetType="{x:Type Button}">
+        <Style x:Key="BigCatsCardBackMouseover" TargetType="{x:Type Button}">
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
-            <Setter Property="Background" Value="{StaticResource BigCats1.Button.Static.Background}"/>
-            <Setter Property="BorderBrush" Value="{StaticResource BigCats1.Button.Static.Border}"/>
+            <Setter Property="Background" Value="{StaticResource BigCats.Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource BigCats.Button.Static.Border}"/>
             <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -381,16 +381,16 @@
                                 <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource BigCats1.Button.MouseOver.Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource BigCats1.Button.MouseOver.Border}"/>
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource BigCats.Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource BigCats.Button.MouseOver.Border}"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource BigCats1.Button.Pressed.Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource BigCats1.Button.Pressed.Border}"/>
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource BigCats.Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource BigCats.Button.Pressed.Border}"/>
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource BigCats1.Button.Disabled.Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource BigCats1.Button.Disabled.Border}"/>
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource BigCats.Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource BigCats.Button.Disabled.Border}"/>
                                 <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
@@ -1729,13 +1729,20 @@
                                             <TextBlock x:Name="HighScoreClearConfirmation" Margin="5 0 5 0" Text="High scores cleared." Visibility="Collapsed" TextWrapping="Wrap" FontWeight="Thin" Width="200"/>
                                             <Label Content="Wait Time" HorizontalAlignment="Center" FontWeight="DemiBold"/>
                                             <TextBlock Margin="5 0 5 0" Text="Here you can change the time that the cards are shown before being turned back over." TextWrapping="Wrap" FontWeight="Thin" Width="200"/>
-                                            <ComboBox Name="SetWaitTime" Width="220" HorizontalAlignment="Center" VerticalContentAlignment="Center" Margin="3 3 3 15">
-                                                <ComboBoxItem Content="Half a Second" x:Name="HalfSecond" Selected="HalfSecond_Selected"/>
+                                            <ComboBox Name="SetWaitTime" Width="220" HorizontalAlignment="Center" VerticalContentAlignment="Center" Margin="3 3 3 15" SelectionChanged="SetWaitTime_SelectionChanged">
+                                                <ComboBoxItem Content="Half a Second"/>
+                                                <ComboBoxItem Content="A Second"/>
+                                                <ComboBoxItem Content="One and a Half Seconds"/>
+                                                <ComboBoxItem Content="Two Seconds"/>
+                                                <ComboBoxItem Content="Two and a Half Seconds"/>
+                                                <ComboBoxItem Content="Three Seconds"/>
+
+                                                <!--<ComboBoxItem Content="Half a Second" x:Name="HalfSecond" Selected="HalfSecond_Selected"/>
                                                 <ComboBoxItem Content="A Second" x:Name="OneSecond" Selected="OneSecond_Selected"/>
                                                 <ComboBoxItem Content="One and a Half Seconds" x:Name="OneHalfSecond" Selected="OneHalfSecond_Selected"/>
                                                 <ComboBoxItem Content="Two Seconds" x:Name="TwoSecond" Selected="TwoSecond_Selected"/>
                                                 <ComboBoxItem Content="Two and a Half Seconds" x:Name="TwoHalfSecond" Selected="TwoHalfSecond_Selected"/>
-                                                <ComboBoxItem Content="Three Seconds" x:Name="ThreeSecond" Selected="ThreeSecond_Selected"/>
+                                                <ComboBoxItem Content="Three Seconds" x:Name="ThreeSecond" Selected="ThreeSecond_Selected"/>-->
                                             </ComboBox>
                                         </StackPanel>
                                     </Border>
