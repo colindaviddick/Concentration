@@ -993,11 +993,7 @@ namespace Concentration
                 Properties.Settings.Default.Name5 = "Anonymous";
                 Properties.Settings.Default.Save();
                 AnonymizeNames();
-                HighScore1.Text = (Properties.Settings.Default.Name1 + " - " + Properties.Settings.Default.Score1);
-                HighScore2.Text = (Properties.Settings.Default.Name2 + " - " + Properties.Settings.Default.Score2);
-                HighScore3.Text = (Properties.Settings.Default.Name3 + " - " + Properties.Settings.Default.Score3);
-                HighScore4.Text = (Properties.Settings.Default.Name4 + " - " + Properties.Settings.Default.Score4);
-                HighScore5.Text = (Properties.Settings.Default.Name5 + " - " + Properties.Settings.Default.Score5);
+                UpdateClicks();
                 HighScoreClearConfirmation.Visibility = Visibility.Visible;
             }
             else if (result == "No")

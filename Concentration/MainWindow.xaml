@@ -1368,8 +1368,8 @@
                 </Border.Effect>
                 <Grid Height="700">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="600*" MinWidth="464"/>
-                        <ColumnDefinition Width="390*" />
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="3*"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" MinHeight="685"/>
@@ -1377,7 +1377,7 @@
 
                     <!--Game Grid-->
 
-                    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10">
+                    <Grid x:Name="CardTable" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10" Grid.Column="0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="140*" MaxWidth="170" MinWidth="116"/>
                             <ColumnDefinition Width="140*" MaxWidth="170" MinWidth="116"/>
@@ -1458,8 +1458,8 @@
                         <Image Name="image16" Grid.Row="3" Grid.Column="3" Source="images\cards\basic\back.jpg" Height="165" Width="114" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
 
-                    <Border Grid.Column="1" HorizontalAlignment="Center" Background="#FF4B8B8B" CornerRadius="20" Margin="20" Width="320" Height="650" VerticalAlignment="Center">
-                        <Border Grid.Column="1" HorizontalAlignment="Stretch" Background="#FF141436" Margin="5" CornerRadius="20">
+                    <Border x:Name="OptionsPanel" Grid.Column="1" Background="#FF4B8B8B" CornerRadius="20" Margin="35,25,36,25" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                        <Border HorizontalAlignment="Stretch" Background="#FF141436" Margin="5" CornerRadius="20">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="60"/>
@@ -1467,8 +1467,8 @@
                                     <RowDefinition Height="1*"/>
                                     <RowDefinition Height="115"/>
                                 </Grid.RowDefinitions>
-                                <!--Title-->
 
+                                <!--Title-->
                                 <Border x:Name="Title" Grid.Row="0" Background="#7F008B8B" CornerRadius="20" Margin="3" HorizontalAlignment="Stretch">
                                     <Border Background="#FF1A2C2C" Margin="2" CornerRadius="20">
                                         <TextBlock Text="Concentration" FontWeight="Bold" FontSize="45" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -1814,7 +1814,7 @@
                     Concentration was made by Colin Dick. <LineBreak/><LineBreak/>All of the photos are labelled as CC0 and therefore free to use. If this is not the case, the photos are yours and you would like them removed from the game please contact me at <Hyperlink NavigateUri="colindaviddick@gmail.com">colindaviddick@gmail.com</Hyperlink>
                     <LineBreak/>
                     <LineBreak/>
-                    <!--<Button x:Name="ActivateDebugMode" Content="Debug Mode" HorizontalAlignment="Center" Click="ActivateDebugMode_Click"/>-->
+                    <Button x:Name="ActivateDebugMode" Content="Debug Mode" HorizontalAlignment="Center" Click="ActivateDebugMode_Click"/>
                                             </TextBlock>
                                         </StackPanel>
                                     </Border>
@@ -1822,40 +1822,9 @@
                             </Grid>
                         </Border>
                     </Border>
-                    <Rectangle x:Name="Shield" Margin="-585,-358,-605,-370" Grid.ColumnSpan="2" Fill="Black" Opacity="0.1" Visibility="Hidden"/>
+                    <Rectangle x:Name="Shield" Margin="-585,-358,-605,-370" Grid.ColumnSpan="2" Fill="Black" Opacity="0.1" Visibility="Hidden" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
                 </Grid>
             </Border>
         </Border>
     </Border>
 </Window>
-
-
-
-<!--<Rectangle x:Name="Shield" Margin="0,0,0,0" Opacity="0.6" Visibility="Hidden" Panel.Z="5">
-    <Rectangle.Fill>
-        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-            <LinearGradientBrush.RelativeTransform>
-                <TransformGroup>
-                    <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleY="1.5"/>
-                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                    <RotateTransform x:Name="ShieldTurn" Angle="-47.291" CenterY="0.5" CenterX="0.5"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </LinearGradientBrush.RelativeTransform>
-            <GradientStop Color="#FF1A2C2C" Offset="0"/>
-            <GradientStop Color="#001A2C2C" Offset="0.05"/>
-            <GradientStop Color="#FF1A2C2C" Offset="0.1"/>
-            <GradientStop Color="#001A2C2C" Offset="0.2"/>
-            <GradientStop Color="#FF1A2C2C" Offset="0.3"/>
-            <GradientStop Color="#001A2C2C" Offset="0.4"/>
-            <GradientStop Color="#FF1A2C2C" Offset="0.5"/>
-            <GradientStop Color="#001A2C2C" Offset="0.6"/>
-            <GradientStop Color="#FF1A2C2C" Offset="0.7"/>
-            <GradientStop Color="#001A2C2C" Offset="0.8"/>
-            <GradientStop Color="#FF1A2C2C" Offset="0.9"/>
-            <GradientStop Color="#001A2C2C" Offset="0.95"/>
-            <GradientStop Color="#FF1A2C2C" Offset="1"/>
-
-        </LinearGradientBrush>
-    </Rectangle.Fill>
-</Rectangle>-->
