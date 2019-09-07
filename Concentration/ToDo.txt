@@ -80,3 +80,34 @@ Suggested Classes:
 	Source Files
 	Runtime Impletmentation
 	Concentration Ico.
+
+
+
+    <ComboBox x:Name="ThemeSelector" HorizontalContentAlignment="Center" Focusable="False" IsReadOnly="True">
+		<StackPanel Orientation="Horizontal">
+			<ComboBoxItem x:Name="Animals" Selected="Animals_Selected">
+			    <DockPanel>
+			        <Image Source="images/cards/animal/back.jpg" Height="70"/>
+			        <TextBlock Text="Animal Cards" VerticalAlignment="Center" Margin="5 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="60"/>
+			    </DockPanel>
+			</ComboBoxItem>
+			<ComboBoxItem x:Name="Animals2" Selected="Animals2_Selected">
+			    <DockPanel>
+			        <Image Source="images/cards/animal2/back.jpg" Height="70"/>
+			        <TextBlock Text="Animal Cards 2" VerticalAlignment="Center" Margin="5 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="60"/>
+			    </DockPanel>
+			</ComboBoxItem>
+			<ComboBoxItem x:Name="BigCats" Selected="BigCats_Selected">
+			    <DockPanel>
+			        <Image Source="images/cards/bigcats/back.jpg" Height="70"/>
+			        <TextBlock Text="Big Cats Cards" VerticalAlignment="Center" Margin="5 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="60"/>
+			    </DockPanel>
+			</ComboBoxItem>
+			<ComboBoxItem x:Name="BigCats2" Selected="BigCats2_Selected">
+			    <DockPanel>
+			        <Image Source="images/cards/bigcats2/back.jpg" Height="70"/>
+			        <TextBlock Text="Big Cats Cards 2" VerticalAlignment="Center" Margin="5 0 0 0" Foreground="Black" TextWrapping="Wrap" Width="60"/>
+			    </DockPanel>
+			</ComboBoxItem>
+		</StackPanel>
+	</ComboBox>
